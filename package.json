@@ -12,7 +12,7 @@
   "scripts": {
     "start": "node red.js",
     "test": "grunt",
-    "postbuild": "grunt build"
+    "postinstall": "echo postinstall time; ./node_modules/grunt-cli/bin/grunt build"
   },
   "bin": {
     "node-red": "./red.js",
