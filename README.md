@@ -23,11 +23,7 @@ Các bước cài đặt
 
         npm install
 
-3. Build chương trình.
-
-        npm run build
-
-4. Chạy chương trình
+3. Chạy chương trình
 
         npm start
    hoặc
