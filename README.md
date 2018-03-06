@@ -1,51 +1,36 @@
-# Node-RED
+# iNut-Node-RED-Kickstarter
 
-http://nodered.org
+https://calm-everglades-95486.herokuapp.com/
 
 [![Build Status](https://travis-ci.org/node-red/node-red.svg)](https://travis-ci.org/node-red/node-red)
 [![Coverage Status](https://coveralls.io/repos/node-red/node-red/badge.svg?branch=master)](https://coveralls.io/r/node-red/node-red?branch=master)
 
-A visual tool for wiring the Internet of Things.
+Một chương trình miễn phí giúp bạn lập trình iNut bằng cách kéo thả cực kỳ đơn giản!
 
-![Node-RED: A visual tool for wiring the Internet of Things](http://nodered.org/images/node-red-screenshot.png)
+![Một chương trình miễn phí giúp bạn lập trình iNut bằng cách kéo thả cực kỳ đơn giản](https://platform.mysmarthome.vn/sites/default/files/node-red_calm-everglades-95486.herokuapp.com_-_google_chrome.jpg)
 
-## Quick Start
-
-Check out http://nodered.org/docs/getting-started/ for full instructions on getting
-started.
-
-1. `sudo npm install -g --unsafe-perm node-red`
-2. `node-red`
-3. Open <http://localhost:1880>
-
-## Getting Help
-
-More documentation can be found [here](http://nodered.org/docs).
-
-For further help, or general discussion, please use the
-[mailing list](https://groups.google.com/forum/#!forum/node-red).
 
 ## Developers
 
-If you want to run the latest code from git, here's how to get started:
+Các bước cài đặt
 
-1. Clone the code:
+1. Clone code về:
 
-        git clone https://github.com/node-red/node-red.git
-        cd node-red
+        git clone https://github.com/ngohuynhngockhanh/iNut-Node-RED-Kickstarter
+        cd iNut-Node-RED-Kickstarter
 
-2. Install the node-red dependencies
+2. Cài đặt
 
         npm install
 
-3. Build the code
+3. Build chương trình.
 
         npm run build
 
-4. Run
+4. Chạy chương trình
 
         npm start
-   or
+   hoặc
 
         node red.js
 
