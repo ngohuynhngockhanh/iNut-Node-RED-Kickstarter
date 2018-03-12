@@ -51,7 +51,7 @@
             "name": "theme-dark",
             "lightTheme": {
                 "default": "#0094CE",
-                "baseColor": "#0094CE",
+                "baseColor": "#c50a63",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
                 "edited": true,
                 "reset": false
@@ -67,13 +67,14 @@
                 "name": "Untitled Theme 1",
                 "default": "#4B7930",
                 "baseColor": "#4B7930",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
             },
             "themeState": {
                 "base-color": {
                     "default": "#097479",
                     "value": "#097479",
-                    "edited": false
+                    "edited": true
                 },
                 "page-titlebar-backgroundColor": {
                     "value": "#097479",
@@ -269,8 +270,8 @@
         "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/rkHk5Cp2W/5b6a7ac052ffa5467e9fc14a1c9707e5719939619403",
         "qos": "2",
         "broker": "e3ed5d37.01305",
-        "x": 85,
-        "y": 449.66666412353516,
+        "x": 95.99999618530273,
+        "y": 449.6666965484619,
         "wires": [
             [
                 "87d34c53.add26"
@@ -503,7 +504,7 @@
         "order": 0,
         "width": "6",
         "height": "3",
-        "gtype": "gage",
+        "gtype": "wave",
         "title": "Cảm biến mưa analog",
         "label": "",
         "format": "{{value}}",
@@ -528,11 +529,11 @@
         "order": 0,
         "width": 0,
         "height": 0,
-        "name": "",
-        "label": "Sản xuất tại công ty TNHH ABC XYZ - Tên công ty của bạn",
+        "name": "Tên công ty",
+        "label": "Cộng đồng Arduino Việt Nam - MySmarthome.com.vn và Arduino.vn",
         "format": "{{msg.payload}}",
         "layout": "row-left",
-        "x": 588.0963439941406,
+        "x": 438.0963439941406,
         "y": 825.4921417236328,
         "wires": []
     },
@@ -549,8 +550,8 @@
         "storeOutMessages": false,
         "fwdInMessages": false,
         "templateScope": "local",
-        "x": 425.10420989990234,
-        "y": 873.3358840942383,
+        "x": 436.104248046875,
+        "y": 873.335841178894,
         "wires": [
             []
         ]
