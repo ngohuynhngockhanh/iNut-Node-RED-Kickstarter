@@ -3,6 +3,7 @@
   "description": "A Node-RED Project",
   "version": "0.0.1",
   "dependencies": {
-    "node-red-contrib-mqtt-broker": "~0.2.2"
+    "node-red-contrib-mqtt-broker": "~0.2.2",
+    "node-red-dashboard": "~2.8.2"
   }
 }
