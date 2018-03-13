@@ -123,8 +123,8 @@
             "allowSwipe": "true",
             "dateFormat": "DD/MM/YYYY",
             "sizes": {
-                "sx": 48,
-                "sy": 48,
+                "sx": 64,
+                "sy": 64,
                 "gx": 6,
                 "gy": 6,
                 "cx": 6,
@@ -138,7 +138,7 @@
         "id": "294eb87b.b71b48",
         "type": "ui_tab",
         "z": "",
-        "name": "Bảng điều khiển",
+        "name": "Kiểm thử iNut cảm biến",
         "icon": "dashboard",
         "order": 1
     },
@@ -146,8 +146,9 @@
         "id": "62cc449d.959c9c",
         "type": "ui_group",
         "z": "",
-        "name": "Phòng khách",
+        "name": "Thứ 2",
         "tab": "294eb87b.b71b48",
+        "order": 2,
         "disp": true,
         "width": "6",
         "collapse": true
@@ -175,125 +176,12 @@
         "id": "52cad39c.c8472c",
         "type": "ui_group",
         "z": "",
-        "name": "Cảm biến mưa",
+        "name": "Thứ nhất",
         "tab": "294eb87b.b71b48",
-        "order": 2,
+        "order": 1,
         "disp": true,
-        "width": "12",
-        "collapse": true
-    },
-    {
-        "id": "94adc6e7.088808",
-        "type": "ui_button",
-        "z": "6c281c8f.cbebc4",
-        "name": "Nút bật đèn",
-        "group": "62cc449d.959c9c",
-        "order": 0,
-        "width": "3",
-        "height": "2",
-        "passthru": false,
-        "label": "Bật đèn",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "ON",
-        "payloadType": "str",
-        "topic": "",
-        "x": 335.3888854980469,
-        "y": 584.1110992431641,
-        "wires": [
-            [
-                "6f5472d2.5923cc"
-            ]
-        ]
-    },
-    {
-        "id": "cdc8e407.4cb4a8",
-        "type": "ui_button",
-        "z": "6c281c8f.cbebc4",
-        "name": "Nút tắt đèn",
-        "group": "62cc449d.959c9c",
-        "order": 0,
-        "width": "3",
-        "height": "2",
-        "passthru": false,
-        "label": "Tắt đèn",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "OFF",
-        "payloadType": "str",
-        "topic": "",
-        "x": 335.00000381469727,
-        "y": 639.6666965484619,
-        "wires": [
-            [
-                "6f5472d2.5923cc"
-            ]
-        ]
-    },
-    {
-        "id": "6f5472d2.5923cc",
-        "type": "ui_switch",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "label": "Đèn phòng khách",
-        "group": "62cc449d.959c9c",
-        "order": 0,
         "width": "6",
-        "height": "3",
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "ON",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "OFF",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "x": 580.3888702392578,
-        "y": 592.4444751739502,
-        "wires": [
-            [
-                "b75a1f12.b6263"
-            ]
-        ]
-    },
-    {
-        "id": "3de4e235.e491de",
-        "type": "mqtt in",
-        "z": "6c281c8f.cbebc4",
-        "name": "Đèn phòng khách",
-        "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/rkHk5Cp2W/5b6a7ac052ffa5467e9fc14a1c9707e5719939619403",
-        "qos": "2",
-        "broker": "e3ed5d37.01305",
-        "x": 95.99999618530273,
-        "y": 449.6666965484619,
-        "wires": [
-            [
-                "87d34c53.add26"
-            ]
-        ]
-    },
-    {
-        "id": "87d34c53.add26",
-        "type": "json",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 249.00000381469727,
-        "y": 449.99999809265137,
-        "wires": [
-            [
-                "c79cc894.0275f8",
-                "fa0558e0.3af648"
-            ]
-        ]
+        "collapse": true
     },
     {
         "id": "288ffa01.3284b6",
@@ -305,20 +193,20 @@
         "console": false,
         "tostatus": false,
         "complete": "payload",
-        "x": 1331.111083984375,
-        "y": 585.6667499542236,
+        "x": 942.7475509643555,
+        "y": 584.5758943557739,
         "wires": []
     },
     {
         "id": "b75a1f12.b6263",
         "type": "function",
         "z": "6c281c8f.cbebc4",
-        "name": "[JSON][Device số 0]Thiết đặt giá trị iNut Nút Nhấn từ device số 0",
+        "name": "Chuẩn bị lệnh trước khi gửi đến iNut cảm biến",
         "func": "var json = {\"id\": 0, \"command\": msg.payload};\nmsg.payload = json;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 924.5000228881836,
-        "y": 592.3335247039795,
+        "x": 504.50006103515625,
+        "y": 583.3334693908691,
         "wires": [
             [
                 "288ffa01.3284b6",
@@ -330,94 +218,27 @@
         "id": "d405a5f6.ff2958",
         "type": "http request",
         "z": "6c281c8f.cbebc4",
-        "name": "[REST][POST]Phòng khách",
+        "name": "[REST][POST]iNut Cảm biến",
         "method": "POST",
         "ret": "txt",
-        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/rkHk5Cp2W/5b6a7ac052ffa5467e9fc14a1c9707e5719939619403/req_device_toggle",
+        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/SyXi9Yj_G/9643319e60a2c0d477a50a40b2b23df3603935314965/req_device_toggle",
         "tls": "",
-        "x": 1311.2221908569336,
-        "y": 629.6667499542236,
+        "x": 925.8586349487305,
+        "y": 632.5758829116821,
         "wires": [
             []
         ]
     },
     {
-        "id": "fa0558e0.3af648",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "Trạng thái thiết bị số 0",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload[0].state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 432.2778091430664,
-        "y": 460.99999618530273,
-        "wires": [
-            [
-                "6f5472d2.5923cc"
-            ]
-        ]
-    },
-    {
-        "id": "c79cc894.0275f8",
-        "type": "debug",
-        "z": "6c281c8f.cbebc4",
-        "name": "in ra màn hình để debug thông tin",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 468.9999771118164,
-        "y": 421.99999618530273,
-        "wires": []
-    },
-    {
-        "id": "f1cf4bb3.dd8498",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "52cad39c.c8472c",
-        "order": 0,
-        "width": "6",
-        "height": "3",
-        "gtype": "gage",
-        "title": "Cảm biến mưa digital",
-        "label": "mưa",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "1",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 676.1042175292969,
-        "y": 706.4687690734863,
-        "wires": []
-    },
-    {
         "id": "dc9dcf6e.82e8d",
         "type": "mqtt in",
         "z": "6c281c8f.cbebc4",
-        "name": "Cảm biến mưa",
-        "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/SyXi9Yj_G/59c88d335688b7a32328f882672370ff732991301463",
+        "name": "iNut Cảm biến",
+        "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/SyXi9Yj_G/9643319e60a2c0d477a50a40b2b23df3603935314965",
         "qos": "2",
         "broker": "e3ed5d37.01305",
-        "x": 95.01302337646484,
-        "y": 706.1770629882812,
+        "x": 83.01302337646484,
+        "y": 703.1770858764648,
         "wires": [
             [
                 "bb347159.0a591"
@@ -437,7 +258,13 @@
         "wires": [
             [
                 "525d0fd3.73b93",
-                "db8039c1.5197b8"
+                "db8039c1.5197b8",
+                "206bcfd9.9e552",
+                "4a158625.fd60c8",
+                "f4fdb86f.b8bfb8",
+                "c71896ff.207c68",
+                "6fbbd04e.2b2c5",
+                "d02663b5.b55c3"
             ]
         ]
     },
@@ -501,59 +328,462 @@
         "z": "6c281c8f.cbebc4",
         "name": "",
         "group": "52cad39c.c8472c",
-        "order": 0,
-        "width": "6",
+        "order": 2,
+        "width": "3",
         "height": "3",
-        "gtype": "wave",
-        "title": "Cảm biến mưa analog",
+        "gtype": "gage",
+        "title": "Data 1",
         "label": "",
         "format": "{{value}}",
         "min": 0,
-        "max": "1024",
+        "max": "10000",
         "colors": [
             "#1f964f",
             "#e6e600",
             "#ca3838"
         ],
-        "seg1": "340",
-        "seg2": "750",
-        "x": 674.0130004882812,
-        "y": 751.1770629882812,
+        "seg1": "",
+        "seg2": "",
+        "x": 608.0129814147949,
+        "y": 745.1770792007446,
         "wires": []
     },
     {
-        "id": "2886e0ad.848d4",
+        "id": "f1cf4bb3.dd8498",
+        "type": "ui_gauge",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "52cad39c.c8472c",
+        "order": 1,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Data 0",
+        "label": "mưa",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000",
+        "colors": [
+            "#1f964f",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 607.104248046875,
+        "y": 704.4687271118164,
+        "wires": []
+    },
+    {
+        "id": "206bcfd9.9e552",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "Trạng thái thiết bị số 2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[2].state",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 433.0130310058594,
+        "y": 787.0103759765625,
+        "wires": [
+            [
+                "b3c5af9f.6a0ce"
+            ]
+        ]
+    },
+    {
+        "id": "4a158625.fd60c8",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "Trạng thái thiết bị số 3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[3].state",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 432.0130310058594,
+        "y": 828.0103759765625,
+        "wires": [
+            [
+                "ee56bf79.426e5"
+            ]
+        ]
+    },
+    {
+        "id": "ee56bf79.426e5",
+        "type": "ui_gauge",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "52cad39c.c8472c",
+        "order": 4,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Data 3",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000",
+        "colors": [
+            "#1f964f",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 607.0129814147949,
+        "y": 828.0103921890259,
+        "wires": []
+    },
+    {
+        "id": "b3c5af9f.6a0ce",
+        "type": "ui_gauge",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "52cad39c.c8472c",
+        "order": 3,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Data 2",
+        "label": "mưa",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000",
+        "colors": [
+            "#1f964f",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 606.104248046875,
+        "y": 787.3020401000977,
+        "wires": []
+    },
+    {
+        "id": "f4fdb86f.b8bfb8",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "Trạng thái thiết bị số 4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[4].state",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 431.0130310058594,
+        "y": 872.0103759765625,
+        "wires": [
+            [
+                "fffcfea8.d5045"
+            ]
+        ]
+    },
+    {
+        "id": "c71896ff.207c68",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "Trạng thái thiết bị số 5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[5].state",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430.0130310058594,
+        "y": 913.0103759765625,
+        "wires": [
+            [
+                "67c874c8.82d9bc"
+            ]
+        ]
+    },
+    {
+        "id": "67c874c8.82d9bc",
+        "type": "ui_gauge",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "62cc449d.959c9c",
+        "order": 2,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Data 5",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000",
+        "colors": [
+            "#1f964f",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 605.0129814147949,
+        "y": 913.0103921890259,
+        "wires": []
+    },
+    {
+        "id": "fffcfea8.d5045",
+        "type": "ui_gauge",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "62cc449d.959c9c",
+        "order": 1,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Data 4",
+        "label": "mưa",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000",
+        "colors": [
+            "#1f964f",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 604.104248046875,
+        "y": 872.3020401000977,
+        "wires": []
+    },
+    {
+        "id": "6fbbd04e.2b2c5",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "Trạng thái thiết bị số 6",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[6].state",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430.0130310058594,
+        "y": 954.8436889648438,
+        "wires": [
+            [
+                "73983b88.f4dad4"
+            ]
+        ]
+    },
+    {
+        "id": "d02663b5.b55c3",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "Trạng thái thiết bị số 7",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[7].state",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 429.0130310058594,
+        "y": 995.8436889648438,
+        "wires": [
+            [
+                "5ae9c1.85d5f64"
+            ]
+        ]
+    },
+    {
+        "id": "5ae9c1.85d5f64",
+        "type": "ui_gauge",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "62cc449d.959c9c",
+        "order": 4,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Data 7",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000",
+        "colors": [
+            "#1f964f",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 604.0129814147949,
+        "y": 995.8437051773071,
+        "wires": []
+    },
+    {
+        "id": "73983b88.f4dad4",
+        "type": "ui_gauge",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "62cc449d.959c9c",
+        "order": 3,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Data 6",
+        "label": "mưa",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000",
+        "colors": [
+            "#1f964f",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 603.104248046875,
+        "y": 955.1353530883789,
+        "wires": []
+    },
+    {
+        "id": "e09a7350.a2dd5",
+        "type": "ui_text_input",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "label": "Gửi lệnh xuống iNut cảm biến",
+        "group": "52cad39c.c8472c",
+        "order": 5,
+        "width": "4",
+        "height": "1",
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 164.00003051757812,
+        "y": 583.4348773956299,
+        "wires": [
+            [
+                "b75a1f12.b6263",
+                "69ed9ac5.de4844",
+                "590b8244.009d2c"
+            ]
+        ]
+    },
+    {
+        "id": "cc0ed351.1b9fd",
         "type": "ui_text",
         "z": "6c281c8f.cbebc4",
         "group": "62cc449d.959c9c",
-        "order": 0,
+        "order": 5,
         "width": 0,
         "height": 0,
-        "name": "Tên công ty",
-        "label": "Cộng đồng Arduino Việt Nam - MySmarthome.com.vn và Arduino.vn",
+        "name": "",
+        "label": "Đã gửi lệnh",
         "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "x": 438.0963439941406,
-        "y": 825.4921417236328,
+        "layout": "row-spread",
+        "x": 705.2860641479492,
+        "y": 623.5099353790283,
         "wires": []
     },
     {
-        "id": "2a5172f5.56287e",
-        "type": "ui_template",
+        "id": "69ed9ac5.de4844",
+        "type": "function",
         "z": "6c281c8f.cbebc4",
+        "name": "Lấy độ dài chuỗi",
+        "func": "\nmsg.payload =  msg.payload.length;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 404.0130310058594,
+        "y": 665.0103759765625,
+        "wires": [
+            [
+                "214412d6.6f4d3e"
+            ]
+        ]
+    },
+    {
+        "id": "214412d6.6f4d3e",
+        "type": "ui_numeric",
+        "z": "6c281c8f.cbebc4",
+        "name": "Độ dài chuỗi",
+        "label": "",
         "group": "52cad39c.c8472c",
-        "name": "Logo công ty",
-        "order": 0,
-        "width": "12",
-        "height": "3",
-        "format": "<div style=\"text-align:center;\">\n    <img style=\"width: 120px !important;\" src=\"http://sv1.upsieutoc.com/2018/03/12/trademark.png\" alt=\"trademark.png\" border=\"0\" />\n</div>",
-        "storeOutMessages": false,
-        "fwdInMessages": false,
-        "templateScope": "local",
-        "x": 436.104248046875,
-        "y": 873.335841178894,
+        "order": 6,
+        "width": "2",
+        "height": "1",
+        "passthru": true,
+        "topic": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "32",
+        "step": 1,
+        "x": 577.1067504882812,
+        "y": 662.4635229110718,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "590b8244.009d2c",
+        "type": "function",
+        "z": "6c281c8f.cbebc4",
+        "name": "Lấy đoạn chuỗi mà Arduino nhận được",
+        "func": "\nmsg.payload =  msg.payload.substr(0, 32);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 472.13307189941406,
+        "y": 623.6457557678223,
+        "wires": [
+            [
+                "cc0ed351.1b9fd"
+            ]
         ]
     }
 ]
