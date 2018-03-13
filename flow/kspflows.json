@@ -48,10 +48,10 @@
         "id": "f4134e17.6b60a",
         "type": "ui_base",
         "theme": {
-            "name": "theme-dark",
+            "name": "theme-custom",
             "lightTheme": {
                 "default": "#0094CE",
-                "baseColor": "#c50a63",
+                "baseColor": "#0c9ec2",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
                 "edited": true,
                 "reset": false
@@ -72,12 +72,12 @@
             },
             "themeState": {
                 "base-color": {
-                    "default": "#097479",
-                    "value": "#097479",
+                    "default": "#4B7930",
+                    "value": "#4B7930",
                     "edited": true
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#097479",
+                    "value": "#4B7930",
                     "edited": false
                 },
                 "page-backgroundColor": {
@@ -89,7 +89,7 @@
                     "edited": false
                 },
                 "group-textColor": {
-                    "value": "#0eb8c0",
+                    "value": "#6db046",
                     "edited": false
                 },
                 "group-borderColor": {
@@ -105,7 +105,7 @@
                     "edited": false
                 },
                 "widget-backgroundColor": {
-                    "value": "#097479",
+                    "value": "#4b7930",
                     "edited": false
                 },
                 "widget-borderColor": {
