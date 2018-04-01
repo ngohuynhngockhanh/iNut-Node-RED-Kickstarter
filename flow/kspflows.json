@@ -198,7 +198,7 @@
         "name": "[REST][POST]iNut Cảm biến",
         "method": "POST",
         "ret": "txt",
-        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/SyXi9Yj_G/9643319e60a2c0d477a50a40b2b23df3603935314965/req_device_toggle",
+        "url": "https://connect.mysmarthome.vn/api/1.0/request/PHVDK5sTs7Q4o1SlbJ88HVsECOJ3/SySkbe0qM/e99ed57543fe910554a0fc09f3b8cba2138993085103/req_device_toggle",
         "tls": "",
         "x": 1812.8586559295654,
         "y": 817.5760765075684,
@@ -534,7 +534,7 @@
         "type": "mqtt in",
         "z": "6c281c8f.cbebc4",
         "name": "iNut Cảm biến",
-        "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/SyXi9Yj_G/9643319e60a2c0d477a50a40b2b23df3603935314965",
+        "topic": "request/PHVDK5sTs7Q4o1SlbJ88HVsECOJ3/SySkbe0qM/e99ed57543fe910554a0fc09f3b8cba2138993085103",
         "qos": "2",
         "broker": "e3ed5d37.01305",
         "x": 83.01302337646484,
@@ -1047,6 +1047,43 @@
         "wires": [
             [
                 "2e0cb4aa.fc431c"
+            ]
+        ]
+    },
+    {
+        "id": "40879525.b6e87c",
+        "type": "inject",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 1523.9444580078125,
+        "y": 906.5555419921875,
+        "wires": [
+            [
+                "ac32f765.6b2ff8"
+            ]
+        ]
+    },
+    {
+        "id": "ac32f765.6b2ff8",
+        "type": "http request",
+        "z": "6c281c8f.cbebc4",
+        "name": "[REST][GET]iNut Cảm biến",
+        "method": "GET",
+        "ret": "txt",
+        "url": "https://connect.mysmarthome.vn/api/1.0/request/PHVDK5sTs7Q4o1SlbJ88HVsECOJ3/SySkbe0qM/e99ed57543fe910554a0fc09f3b8cba2138993085103/req_device",
+        "tls": "",
+        "x": 1747.5555419921875,
+        "y": 911.7777709960938,
+        "wires": [
+            [
+                "6f23aaa8.4f6ab4"
             ]
         ]
     }
