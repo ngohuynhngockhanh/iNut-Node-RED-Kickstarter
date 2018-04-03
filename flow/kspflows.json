@@ -221,10 +221,10 @@
         "name": "[REST][POST]iNut Cảm biến",
         "method": "POST",
         "ret": "txt",
-        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/SyXi9Yj_G/9643319e60a2c0d477a50a40b2b23df3603935314965/req_device_toggle",
+        "url": "https://connect.mysmarthome.vn/api/1.0/request/PHVDK5sTs7Q4o1SlbJ88HVsECOJ3/SJ9xflAcf/391bd992b8c7596e116d33db2ed1ae4b646730609150/req_device_toggle",
         "tls": "",
-        "x": 925.8586349487305,
-        "y": 632.5758829116821,
+        "x": 1082.858627319336,
+        "y": 669.5757818222046,
         "wires": [
             []
         ]
@@ -234,11 +234,11 @@
         "type": "mqtt in",
         "z": "6c281c8f.cbebc4",
         "name": "iNut Cảm biến",
-        "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/SyXi9Yj_G/9643319e60a2c0d477a50a40b2b23df3603935314965",
+        "topic": "request/PHVDK5sTs7Q4o1SlbJ88HVsECOJ3/SJ9xflAcf/391bd992b8c7596e116d33db2ed1ae4b646730609150",
         "qos": "2",
         "broker": "e3ed5d37.01305",
-        "x": 83.01302337646484,
-        "y": 703.1770858764648,
+        "x": 76.01305770874023,
+        "y": 861.1770992279053,
         "wires": [
             [
                 "bb347159.0a591"
@@ -253,18 +253,11 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 253.01303100585938,
-        "y": 703.1770629882812,
+        "x": 246.01306533813477,
+        "y": 861.1770763397217,
         "wires": [
             [
-                "525d0fd3.73b93",
-                "db8039c1.5197b8",
-                "206bcfd9.9e552",
-                "4a158625.fd60c8",
-                "f4fdb86f.b8bfb8",
-                "c71896ff.207c68",
-                "6fbbd04e.2b2c5",
-                "d02663b5.b55c3"
+                "525d0fd3.73b93"
             ]
         ]
     },
@@ -287,410 +280,14 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 434.0130310058594,
-        "y": 704.1770629882812,
+        "x": 427.01306533813477,
+        "y": 862.1770763397217,
         "wires": [
             [
-                "f1cf4bb3.dd8498"
+                "c4555b31.d6be18",
+                "60d77046.ed8e9"
             ]
         ]
-    },
-    {
-        "id": "db8039c1.5197b8",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "Trạng thái thiết bị số 1",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload[1].state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 433.0130310058594,
-        "y": 745.1770629882812,
-        "wires": [
-            [
-                "a4ab8ad8.4a9368"
-            ]
-        ]
-    },
-    {
-        "id": "a4ab8ad8.4a9368",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "52cad39c.c8472c",
-        "order": 2,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "Data 1",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "10000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 608.0129814147949,
-        "y": 745.1770792007446,
-        "wires": []
-    },
-    {
-        "id": "f1cf4bb3.dd8498",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "52cad39c.c8472c",
-        "order": 1,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "Data 0",
-        "label": "mưa",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "10000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 607.104248046875,
-        "y": 704.4687271118164,
-        "wires": []
-    },
-    {
-        "id": "206bcfd9.9e552",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "Trạng thái thiết bị số 2",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload[2].state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 433.0130310058594,
-        "y": 787.0103759765625,
-        "wires": [
-            [
-                "b3c5af9f.6a0ce"
-            ]
-        ]
-    },
-    {
-        "id": "4a158625.fd60c8",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "Trạng thái thiết bị số 3",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload[3].state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 432.0130310058594,
-        "y": 828.0103759765625,
-        "wires": [
-            [
-                "ee56bf79.426e5"
-            ]
-        ]
-    },
-    {
-        "id": "ee56bf79.426e5",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "52cad39c.c8472c",
-        "order": 4,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "Data 3",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "10000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 607.0129814147949,
-        "y": 828.0103921890259,
-        "wires": []
-    },
-    {
-        "id": "b3c5af9f.6a0ce",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "52cad39c.c8472c",
-        "order": 3,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "Data 2",
-        "label": "mưa",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "10000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 606.104248046875,
-        "y": 787.3020401000977,
-        "wires": []
-    },
-    {
-        "id": "f4fdb86f.b8bfb8",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "Trạng thái thiết bị số 4",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload[4].state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 431.0130310058594,
-        "y": 872.0103759765625,
-        "wires": [
-            [
-                "fffcfea8.d5045"
-            ]
-        ]
-    },
-    {
-        "id": "c71896ff.207c68",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "Trạng thái thiết bị số 5",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload[5].state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 430.0130310058594,
-        "y": 913.0103759765625,
-        "wires": [
-            [
-                "67c874c8.82d9bc"
-            ]
-        ]
-    },
-    {
-        "id": "67c874c8.82d9bc",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "62cc449d.959c9c",
-        "order": 2,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "Data 5",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "10000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 605.0129814147949,
-        "y": 913.0103921890259,
-        "wires": []
-    },
-    {
-        "id": "fffcfea8.d5045",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "62cc449d.959c9c",
-        "order": 1,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "Data 4",
-        "label": "mưa",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "10000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 604.104248046875,
-        "y": 872.3020401000977,
-        "wires": []
-    },
-    {
-        "id": "6fbbd04e.2b2c5",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "Trạng thái thiết bị số 6",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload[6].state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 430.0130310058594,
-        "y": 954.8436889648438,
-        "wires": [
-            [
-                "73983b88.f4dad4"
-            ]
-        ]
-    },
-    {
-        "id": "d02663b5.b55c3",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "Trạng thái thiết bị số 7",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload[7].state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 429.0130310058594,
-        "y": 995.8436889648438,
-        "wires": [
-            [
-                "5ae9c1.85d5f64"
-            ]
-        ]
-    },
-    {
-        "id": "5ae9c1.85d5f64",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "62cc449d.959c9c",
-        "order": 4,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "Data 7",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "10000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 604.0129814147949,
-        "y": 995.8437051773071,
-        "wires": []
-    },
-    {
-        "id": "73983b88.f4dad4",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "62cc449d.959c9c",
-        "order": 3,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "Data 6",
-        "label": "mưa",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "10000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 603.104248046875,
-        "y": 955.1353530883789,
-        "wires": []
     },
     {
         "id": "e09a7350.a2dd5",
@@ -783,6 +380,131 @@
         "wires": [
             [
                 "cc0ed351.1b9fd"
+            ]
+        ]
+    },
+    {
+        "id": "9c9e7f4d.b5479",
+        "type": "inject",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "topic": "6s ping",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "6",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 434.38893127441406,
+        "y": 765.5555467605591,
+        "wires": [
+            [
+                "23ae7506.f4f9ea"
+            ]
+        ]
+    },
+    {
+        "id": "23ae7506.f4f9ea",
+        "type": "function",
+        "z": "6c281c8f.cbebc4",
+        "name": "ONLINE ping",
+        "func": "var json = {\"id\": 0, \"command\": \"DO YOU ALIVE?\"};\nmsg.payload = json;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 664.3889007568359,
+        "y": 711.9999904632568,
+        "wires": [
+            [
+                "d405a5f6.ff2958"
+            ]
+        ]
+    },
+    {
+        "id": "c4555b31.d6be18",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "52cad39c.c8472c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Giá trị",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 650.3888969421387,
+        "y": 865.2221603393555,
+        "wires": []
+    },
+    {
+        "id": "ef3e8de1.d5f04",
+        "type": "function",
+        "z": "6c281c8f.cbebc4",
+        "name": "Gửi ok",
+        "func": "\nmsg.payload = {\"id\": 0, \"command\": \"OKAY\"};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 821.0000114440918,
+        "y": 833.3333263397217,
+        "wires": [
+            [
+                "ba6d974b.b004a8",
+                "d405a5f6.ff2958"
+            ]
+        ]
+    },
+    {
+        "id": "60d77046.ed8e9",
+        "type": "switch",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "-2.00",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 644.3888931274414,
+        "y": 957.4444389343262,
+        "wires": [
+            [
+                "ef3e8de1.d5f04",
+                "4bc0d6b4.258438"
+            ]
+        ]
+    },
+    {
+        "id": "ba6d974b.b004a8",
+        "type": "debug",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1003.3889026641846,
+        "y": 877.1111040115356,
+        "wires": []
+    },
+    {
+        "id": "4bc0d6b4.258438",
+        "type": "function",
+        "z": "6c281c8f.cbebc4",
+        "name": "Gửi ok",
+        "func": "\nmsg.payload = {\"id\": 0, \"command\": \"OKAY\"};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 826,
+        "y": 876.3333129882812,
+        "wires": [
+            [
+                "d405a5f6.ff2958"
             ]
         ]
     }
