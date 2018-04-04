@@ -14,24 +14,6 @@
         "info": ""
     },
     {
-        "id": "d51bf2cb.dc8c5",
-        "type": "subflow",
-        "name": "Gửi đến iNut cảm biến 1",
-        "info": "",
-        "in": [
-            {
-                "x": 50,
-                "y": 30,
-                "wires": [
-                    {
-                        "id": "a452cb45.b20788"
-                    }
-                ]
-            }
-        ],
-        "out": []
-    },
-    {
         "id": "1f28bc97.792263",
         "type": "subflow",
         "name": "Chuẩn bị lệnh nút nhấn",
@@ -155,9 +137,9 @@
         ]
     },
     {
-        "id": "5e78ec0a.bb5c04",
+        "id": "d51bf2cb.dc8c5",
         "type": "subflow",
-        "name": "Subflow 1",
+        "name": "Gửi đến iNut cảm biến 1",
         "info": "",
         "in": [
             {
@@ -165,7 +147,7 @@
                 "y": 30,
                 "wires": [
                     {
-                        "id": "7696b3e1.d3336c"
+                        "id": "a452cb45.b20788"
                     }
                 ]
             }
@@ -648,21 +630,6 @@
         "wires": []
     },
     {
-        "id": "a452cb45.b20788",
-        "type": "http request",
-        "z": "d51bf2cb.dc8c5",
-        "name": "[REST][POST]iNut Cảm biến",
-        "method": "POST",
-        "ret": "txt",
-        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/S1pEXCo9M/89d5eb02a5401ca7112b8d248b4f527b807029497801/req_device_toggle",
-        "tls": "",
-        "x": 261.26446533203125,
-        "y": 51.29917907714844,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "93f20aa4.553e78",
         "type": "debug",
         "z": "6ec9343a.f92c4c",
@@ -763,14 +730,6 @@
         ]
     },
     {
-        "id": "80f3974f.6e82e8",
-        "type": "subflow:d51bf2cb.dc8c5",
-        "z": "91f7c61e.868628",
-        "x": 842.8124923706055,
-        "y": 180.3529930114746,
-        "wires": []
-    },
-    {
         "id": "8447740a.d56578",
         "type": "subflow:1f28bc97.792263",
         "z": "6c281c8f.cbebc4",
@@ -783,15 +742,6 @@
             ],
             []
         ]
-    },
-    {
-        "id": "aaed9bad.c6b0c8",
-        "type": "subflow:d51bf2cb.dc8c5",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "x": 1425.0596923828125,
-        "y": 858.7938842773438,
-        "wires": []
     },
     {
         "id": "e85a255d.c407f8",
@@ -875,21 +825,6 @@
         ]
     },
     {
-        "id": "7696b3e1.d3336c",
-        "type": "http request",
-        "z": "5e78ec0a.bb5c04",
-        "name": "[REST][POST]iNut Cảm biến",
-        "method": "POST",
-        "ret": "txt",
-        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/S1pEXCo9M/89d5eb02a5401ca7112b8d248b4f527b807029497801/req_device_toggle",
-        "tls": "",
-        "x": 252.51444244384766,
-        "y": 47.54917335510254,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "bb24b9d6.b2b7d8",
         "type": "function",
         "z": "6c281c8f.cbebc4",
@@ -970,8 +905,8 @@
         "offvalueType": "num",
         "officon": "",
         "offcolor": "",
-        "x": 809,
-        "y": 704,
+        "x": 800,
+        "y": 700,
         "wires": [
             [
                 "8447740a.d56578"
@@ -1289,5 +1224,37 @@
                 "73983b88.f4dad4"
             ]
         ]
+    },
+    {
+        "id": "a452cb45.b20788",
+        "type": "http request",
+        "z": "d51bf2cb.dc8c5",
+        "name": "[REST][POST]iNut Cảm biến",
+        "method": "POST",
+        "ret": "txt",
+        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/S1pEXCo9M/89d5eb02a5401ca7112b8d248b4f527b807029497801/req_device_toggle",
+        "tls": "",
+        "x": 261.26446533203125,
+        "y": 51.29917907714844,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "80f3974f.6e82e8",
+        "type": "subflow:d51bf2cb.dc8c5",
+        "z": "91f7c61e.868628",
+        "x": 842.8124923706055,
+        "y": 180.3529930114746,
+        "wires": []
+    },
+    {
+        "id": "aaed9bad.c6b0c8",
+        "type": "subflow:d51bf2cb.dc8c5",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "x": 1425.0596923828125,
+        "y": 858.7938842773438,
+        "wires": []
     }
 ]
