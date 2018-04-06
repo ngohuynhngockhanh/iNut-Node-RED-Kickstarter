@@ -7,6 +7,49 @@
         "info": ""
     },
     {
+        "id": "3bff39d5.e74696",
+        "type": "subflow",
+        "name": "Gửi dữ liệu Bàn phím 1",
+        "info": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": [
+                    {
+                        "id": "b460f8b0.9730c8"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 944.0000114440918,
+                "y": 316.0000057220459,
+                "wires": [
+                    {
+                        "id": "a0713220.3d596",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 810.0000114440918,
+                "y": 453.0000057220459,
+                "wires": [
+                    {
+                        "id": "de99d6ae.e8d3f8",
+                        "port": 1
+                    },
+                    {
+                        "id": "a0713220.3d596",
+                        "port": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "id": "f6e14664.ebf688",
         "type": "mqtt-broker",
         "z": "",
@@ -223,8 +266,8 @@
         "ret": "txt",
         "url": "https://connect.mysmarthome.vn/api/1.0/request/PHVDK5sTs7Q4o1SlbJ88HVsECOJ3/SJ9xflAcf/391bd992b8c7596e116d33db2ed1ae4b646730609150/req_device_toggle",
         "tls": "",
-        "x": 1082.858627319336,
-        "y": 669.5757818222046,
+        "x": 1513.8586196899414,
+        "y": 657.5757827758789,
         "wires": [
             []
         ]
@@ -388,7 +431,7 @@
         "type": "inject",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "topic": "6s ping",
+        "topic": "8s ping",
         "payload": "",
         "payloadType": "date",
         "repeat": "6",
@@ -436,27 +479,10 @@
         "wires": []
     },
     {
-        "id": "ef3e8de1.d5f04",
-        "type": "function",
-        "z": "6c281c8f.cbebc4",
-        "name": "Gửi ok",
-        "func": "\nmsg.payload = {\"id\": 0, \"command\": \"OKAY\"};\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 821.0000114440918,
-        "y": 833.3333263397217,
-        "wires": [
-            [
-                "ba6d974b.b004a8",
-                "d405a5f6.ff2958"
-            ]
-        ]
-    },
-    {
         "id": "60d77046.ed8e9",
         "type": "switch",
         "z": "6c281c8f.cbebc4",
-        "name": "",
+        "name": "Nếu là giá trị nút nhấn",
         "property": "payload",
         "propertyType": "msg",
         "rules": [
@@ -469,28 +495,211 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 644.3888931274414,
-        "y": 957.4444389343262,
+        "x": 700.3888969421387,
+        "y": 971.4445476531982,
         "wires": [
             [
-                "ef3e8de1.d5f04",
-                "4bc0d6b4.258438"
+                "4ecb9cd.e7b6e64"
             ]
         ]
     },
     {
-        "id": "ba6d974b.b004a8",
-        "type": "debug",
+        "id": "b460f8b0.9730c8",
+        "type": "change",
+        "z": "3bff39d5.e74696",
+        "name": "Đặt mã",
+        "rules": [
+            {
+                "t": "set",
+                "p": "maThietBi",
+                "pt": "msg",
+                "to": "AB-XY",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 140,
+        "y": 127,
+        "wires": [
+            [
+                "68c0de00.2f9b34"
+            ]
+        ]
+    },
+    {
+        "id": "1021c525.cef75b",
+        "type": "http request",
+        "z": "3bff39d5.e74696",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "url": "",
+        "x": 372.3888854980469,
+        "y": 298.5555725097656,
+        "wires": [
+            [
+                "de99d6ae.e8d3f8"
+            ]
+        ]
+    },
+    {
+        "id": "68c0de00.2f9b34",
+        "type": "function",
+        "z": "3bff39d5.e74696",
+        "name": "msg.url",
+        "func": "msg.url = \"http://104.197.17.237:85/Home/GuiNhanDuLieu?MaThietBi=\"+msg.maThietBi+\"&DuLieu=\"+parseInt(msg.payload, 10)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 237.38888549804688,
+        "y": 206.22222900390625,
+        "wires": [
+            [
+                "1021c525.cef75b",
+                "828ff1c7.dd634"
+            ]
+        ]
+    },
+    {
+        "id": "de99d6ae.e8d3f8",
+        "type": "switch",
+        "z": "3bff39d5.e74696",
+        "name": "Kiểm tra statuscode",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "200",
+                "vt": "num"
+            },
+            {
+                "t": "neq",
+                "v": "200",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 569.3889236450195,
+        "y": 364.2222270965576,
+        "wires": [
+            [
+                "a0713220.3d596",
+                "6719d1a1.d8c0b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a0713220.3d596",
+        "type": "switch",
+        "z": "3bff39d5.e74696",
+        "name": "Kiểm tra kết quả",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 794.388916015625,
+        "y": 262.5555725097656,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4ecb9cd.e7b6e64",
+        "type": "subflow:3bff39d5.e74696",
         "z": "6c281c8f.cbebc4",
+        "x": 979.0555877685547,
+        "y": 806.8889007568359,
+        "wires": [
+            [
+                "4bc0d6b4.258438",
+                "ef3e8de1.d5f04"
+            ],
+            [
+                "2c6003a1.8d3e0c",
+                "c6eac14d.89ca2"
+            ]
+        ]
+    },
+    {
+        "id": "2c6003a1.8d3e0c",
+        "type": "function",
+        "z": "6c281c8f.cbebc4",
+        "name": "Gửi lỗi",
+        "func": "\nmsg.payload = {\"id\": 0, \"command\": \"ERR\"};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1188.6666259765625,
+        "y": 861,
+        "wires": [
+            [
+                "d405a5f6.ff2958"
+            ]
+        ]
+    },
+    {
+        "id": "828ff1c7.dd634",
+        "type": "debug",
+        "z": "3bff39d5.e74696",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "url",
+        "x": 471.38892364501953,
+        "y": 200.66665601730347,
+        "wires": []
+    },
+    {
+        "id": "6719d1a1.d8c0b",
+        "type": "debug",
+        "z": "3bff39d5.e74696",
         "name": "",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 1003.3889026641846,
-        "y": 877.1111040115356,
+        "x": 809.388916015625,
+        "y": 133.6666717529297,
         "wires": []
+    },
+    {
+        "id": "ef3e8de1.d5f04",
+        "type": "function",
+        "z": "6c281c8f.cbebc4",
+        "name": "Gửi ok",
+        "func": "\nmsg.payload = {\"id\": 0, \"command\": \"OKAY\"};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1185,
+        "y": 765.3333263397217,
+        "wires": [
+            [
+                "d405a5f6.ff2958"
+            ]
+        ]
     },
     {
         "id": "4bc0d6b4.258438",
@@ -500,12 +709,26 @@
         "func": "\nmsg.payload = {\"id\": 0, \"command\": \"OKAY\"};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 826,
-        "y": 876.3333129882812,
+        "x": 1187.9999771118164,
+        "y": 809.333345413208,
         "wires": [
             [
                 "d405a5f6.ff2958"
             ]
+        ]
+    },
+    {
+        "id": "c6eac14d.89ca2",
+        "type": "function",
+        "z": "6c281c8f.cbebc4",
+        "name": "Gửi lỗi",
+        "func": "\nmsg.payload = {\"id\": 0, \"command\": \"ERR\"};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1185.7777099609375,
+        "y": 908,
+        "wires": [
+            []
         ]
     }
 ]
