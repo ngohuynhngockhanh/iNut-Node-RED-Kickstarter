@@ -913,7 +913,7 @@
         "type": "ui_switch",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "label": "Nút 1",
+        "label": "Quạt hút",
         "group": "f21b3646.c69c48",
         "order": 3,
         "width": "2",
@@ -930,7 +930,7 @@
         "offvalueType": "str",
         "officon": "",
         "offcolor": "",
-        "x": 1214.5,
+        "x": 1224.5,
         "y": 919.111083984375,
         "wires": [
             [
@@ -943,7 +943,7 @@
         "type": "ui_switch",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "label": "Nút 2",
+        "label": "Quạt thổi",
         "group": "f21b3646.c69c48",
         "order": 4,
         "width": "2",
@@ -960,7 +960,7 @@
         "offvalueType": "str",
         "officon": "",
         "offcolor": "",
-        "x": 1214.111099243164,
+        "x": 1224.111099243164,
         "y": 967.6666240692139,
         "wires": [
             [
@@ -973,7 +973,7 @@
         "type": "ui_switch",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "label": "Nút 3",
+        "label": "Đèn chiếu sáng nhà nấm",
         "group": "f21b3646.c69c48",
         "order": 5,
         "width": "2",
@@ -990,7 +990,7 @@
         "offvalueType": "str",
         "officon": "",
         "offcolor": "",
-        "x": 1214.111099243164,
+        "x": 1274.111099243164,
         "y": 1012.6666240692139,
         "wires": [
             [
@@ -1003,7 +1003,7 @@
         "type": "ui_switch",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "label": "Nút 4",
+        "label": "Quạt hút gió thứ 2",
         "group": "f21b3646.c69c48",
         "order": 6,
         "width": "2",
@@ -1020,7 +1020,7 @@
         "offvalueType": "str",
         "officon": "",
         "offcolor": "",
-        "x": 1214.111099243164,
+        "x": 1254.111099243164,
         "y": 1058.6666240692139,
         "wires": [
             [
