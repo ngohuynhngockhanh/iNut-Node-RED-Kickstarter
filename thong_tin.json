@@ -1,0 +1,6 @@
+<button ng-style="{
+	top: 100px;left:100px;
+}" style="position:absolute;z-index:100;" type="button" class="btn btn-circle" ng-class="{'btn-success': msg.payload[0].state == 1}">
+        G1
+</button>
+<img src="http://sv1.upsieutoc.com/2018/04/23/30769152_2094083127331601_644715665_o.png">
