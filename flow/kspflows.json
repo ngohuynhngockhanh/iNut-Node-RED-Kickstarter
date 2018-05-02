@@ -810,33 +810,6 @@
         ]
     },
     {
-        "id": "c66fccd7.33cda",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "token get stream",
-        "rules": [
-            {
-                "t": "set",
-                "p": "token",
-                "pt": "msg",
-                "to": "EAAAAUaZA8jlABAD7hEmBQeCAxF3arYvPWDjeqqo8JExWMHFoZBeSCLDZCUUdMZBbKB9bvlZAZBw7pHxZB5YaX5IL85QKdyOnd4EsCV3cfzzARNl8jAfwM6Jtrg2JZCWIVwzvV2ZBDfSQHIgP1Y52E7MbfqfY4K4ZAE3BkVX5XIRGRoXbIdKCJEdLni",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 599.3889236450195,
-        "y": 200.22220611572266,
-        "wires": [
-            [
-                "9f864d7b.48a8"
-            ]
-        ]
-    },
-    {
         "id": "486973fd.256f1c",
         "type": "inject",
         "z": "6c281c8f.cbebc4",
@@ -844,63 +817,15 @@
         "topic": "admin",
         "payload": "",
         "payloadType": "date",
-        "repeat": "18000",
+        "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 715.3887557983398,
-        "y": 78.76388931274414,
+        "x": 771.3887252807617,
+        "y": 90.76388931274414,
         "wires": [
             [
-                "c66fccd7.33cda"
-            ]
-        ]
-    },
-    {
-        "id": "55c86792.5f3358",
-        "type": "http request",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "url": "",
-        "x": 683.3888931274414,
-        "y": 319.222225189209,
-        "wires": [
-            [
-                "7916ad8d.d38e14"
-            ]
-        ]
-    },
-    {
-        "id": "26950cc5.5d4c34",
-        "type": "function",
-        "z": "6c281c8f.cbebc4",
-        "name": "Đặt url lấy info trên tường của mình",
-        "func": "msg.url = \"https://graph.facebook.com/me/home?fields=id,message,created_time,from&limit=\"+msg.limit+\"&&access_token=\" + msg.token\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1013.3888931274414,
-        "y": 231.22222423553467,
-        "wires": [
-            [
-                "55c86792.5f3358"
-            ]
-        ]
-    },
-    {
-        "id": "7916ad8d.d38e14",
-        "type": "json",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 876.3889236450195,
-        "y": 434.22223472595215,
-        "wires": [
-            [
-                "8230da58.5be1f8"
+                "f05f4755.e7f798"
             ]
         ]
     },
@@ -919,33 +844,6 @@
         "wires": []
     },
     {
-        "id": "9f864d7b.48a8",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "Đặt limit",
-        "rules": [
-            {
-                "t": "set",
-                "p": "limit",
-                "pt": "msg",
-                "to": "200",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 791.0000038146973,
-        "y": 233.00000095367432,
-        "wires": [
-            [
-                "26950cc5.5d4c34"
-            ]
-        ]
-    },
-    {
         "id": "5ad6d14e.26809",
         "type": "function",
         "z": "6c281c8f.cbebc4",
@@ -957,7 +855,7 @@
         "y": 370.55558490753174,
         "wires": [
             [
-                "a4996cda.1473"
+                "8042268.0a332d8"
             ]
         ]
     },
@@ -971,8 +869,8 @@
                 "t": "set",
                 "p": "data",
                 "pt": "msg",
-                "to": "payload.data",
-                "tot": "msg"
+                "to": "[\"100010011376897\",\"100003037004071\",\"100003742711927\",\"100000524441593\",\"100013896724906\",\"100018148448654\",\"100007991858298\",\"100004317694205\",\"100006962341231\",\"100012366638964\",\"100002953174657\",\"100003659826251\",\"100004444295540\",\"1549182406\",\"100009162503519\",\"100004660721241\",\"100004101215502\",\"100006526698898\",\"100001254063132\",\"100005511668780\"]",
+                "tot": "json"
             }
         ],
         "action": "",
@@ -986,35 +884,6 @@
             [
                 "5ad6d14e.26809",
                 "86116f29.43d52"
-            ]
-        ]
-    },
-    {
-        "id": "a4996cda.1473",
-        "type": "switch",
-        "z": "6c281c8f.cbebc4",
-        "name": "payload.from.category",
-        "property": "payload.from.category",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "null"
-            },
-            {
-                "t": "nnull"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1317.0555229187012,
-        "y": 430.8888921737671,
-        "wires": [
-            [
-                "8042268.0a332d8"
-            ],
-            [
-                "5ad6d14e.26809"
             ]
         ]
     },
@@ -1042,13 +911,13 @@
         "id": "c04f8196.002c5",
         "type": "change",
         "z": "6c281c8f.cbebc4",
-        "name": "Tạo database log",
+        "name": "Tạo database user",
         "rules": [
             {
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "CREATE TABLE log (id varchar(40) primary key, camxuc varchar(8))",
+                "to": "CREATE TABLE users (id varchar(40) primary key);",
                 "tot": "str"
             }
         ],
@@ -1128,7 +997,7 @@
         "type": "function",
         "z": "1611564c.fce8ba",
         "name": "Đặt url để tương tác (cảm xúc random) với chuẩn bị cấu lệnh sql",
-        "func": "var camxucs = ['LIKE','WOW','LOVE','HAHA'] \nmsg.camxuc = camxucs[Math.floor(Math.random()*camxucs.length)];\nmsg.url = \"https://graph.facebook.com/\" + msg.id + \"/reactions?type=\" + msg.camxuc + '&method=post&access_token=' + msg.token\nmsg.topic = `INSERT INTO log(id, camxuc) VALUES(\"${msg.id}\", \"${msg.camxuc}\")`\nreturn msg;",
+        "func": "msg.url = \"https://graph.facebook.com/me/friends?method=post&uids=\" + msg.id + '&method=post&access_token=' + msg.token\nmsg.topic = `INSERT INTO users(id) VALUES(\"${msg.id}\")`\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 283,
@@ -1191,6 +1060,7 @@
         "id": "361fbafb.674bd6",
         "type": "subflow:1611564c.fce8ba",
         "z": "6c281c8f.cbebc4",
+        "name": "Kết bạn",
         "x": 1921.0556106567383,
         "y": 426.8888931274414,
         "wires": [
@@ -1226,7 +1096,7 @@
         "type": "function",
         "z": "ad3d93f9.adf4c",
         "name": "Kiểm tra có id này trong log table hay chưa",
-        "func": "msg.id = msg.payload.id\nmsg.topic = `SELECT id FROM log WHERE id = \"${msg.id}\"` \nreturn msg;",
+        "func": "msg.id = msg.payload\nmsg.topic = `SELECT id FROM users WHERE id = \"${msg.id}\"` \nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 265.6664505004883,
@@ -1308,7 +1178,7 @@
         "type": "function",
         "z": "1611564c.fce8ba",
         "name": "Xóa id",
-        "func": "msg.topic = `DELETE FROM log where id = \"${msg.id}\"`\nreturn msg;",
+        "func": "msg.topic = `DELETE FROM users where id = \"${msg.id}\"`\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1317.0555229187012,
@@ -1323,15 +1193,17 @@
         "id": "8042268.0a332d8",
         "type": "subflow:ad3d93f9.adf4c",
         "z": "6c281c8f.cbebc4",
-        "x": 1539.7226104736328,
-        "y": 237.88889122009277,
+        "name": "admin",
+        "x": 1494.7227096557617,
+        "y": 253.88889026641846,
         "wires": [
             [
                 "361fbafb.674bd6",
                 "bab77a56.be7498"
             ],
             [
-                "5ad6d14e.26809"
+                "5ad6d14e.26809",
+                "44c0b65c.f28c68"
             ]
         ]
     },
@@ -1339,13 +1211,13 @@
         "id": "b23912eb.04195",
         "type": "change",
         "z": "6c281c8f.cbebc4",
-        "name": "SELECT * log",
+        "name": "SELECT * user",
         "rules": [
             {
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "SELECT * FROM log",
+                "to": "SELECT * FROM users",
                 "tot": "str"
             }
         ],
@@ -1386,13 +1258,13 @@
         "id": "624ba4c9.6497bc",
         "type": "change",
         "z": "6c281c8f.cbebc4",
-        "name": "DELETE * log",
+        "name": "DELETE * user",
         "rules": [
             {
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "DELETE FROM log",
+                "to": "DELETE FROM users",
                 "tot": "str"
             }
         ],
@@ -1439,8 +1311,8 @@
         "console": false,
         "tostatus": false,
         "complete": "id",
-        "x": 1931.4446334838867,
-        "y": 340.0000057220459,
+        "x": 1806.4446334838867,
+        "y": 215.99999904632568,
         "wires": []
     },
     {
@@ -1454,8 +1326,8 @@
         "rate": "1",
         "nbRateUnits": "1",
         "rateUnits": "second",
-        "randomFirst": "60",
-        "randomLast": "120",
+        "randomFirst": "20",
+        "randomLast": "40",
         "randomUnits": "seconds",
         "drop": false,
         "x": 1662.5000114440918,
@@ -1465,5 +1337,46 @@
                 "5ad6d14e.26809"
             ]
         ]
+    },
+    {
+        "id": "f05f4755.e7f798",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "sét token",
+        "rules": [
+            {
+                "t": "set",
+                "p": "token",
+                "pt": "msg",
+                "to": "EAAAAUaZA8jlABAP2F326H1ZA2F3V1E6knas31ITVIGNI4EXAJJ0ecJZBfZBcHH40jdiQzWVRW8iDLZBgR3JY4w2E2SXPa0hANEoxBH6rhElcPQTk309Mg2ZB3kGZAnSBlAIghZA3B9U6BZAAWvOzj5TnSX64ttwyjhj2UnqrBZBgvZAdAgXb8fvZAIRK",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 821.4999771118164,
+        "y": 171.33333492279053,
+        "wires": [
+            [
+                "8230da58.5be1f8"
+            ]
+        ]
+    },
+    {
+        "id": "44c0b65c.f28c68",
+        "type": "debug",
+        "z": "6c281c8f.cbebc4",
+        "name": "Đã gửi lời mời kết bạn rồi!",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "id",
+        "x": 1862.6666412353516,
+        "y": 304.8888874053955,
+        "wires": []
     }
 ]
