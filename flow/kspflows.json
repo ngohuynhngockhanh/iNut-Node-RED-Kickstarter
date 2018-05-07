@@ -332,6 +332,42 @@
         "birthPayload": ""
     },
     {
+        "id": "1b94b7b9.fa0198",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt.mysmarthome.vn",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "487422b7.b1436c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt.mysmarthome.vn",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
         "id": "288ffa01.3284b6",
         "type": "debug",
         "z": "6c281c8f.cbebc4",
@@ -358,7 +394,7 @@
         "wires": [
             [
                 "288ffa01.3284b6",
-                "526574f1.1b8c6c"
+                "484ff03c.bc211"
             ]
         ]
     },
@@ -372,11 +408,11 @@
         "width": "3",
         "height": "3",
         "gtype": "gage",
-        "title": "D102",
-        "label": "",
+        "title": "Nhiệt độ",
+        "label": "°C",
         "format": "{{value}}",
         "min": 0,
-        "max": "3000",
+        "max": "50",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -384,7 +420,7 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 891.013011932373,
+        "x": 901.013011932373,
         "y": 745.1771078109741,
         "wires": []
     },
@@ -398,11 +434,11 @@
         "width": "3",
         "height": "3",
         "gtype": "gage",
-        "title": "D101",
-        "label": "",
+        "title": "Độ ẩm",
+        "label": "%",
         "format": "{{value}}",
         "min": 0,
-        "max": "3000",
+        "max": "100",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -423,12 +459,12 @@
         "order": 4,
         "width": "3",
         "height": "3",
-        "gtype": "gage",
-        "title": "D104",
+        "gtype": "donut",
+        "title": "Cảm biến khí ga digital",
         "label": "",
         "format": "{{value}}",
         "min": 0,
-        "max": "3000",
+        "max": "1",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -436,7 +472,7 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 890.013011932373,
+        "x": 940.013011932373,
         "y": 828.0104207992554,
         "wires": []
     },
@@ -450,11 +486,11 @@
         "width": "3",
         "height": "3",
         "gtype": "gage",
-        "title": "D103",
+        "title": "Cảm biến analog khí gas",
         "label": "",
         "format": "{{value}}",
         "min": 0,
-        "max": "3000",
+        "max": "1023",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -462,7 +498,7 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 889.1042785644531,
+        "x": 949.1042785644531,
         "y": 787.3020687103271,
         "wires": []
     },
@@ -475,12 +511,12 @@
         "order": 2,
         "width": "3",
         "height": "3",
-        "gtype": "gage",
-        "title": "D106",
+        "gtype": "donut",
+        "title": "Relay 1",
         "label": "",
         "format": "{{value}}",
         "min": 0,
-        "max": "3000",
+        "max": "1",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -488,7 +524,7 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 888.013011932373,
+        "x": 898.013011932373,
         "y": 913.0104207992554,
         "wires": []
     },
@@ -501,12 +537,12 @@
         "order": 1,
         "width": "3",
         "height": "3",
-        "gtype": "gage",
-        "title": "D105",
+        "gtype": "donut",
+        "title": "Cảm biến chuyển động",
         "label": "",
         "format": "{{value}}",
         "min": 0,
-        "max": "3000",
+        "max": "1",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -514,34 +550,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 887.1042785644531,
+        "x": 947.1042785644531,
         "y": 872.3020687103271,
-        "wires": []
-    },
-    {
-        "id": "5ae9c1.85d5f64",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "62cc449d.959c9c",
-        "order": 4,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "D108",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "3000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 887.013011932373,
-        "y": 995.8437337875366,
         "wires": []
     },
     {
@@ -553,12 +563,12 @@
         "order": 3,
         "width": "3",
         "height": "3",
-        "gtype": "gage",
-        "title": "D107",
+        "gtype": "donut",
+        "title": "Relay 2",
         "label": "",
         "format": "{{value}}",
         "min": 0,
-        "max": "3000",
+        "max": "1",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -566,7 +576,7 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 886.1042785644531,
+        "x": 896.1042785644531,
         "y": 955.1353816986084,
         "wires": []
     },
@@ -797,78 +807,7 @@
             [
                 "73983b88.f4dad4"
             ],
-            [
-                "5ae9c1.85d5f64"
-            ]
-        ]
-    },
-    {
-        "id": "71632284.d426dc",
-        "type": "mqtt in",
-        "z": "6c281c8f.cbebc4",
-        "name": "[MQTT-IN]Phòng trưng bày đồng hồ",
-        "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/ByNwJX83M/856f770448497b5851e42da62c8b9826611112645005",
-        "qos": "2",
-        "broker": "aa1345ad.c2b128",
-        "x": 264.0000305175781,
-        "y": 838.3333930969238,
-        "wires": [
-            [
-                "a49ad212.1f758"
-            ]
-        ]
-    },
-    {
-        "id": "526574f1.1b8c6c",
-        "type": "http request",
-        "z": "6c281c8f.cbebc4",
-        "name": "[REST][POST]Phòng trưng bày đồng hồ",
-        "method": "POST",
-        "ret": "txt",
-        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/ByNwJX83M/856f770448497b5851e42da62c8b9826611112645005/req_device_toggle",
-        "tls": "",
-        "x": 1057.0000038146973,
-        "y": 625.333402633667,
-        "wires": [
             []
-        ]
-    },
-    {
-        "id": "d59edc39.ac612",
-        "type": "ui_form",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "label": "Form thay đỏi thanh ghi D",
-        "group": "52cad39c.c8472c",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "options": [
-            {
-                "label": "D",
-                "value": "p",
-                "type": "number",
-                "required": true
-            },
-            {
-                "label": "Giá trị",
-                "value": "s",
-                "type": "number",
-                "required": true
-            }
-        ],
-        "formValue": {
-            "p": "",
-            "s": ""
-        },
-        "payload": "",
-        "topic": "",
-        "x": 146.38888931274414,
-        "y": 488.222225189209,
-        "wires": [
-            [
-                "16f6a3b4.e6d5dc"
-            ]
         ]
     },
     {
@@ -896,34 +835,134 @@
         ]
     },
     {
-        "id": "16f6a3b4.e6d5dc",
-        "type": "function",
+        "id": "6c1dae0f.b6984",
+        "type": "mqtt in",
         "z": "6c281c8f.cbebc4",
-        "name": "Định nghĩa lệnh",
-        "func": "msg.payload.c = 2\n\nmsg.payload = JSON.stringify(msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 359.38888931274414,
-        "y": 487.8888931274414,
+        "name": "[MQTT-IN]Phòng chiếu phim",
+        "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/rk4BxIP9M/7090519453a51d530bc1c72a325f234d849615285768",
+        "qos": "2",
+        "broker": "487422b7.b1436c",
+        "x": 291,
+        "y": 833.0000057220459,
         "wires": [
             [
-                "e09a7350.a2dd5",
-                "5d8b6a73.0fb9d4"
+                "a49ad212.1f758"
             ]
         ]
     },
     {
-        "id": "5d8b6a73.0fb9d4",
-        "type": "debug",
+        "id": "484ff03c.bc211",
+        "type": "http request",
+        "z": "6c281c8f.cbebc4",
+        "name": "[REST][POST]Phòng chiếu phim",
+        "method": "POST",
+        "ret": "txt",
+        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/rk4BxIP9M/7090519453a51d530bc1c72a325f234d849615285768/req_device_toggle",
+        "tls": "",
+        "x": 1013.0000076293945,
+        "y": 633.0000047683716,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e795b902.79fc78",
+        "type": "ui_button",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 572.388916015625,
-        "y": 471,
-        "wires": []
+        "group": "52cad39c.c8472c",
+        "order": 6,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "OFF1",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "OFF1",
+        "payloadType": "str",
+        "topic": "",
+        "x": 253.3888931274414,
+        "y": 414.222225189209,
+        "wires": [
+            [
+                "b75a1f12.b6263"
+            ]
+        ]
+    },
+    {
+        "id": "e0dd18ff.316778",
+        "type": "ui_button",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "52cad39c.c8472c",
+        "order": 7,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "ON2",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "ON2",
+        "payloadType": "str",
+        "topic": "",
+        "x": 255,
+        "y": 464.6666564941406,
+        "wires": [
+            [
+                "b75a1f12.b6263"
+            ]
+        ]
+    },
+    {
+        "id": "35f69879.164cc8",
+        "type": "ui_button",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "52cad39c.c8472c",
+        "order": 8,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "OFF2",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "OFF2",
+        "payloadType": "str",
+        "topic": "",
+        "x": 255,
+        "y": 514.6666870117188,
+        "wires": [
+            [
+                "b75a1f12.b6263"
+            ]
+        ]
+    },
+    {
+        "id": "cd0708e8.091ce8",
+        "type": "ui_button",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "52cad39c.c8472c",
+        "order": 5,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "ON1",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "ON1",
+        "payloadType": "str",
+        "topic": "",
+        "x": 255,
+        "y": 366.6666564941406,
+        "wires": [
+            [
+                "b75a1f12.b6263"
+            ]
+        ]
     }
 ]
