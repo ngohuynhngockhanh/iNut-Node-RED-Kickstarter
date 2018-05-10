@@ -119,6 +119,35 @@
         ]
     },
     {
+        "id": "78b6290f.001d28",
+        "type": "subflow",
+        "name": "Byte => Array of 8 bits",
+        "info": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": [
+                    {
+                        "id": "bf5700a3.22a89"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 160,
+                "y": 30,
+                "wires": [
+                    {
+                        "id": "bf5700a3.22a89",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "id": "f6e14664.ebf688",
         "type": "mqtt-broker",
         "z": "",
@@ -235,8 +264,8 @@
             "allowSwipe": "true",
             "dateFormat": "DD/MM/YYYY",
             "sizes": {
-                "sx": 64,
-                "sy": 64,
+                "sx": 74,
+                "sy": 75,
                 "gx": 6,
                 "gy": 6,
                 "cx": 6,
@@ -250,35 +279,16 @@
         "id": "294eb87b.b71b48",
         "type": "ui_tab",
         "z": "",
-        "name": "Kiểm thử iNut cảm biến",
+        "name": "Giao diện bãi đỗ xe",
         "icon": "dashboard",
         "order": 1
-    },
-    {
-        "id": "62cc449d.959c9c",
-        "type": "ui_group",
-        "z": "",
-        "name": "Thứ 2",
-        "tab": "294eb87b.b71b48",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": true
-    },
-    {
-        "id": "a4d5c147.5c318",
-        "type": "ui_tab",
-        "z": "",
-        "name": "Cảm biến tòa 2",
-        "icon": "dashboard",
-        "order": 2
     },
     {
         "id": "2205c075.fa443",
         "type": "ui_group",
         "z": "",
         "name": "Test",
-        "tab": "a4d5c147.5c318",
+        "tab": "",
         "order": 1,
         "disp": true,
         "width": "6",
@@ -288,12 +298,12 @@
         "id": "52cad39c.c8472c",
         "type": "ui_group",
         "z": "",
-        "name": "Thứ nhất",
+        "name": "Bãi đỗ xe",
         "tab": "294eb87b.b71b48",
         "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": true
+        "disp": false,
+        "width": "12",
+        "collapse": false
     },
     {
         "id": "81dc1f08.a421b",
@@ -332,313 +342,33 @@
         "birthPayload": ""
     },
     {
-        "id": "288ffa01.3284b6",
-        "type": "debug",
-        "z": "6c281c8f.cbebc4",
-        "name": "in ra màn hình để debug thông tin",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 1004.7475471496582,
-        "y": 578.575924873352,
-        "wires": []
-    },
-    {
-        "id": "b75a1f12.b6263",
-        "type": "function",
-        "z": "6c281c8f.cbebc4",
-        "name": "Chuẩn bị lệnh trước khi gửi đến iNut cảm biến",
-        "func": "var json = {\"id\": 0, \"command\": msg.payload};\nmsg.payload = json;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 566.500057220459,
-        "y": 577.3334999084473,
-        "wires": [
-            [
-                "288ffa01.3284b6",
-                "526574f1.1b8c6c"
-            ]
-        ]
-    },
-    {
-        "id": "a4ab8ad8.4a9368",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
+        "id": "1f06d15b.70df1f",
+        "type": "mqtt-broker",
         "name": "",
-        "group": "52cad39c.c8472c",
+        "broker": "mqtt.mysmarthome.vn",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "40c8bc47.1cb534",
+        "type": "ui_group",
+        "z": "",
+        "name": "Thanh thông tin",
+        "tab": "294eb87b.b71b48",
         "order": 2,
+        "disp": false,
         "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "D102",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "3000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 891.013011932373,
-        "y": 745.1771078109741,
-        "wires": []
-    },
-    {
-        "id": "f1cf4bb3.dd8498",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "52cad39c.c8472c",
-        "order": 1,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "D101",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "3000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 890.1042785644531,
-        "y": 704.4687557220459,
-        "wires": []
-    },
-    {
-        "id": "ee56bf79.426e5",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "52cad39c.c8472c",
-        "order": 4,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "D104",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "3000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 890.013011932373,
-        "y": 828.0104207992554,
-        "wires": []
-    },
-    {
-        "id": "b3c5af9f.6a0ce",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "52cad39c.c8472c",
-        "order": 3,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "D103",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "3000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 889.1042785644531,
-        "y": 787.3020687103271,
-        "wires": []
-    },
-    {
-        "id": "67c874c8.82d9bc",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "62cc449d.959c9c",
-        "order": 2,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "D106",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "3000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 888.013011932373,
-        "y": 913.0104207992554,
-        "wires": []
-    },
-    {
-        "id": "fffcfea8.d5045",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "62cc449d.959c9c",
-        "order": 1,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "D105",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "3000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 887.1042785644531,
-        "y": 872.3020687103271,
-        "wires": []
-    },
-    {
-        "id": "5ae9c1.85d5f64",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "62cc449d.959c9c",
-        "order": 4,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "D108",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "3000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 887.013011932373,
-        "y": 995.8437337875366,
-        "wires": []
-    },
-    {
-        "id": "73983b88.f4dad4",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "62cc449d.959c9c",
-        "order": 3,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "D107",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "3000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 886.1042785644531,
-        "y": 955.1353816986084,
-        "wires": []
-    },
-    {
-        "id": "cc0ed351.1b9fd",
-        "type": "ui_text",
-        "z": "6c281c8f.cbebc4",
-        "group": "62cc449d.959c9c",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Đã gửi lệnh",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 767.286060333252,
-        "y": 617.5099658966064,
-        "wires": []
-    },
-    {
-        "id": "69ed9ac5.de4844",
-        "type": "function",
-        "z": "6c281c8f.cbebc4",
-        "name": "Lấy độ dài chuỗi",
-        "func": "\nmsg.payload =  msg.payload.length;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 466.0130271911621,
-        "y": 659.0104064941406,
-        "wires": [
-            [
-                "214412d6.6f4d3e"
-            ]
-        ]
-    },
-    {
-        "id": "214412d6.6f4d3e",
-        "type": "ui_numeric",
-        "z": "6c281c8f.cbebc4",
-        "name": "Độ dài chuỗi",
-        "label": "",
-        "group": "62cc449d.959c9c",
-        "order": 6,
-        "width": "2",
-        "height": "1",
-        "passthru": true,
-        "topic": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "32",
-        "step": 1,
-        "x": 639.106746673584,
-        "y": 656.4635534286499,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "590b8244.009d2c",
-        "type": "function",
-        "z": "6c281c8f.cbebc4",
-        "name": "Lấy đoạn chuỗi mà Arduino nhận được",
-        "func": "\nmsg.payload =  msg.payload.substr(0, 32);\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 534.1330680847168,
-        "y": 617.6457862854004,
-        "wires": [
-            [
-                "cc0ed351.1b9fd"
-            ]
-        ]
+        "collapse": false
     },
     {
         "id": "b10e0e64.9d8a1",
@@ -772,46 +502,46 @@
         "id": "a49ad212.1f758",
         "type": "subflow:16fa6e68.10eb82",
         "z": "6c281c8f.cbebc4",
-        "name": "admin",
-        "x": 511,
+        "name": "",
+        "x": 541,
         "y": 838.0000076293945,
         "wires": [
             [
-                "f1cf4bb3.dd8498"
+                "7f30ad91.1254d4"
             ],
             [
-                "a4ab8ad8.4a9368"
+                "781603bc.9f35cc"
             ],
             [
-                "b3c5af9f.6a0ce"
+                "1ae6155e.5f474b"
             ],
             [
-                "ee56bf79.426e5"
+                "647839d5.4e93f8"
             ],
             [
-                "fffcfea8.d5045"
+                "12305be.a1a9aa4"
             ],
             [
-                "67c874c8.82d9bc"
+                "473111fd.bd758"
             ],
             [
-                "73983b88.f4dad4"
+                "725bba7a.ed16e4"
             ],
             [
-                "5ae9c1.85d5f64"
+                "2fbf646e.09ab1c"
             ]
         ]
     },
     {
-        "id": "71632284.d426dc",
+        "id": "2a7e0396.13405c",
         "type": "mqtt in",
         "z": "6c281c8f.cbebc4",
-        "name": "[MQTT-IN]Phòng trưng bày đồng hồ",
-        "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/ByNwJX83M/856f770448497b5851e42da62c8b9826611112645005",
+        "name": "[MQTT-IN]Phòng tín hiệu",
+        "topic": "request/zcuKrreuYuYMlnlNyUIoKtA7LBf2/HJuzlEJRz/0247f23c917db52f5961b784328dffc2307969974835",
         "qos": "2",
-        "broker": "aa1345ad.c2b128",
-        "x": 264.0000305175781,
-        "y": 838.3333930969238,
+        "broker": "1f06d15b.70df1f",
+        "x": 272.71431732177734,
+        "y": 838.8571491241455,
         "wires": [
             [
                 "a49ad212.1f758"
@@ -819,111 +549,494 @@
         ]
     },
     {
-        "id": "526574f1.1b8c6c",
-        "type": "http request",
+        "id": "6575ca16.ce8344",
+        "type": "debug",
         "z": "6c281c8f.cbebc4",
-        "name": "[REST][POST]Phòng trưng bày đồng hồ",
-        "method": "POST",
-        "ret": "txt",
-        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/ByNwJX83M/856f770448497b5851e42da62c8b9826611112645005/req_device_toggle",
-        "tls": "",
-        "x": 1057.0000038146973,
-        "y": 625.333402633667,
+        "name": " D101",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "info",
+        "x": 1376.0965518951416,
+        "y": 781.1510496139526,
+        "wires": []
+    },
+    {
+        "id": "f612d082.8f2d7",
+        "type": "inject",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "topic": "admin",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 183.0989761352539,
+        "y": 466.9244899749756,
+        "wires": [
+            [
+                "59600490.c4a9ec"
+            ]
+        ]
+    },
+    {
+        "id": "59600490.c4a9ec",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "Bộ test 1 - TEST bố trí xe",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[{\"node_id\":\"r1O92dtSz\",\"id\":0,\"state\":\"7.00\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":1,\"state\":\"7.00\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":2,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":3,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":4,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":5,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":6,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":7,\"state\":\"6.0\",\"type\":\"SENSOR\"}]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 391.10419845581055,
+        "y": 518.2291450500488,
+        "wires": [
+            [
+                "8a20351c.579cb8"
+            ]
+        ]
+    },
+    {
+        "id": "8a20351c.579cb8",
+        "type": "json",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 340.1015625,
+        "y": 699.0208282470703,
+        "wires": [
+            [
+                "a49ad212.1f758"
+            ]
+        ]
+    },
+    {
+        "id": "bf5700a3.22a89",
+        "type": "function",
+        "z": "78b6290f.001d28",
+        "name": "Chuyển byte => mảng 8 bit để dễ xử lý",
+        "func": "\nvar ids = msg.info.ids\nvar int = parseInt(msg.payload, 10)\nfor (var i = 0; i < 8; i++) {\n    \n    \n    ids.push((int >> i) & 1)\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 204.01303100585938,
+        "y": 154.0104217529297,
         "wires": [
             []
         ]
     },
     {
-        "id": "d59edc39.ac612",
-        "type": "ui_form",
+        "id": "867432bf.a3d78",
+        "type": "subflow:78b6290f.001d28",
         "z": "6c281c8f.cbebc4",
-        "name": "",
-        "label": "Form thay đỏi thanh ghi D",
-        "group": "52cad39c.c8472c",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "options": [
+        "x": 1172.098991394043,
+        "y": 825.4530353546143,
+        "wires": [
+            [
+                "6575ca16.ce8344",
+                "6a08452b.c3e50c"
+            ]
+        ]
+    },
+    {
+        "id": "7f30ad91.1254d4",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "D101, vị trí 8 xe đầu",
+        "rules": [
             {
-                "label": "D",
-                "value": "p",
-                "type": "number",
-                "required": true
-            },
-            {
-                "label": "Giá trị",
-                "value": "s",
-                "type": "number",
-                "required": true
+                "t": "set",
+                "p": "info",
+                "pt": "msg",
+                "to": "{\"type\":\"car_position\",\"index\":0,\"ids\":[]}",
+                "tot": "json"
             }
         ],
-        "formValue": {
-            "p": "",
-            "s": ""
-        },
-        "payload": "",
-        "topic": "",
-        "x": 146.38888931274414,
-        "y": 488.222225189209,
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 851.1016159057617,
+        "y": 676.203088760376,
         "wires": [
             [
-                "16f6a3b4.e6d5dc"
+                "867432bf.a3d78"
             ]
         ]
     },
     {
-        "id": "e09a7350.a2dd5",
-        "type": "ui_text_input",
+        "id": "781603bc.9f35cc",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "D102, vị trí 8 xe sau",
+        "rules": [
+            {
+                "t": "set",
+                "p": "info",
+                "pt": "msg",
+                "to": "{\"type\":\"car_position\",\"index\":4,\"ids\":[]}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 849.8464584350586,
+        "y": 715.0103759765625,
+        "wires": [
+            [
+                "867432bf.a3d78"
+            ]
+        ]
+    },
+    {
+        "id": "1ae6155e.5f474b",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "D103, đường đi, cột 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "info",
+                "pt": "msg",
+                "to": "{\"type\":\"column\",\"index\":1,\"ids\":[]}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 848.3464050292969,
+        "y": 757.0103969573975,
+        "wires": [
+            [
+                "867432bf.a3d78"
+            ]
+        ]
+    },
+    {
+        "id": "647839d5.4e93f8",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "D104, đường đi, cột 3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "info",
+                "pt": "msg",
+                "to": "{\"type\":\"column\",\"index\":3,\"ids\":[]}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 847.346435546875,
+        "y": 797.0104293823242,
+        "wires": [
+            [
+                "867432bf.a3d78"
+            ]
+        ]
+    },
+    {
+        "id": "12305be.a1a9aa4",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "D105, đường đi, cột 5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "info",
+                "pt": "msg",
+                "to": "{\"type\":\"column\",\"index\":5,\"ids\":[]}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 845.3464050292969,
+        "y": 840.0103969573975,
+        "wires": [
+            [
+                "867432bf.a3d78"
+            ]
+        ]
+    },
+    {
+        "id": "473111fd.bd758",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "D106, đường đi, dòng 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "info",
+                "pt": "msg",
+                "to": "{\"type\":\"row\",\"index\":1,\"ids\":[]}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 855.3464050292969,
+        "y": 885.0103969573975,
+        "wires": [
+            [
+                "867432bf.a3d78"
+            ]
+        ]
+    },
+    {
+        "id": "725bba7a.ed16e4",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "D107, đường đi, dòng 5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "info",
+                "pt": "msg",
+                "to": "{\"type\":\"row\",\"index\":5,\"ids\":[]}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 853.3464050292969,
+        "y": 926.0103969573975,
+        "wires": [
+            [
+                "867432bf.a3d78"
+            ]
+        ]
+    },
+    {
+        "id": "2fbf646e.09ab1c",
+        "type": "ui_gauge",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "label": "Gửi lệnh xuống iNut cảm biến",
-        "group": "62cc449d.959c9c",
-        "order": 5,
-        "width": "4",
-        "height": "1",
-        "passthru": true,
-        "mode": "text",
-        "delay": "0",
-        "topic": "",
-        "x": 226.00002670288086,
-        "y": 577.434907913208,
+        "group": "40c8bc47.1cb534",
+        "order": 1,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Số lượng xe",
+        "label": "xe",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "16",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "8",
+        "seg2": "13",
+        "x": 822.4349365234375,
+        "y": 976.0259780883789,
+        "wires": []
+    },
+    {
+        "id": "f153a439.4b2aa8",
+        "type": "ui_template",
+        "z": "6c281c8f.cbebc4",
+        "group": "52cad39c.c8472c",
+        "name": "Giao diện bãi đỗ xe",
+        "order": 1,
+        "width": "12",
+        "height": "9",
+        "format": "<div class=\"container\">\n  <div class=\"row\" ng-repeat = \"row in msg.matrix track by $index\">\n    <div class=\"col\" ng-class=\"data.class\" ng-repeat=\"data in row track by $index\">\n        <img ng-if=\"data.class == 'co-xe' && data.type == 'car_position'\" src=\"http://sv1.upsieutoc.com/2018/05/10/white-car-icon_182361.png\" style=\"width: 100px;\" />\n    </div>\n  </div>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1686.6016693115234,
+        "y": 878.8958797454834,
         "wires": [
-            [
-                "b75a1f12.b6263",
-                "69ed9ac5.de4844",
-                "590b8244.009d2c"
-            ]
+            []
         ]
     },
     {
-        "id": "16f6a3b4.e6d5dc",
+        "id": "a8d65f33.26615",
+        "type": "ui_template",
+        "z": "6c281c8f.cbebc4",
+        "group": "52cad39c.c8472c",
+        "name": "Bootstrap",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">\n<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\" integrity=\"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49\" crossorigin=\"anonymous\"></script>\n<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js\" integrity=\"sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T\" crossorigin=\"anonymous\"></script>\n<style>\n    .row {\n        background: #F0F0F0;\n        height: 100px;\n        color: black;\n    }\n    .co-xe {\n        \n        \n        background: url(\"http://sv1.upsieutoc.com/2018/05/10/duong2.png\");\n    }   \n    .ko-co-xe {\n        background: grey;\n    }\n    .duong-ko-co-xe {\n        background: url(\"http://sv1.upsieutoc.com/2018/05/10/duong.png\");\n    }\n    .duong-co-xe {\n        background: url(\"http://sv1.upsieutoc.com/2018/05/10/duong3.png\");\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "global",
+        "x": 1385.6797180175781,
+        "y": 829.0103769302368,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6a08452b.c3e50c",
         "type": "function",
         "z": "6c281c8f.cbebc4",
-        "name": "Định nghĩa lệnh",
-        "func": "msg.payload.c = 2\n\nmsg.payload = JSON.stringify(msg.payload)\nreturn msg;",
+        "name": "Định hướng ra ma trận 7x7",
+        "func": "msg.matrix = global.get(\"matrix\") || [[],[],[],[],[],[],[]]\nif (msg.info.type == \"car_position\") {\n    var index = msg.info.index\n    var column = 0\n    msg.info.ids.map(function(state, idx) {\n        if (idx == 4) {\n            index += 2\n            column = 0\n        }\n        msg.matrix[index][column] = msg.matrix[index][column] || {}\n        msg.matrix[index][column].type = msg.info.type        \n        if (state == 1) {\n            msg.matrix[index][column].class = \"co-xe\" \n        } else {\n            msg.matrix[index][column].class = \"ko-co-xe\"\n        }\n        \n        column += 2\n    })\n} else if (msg.info.type == \"row\") {\n    var index = msg.info.index\n    var column = 0\n    msg.info.ids.map(function(state, idx) {\n        if (idx == 4) {\n            index += 2\n            column = 0\n        }\n        msg.matrix[index][column] = msg.matrix[index][column] || {}\n        msg.matrix[index][column].type = msg.info.type        \n        if (state == 1) {\n            msg.matrix[index][column].class = \"duong-co-xe\" \n        } else {\n            msg.matrix[index][column].class = \"duong-ko-co-xe\"\n        }\n        \n        column += 2\n    })\n} else if (msg.info.type == \"column\") {\n    var index = msg.info.index\n    msg.info.ids.map(function(state, idx) {\n        msg.matrix[idx][index] = msg.matrix[idx][index] || {}\n        msg.matrix[idx][index].type = msg.info.type        \n        if (state == 1) {\n            msg.matrix[idx][index].class = \"duong-co-xe\" \n        } else {\n            msg.matrix[idx][index].class = \"duong-ko-co-xe\"\n        }\n    })\n}\nglobal.set(\"matrix\", msg.matrix)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 359.38888931274414,
-        "y": 487.8888931274414,
+        "x": 1447.9444389343262,
+        "y": 879.1111040115356,
         "wires": [
             [
-                "e09a7350.a2dd5",
-                "5d8b6a73.0fb9d4"
+                "f153a439.4b2aa8",
+                "3763e70.6b54d1a"
             ]
         ]
     },
     {
-        "id": "5d8b6a73.0fb9d4",
+        "id": "3763e70.6b54d1a",
         "type": "debug",
         "z": "6c281c8f.cbebc4",
-        "name": "",
+        "name": "Matrix",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
-        "x": 572.388916015625,
-        "y": 471,
+        "complete": "matrix",
+        "x": 1648.1110954284668,
+        "y": 815.5555477142334,
         "wires": []
+    },
+    {
+        "id": "29b5d81f.b47e88",
+        "type": "inject",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 595.388916015625,
+        "y": 423.98612213134766,
+        "wires": [
+            [
+                "56b49c8c.7a1084"
+            ]
+        ]
+    },
+    {
+        "id": "56b49c8c.7a1084",
+        "type": "function",
+        "z": "6c281c8f.cbebc4",
+        "name": "Reset matrix",
+        "func": "global.set(\"matrix\", [[],[],[],[],[],[],[]])\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 753.38889503479,
+        "y": 424.7638988494873,
+        "wires": [
+            [
+                "867432bf.a3d78"
+            ]
+        ]
+    },
+    {
+        "id": "a1df0c67.0ced3",
+        "type": "inject",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "topic": "admin",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 162,
+        "y": 509,
+        "wires": [
+            [
+                "59600490.c4a9ec"
+            ]
+        ]
+    },
+    {
+        "id": "45bd5f5b.a1ea7",
+        "type": "inject",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 109,
+        "y": 560,
+        "wires": [
+            [
+                "4ff871ca.a3576"
+            ]
+        ]
+    },
+    {
+        "id": "4ff871ca.a3576",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "Bộ test 2 - TEST đường đi",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[{\"node_id\":\"r1O92dtSz\",\"id\":0,\"state\":\"7.00\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":1,\"state\":\"7.00\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":2,\"state\":\"254.00\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":3,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":4,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":5,\"state\":\"1\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":6,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":7,\"state\":\"6.0\",\"type\":\"SENSOR\"}]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 309,
+        "y": 560.0000038146973,
+        "wires": [
+            [
+                "8a20351c.579cb8"
+            ]
+        ]
     }
 ]
