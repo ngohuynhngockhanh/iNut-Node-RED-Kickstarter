@@ -7,6 +7,118 @@
         "info": ""
     },
     {
+        "id": "39a6f422.8555bc",
+        "type": "subflow",
+        "name": "Lấy dữ từ iNut",
+        "info": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": [
+                    {
+                        "id": "67e30919.159958"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 859.0000343322754,
+                "y": 98.00000190734863,
+                "wires": [
+                    {
+                        "id": "68335739.619998",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 968.0000343322754,
+                "y": 102.00000286102295,
+                "wires": [
+                    {
+                        "id": "68335739.619998",
+                        "port": 1
+                    }
+                ]
+            },
+            {
+                "x": 1048.9999732971191,
+                "y": 101.00000381469727,
+                "wires": [
+                    {
+                        "id": "68335739.619998",
+                        "port": 2
+                    }
+                ]
+            },
+            {
+                "x": 1059,
+                "y": 253,
+                "wires": [
+                    {
+                        "id": "68335739.619998",
+                        "port": 3
+                    }
+                ]
+            },
+            {
+                "x": 1102,
+                "y": 318,
+                "wires": [
+                    {
+                        "id": "68335739.619998",
+                        "port": 4
+                    }
+                ]
+            },
+            {
+                "x": 1116,
+                "y": 399,
+                "wires": [
+                    {
+                        "id": "68335739.619998",
+                        "port": 5
+                    }
+                ]
+            },
+            {
+                "x": 1108,
+                "y": 444,
+                "wires": [
+                    {
+                        "id": "68335739.619998",
+                        "port": 6
+                    }
+                ]
+            },
+            {
+                "x": 1006,
+                "y": 489,
+                "wires": [
+                    {
+                        "id": "68335739.619998",
+                        "port": 7
+                    }
+                ]
+            }
+        ],
+        "inputLabels": [
+            "Nhận đầu vào MQTT IN từ iNut cảm biến"
+        ],
+        "outputLabels": [
+            "Luồng cảm biến 1",
+            "Luồng cảm biến 2",
+            "Luồng cảm biến 3",
+            "Luồng cảm biến 4",
+            "Luồng cảm biến 5",
+            "Luồng cảm biến 6",
+            "Luồng cảm biến 7",
+            "Luồng cảm biến 8"
+        ]
+    },
+    {
         "id": "f6e14664.ebf688",
         "type": "mqtt-broker",
         "z": "",
@@ -233,83 +345,6 @@
         ]
     },
     {
-        "id": "bb347159.0a591",
-        "type": "json",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 253.01303100585938,
-        "y": 703.1770629882812,
-        "wires": [
-            [
-                "525d0fd3.73b93",
-                "db8039c1.5197b8",
-                "206bcfd9.9e552",
-                "4a158625.fd60c8",
-                "f4fdb86f.b8bfb8",
-                "c71896ff.207c68",
-                "6fbbd04e.2b2c5",
-                "d02663b5.b55c3"
-            ]
-        ]
-    },
-    {
-        "id": "525d0fd3.73b93",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "Trạng thái thiết bị số 0",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload[0].state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 434.0130310058594,
-        "y": 704.1770629882812,
-        "wires": [
-            [
-                "f1cf4bb3.dd8498"
-            ]
-        ]
-    },
-    {
-        "id": "db8039c1.5197b8",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "Trạng thái thiết bị số 1",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload[1].state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 433.0130310058594,
-        "y": 745.1770629882812,
-        "wires": [
-            [
-                "a4ab8ad8.4a9368"
-            ]
-        ]
-    },
-    {
         "id": "a4ab8ad8.4a9368",
         "type": "ui_gauge",
         "z": "6c281c8f.cbebc4",
@@ -331,8 +366,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 608.0129814147949,
-        "y": 745.1770792007446,
+        "x": 798.0129814147949,
+        "y": 829.1770792007446,
         "wires": []
     },
     {
@@ -357,63 +392,9 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 607.104248046875,
-        "y": 704.4687271118164,
+        "x": 797.104248046875,
+        "y": 788.4687271118164,
         "wires": []
-    },
-    {
-        "id": "206bcfd9.9e552",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "Trạng thái thiết bị số 2",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload[2].state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 433.0130310058594,
-        "y": 787.0103759765625,
-        "wires": [
-            [
-                "b3c5af9f.6a0ce"
-            ]
-        ]
-    },
-    {
-        "id": "4a158625.fd60c8",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "Trạng thái thiết bị số 3",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload[3].state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 432.0130310058594,
-        "y": 828.0103759765625,
-        "wires": [
-            [
-                "ee56bf79.426e5"
-            ]
-        ]
     },
     {
         "id": "ee56bf79.426e5",
@@ -437,8 +418,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 607.0129814147949,
-        "y": 828.0103921890259,
+        "x": 797.0129814147949,
+        "y": 912.0103921890259,
         "wires": []
     },
     {
@@ -463,63 +444,9 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 606.104248046875,
-        "y": 787.3020401000977,
+        "x": 796.104248046875,
+        "y": 871.3020401000977,
         "wires": []
-    },
-    {
-        "id": "f4fdb86f.b8bfb8",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "Trạng thái thiết bị số 4",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload[4].state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 431.0130310058594,
-        "y": 872.0103759765625,
-        "wires": [
-            [
-                "fffcfea8.d5045"
-            ]
-        ]
-    },
-    {
-        "id": "c71896ff.207c68",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "Trạng thái thiết bị số 5",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload[5].state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 430.0130310058594,
-        "y": 913.0103759765625,
-        "wires": [
-            [
-                "67c874c8.82d9bc"
-            ]
-        ]
     },
     {
         "id": "67c874c8.82d9bc",
@@ -543,8 +470,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 605.0129814147949,
-        "y": 913.0103921890259,
+        "x": 795.0129814147949,
+        "y": 997.0103921890259,
         "wires": []
     },
     {
@@ -569,63 +496,9 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 604.104248046875,
-        "y": 872.3020401000977,
+        "x": 794.104248046875,
+        "y": 956.3020401000977,
         "wires": []
-    },
-    {
-        "id": "6fbbd04e.2b2c5",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "Trạng thái thiết bị số 6",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload[6].state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 430.0130310058594,
-        "y": 954.8436889648438,
-        "wires": [
-            [
-                "73983b88.f4dad4"
-            ]
-        ]
-    },
-    {
-        "id": "d02663b5.b55c3",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "Trạng thái thiết bị số 7",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload[7].state",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 429.0130310058594,
-        "y": 995.8436889648438,
-        "wires": [
-            [
-                "5ae9c1.85d5f64"
-            ]
-        ]
     },
     {
         "id": "5ae9c1.85d5f64",
@@ -649,8 +522,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 604.0129814147949,
-        "y": 995.8437051773071,
+        "x": 794.0129814147949,
+        "y": 1079.8437051773071,
         "wires": []
     },
     {
@@ -675,8 +548,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 603.104248046875,
-        "y": 955.1353530883789,
+        "x": 793.104248046875,
+        "y": 1039.135353088379,
         "wires": []
     },
     {
@@ -778,14 +651,14 @@
         "type": "mqtt in",
         "z": "6c281c8f.cbebc4",
         "name": "[MQTT-IN]Phòng kho",
-        "topic": "request/HEOaetulJ9aT52hjqnlGKXGJG9K2/ByNwJX83M/fb9ed3c4fd00d68afd193da32dc8491c699707895565",
+        "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/SyT2EvERG/746c54c6d824e12706f4ffb0586bf2e4767327159547",
         "qos": "2",
         "broker": "81dc1f08.a421b",
-        "x": 105,
-        "y": 650,
+        "x": 273,
+        "y": 907,
         "wires": [
             [
-                "bb347159.0a591"
+                "3f2f06f1.cbf36a"
             ]
         ]
     },
@@ -796,12 +669,160 @@
         "name": "[REST][POST]Phòng kho",
         "method": "POST",
         "ret": "txt",
-        "url": "https://connect.mysmarthome.vn/api/1.0/request/HEOaetulJ9aT52hjqnlGKXGJG9K2/ByNwJX83M/fb9ed3c4fd00d68afd193da32dc8491c699707895565/req_device_toggle",
+        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/SyT2EvERG/746c54c6d824e12706f4ffb0586bf2e4767327159547/req_device_toggle",
         "tls": "",
         "x": 922,
         "y": 639,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "67e30919.159958",
+        "type": "json",
+        "z": "39a6f422.8555bc",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 165,
+        "y": 84,
+        "wires": [
+            [
+                "e05de98.f62e018"
+            ]
+        ]
+    },
+    {
+        "id": "68335739.619998",
+        "type": "switch",
+        "z": "39a6f422.8555bc",
+        "name": "Phân luồn",
+        "property": "relayId",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 8,
+        "x": 825.9869575500488,
+        "y": 288.1562738418579,
+        "wires": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e05de98.f62e018",
+        "type": "function",
+        "z": "39a6f422.8555bc",
+        "name": "Lặp",
+        "func": "if (!msg.states) {\n    msg.states = msg.payload\n    msg.i = 0\n    return msg;\n} else {\n    msg.i++\n    if (msg.states[msg.i])\n        return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 327.89060974121094,
+        "y": 83.33600330352783,
+        "wires": [
+            [
+                "d254b6f1.5776c8"
+            ]
+        ]
+    },
+    {
+        "id": "d254b6f1.5776c8",
+        "type": "function",
+        "z": "39a6f422.8555bc",
+        "name": "Lấy trạng thái thiết bị",
+        "func": "msg.relayId = msg.i\nmsg.payload = msg.states[msg.i].state\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 477.89060974121094,
+        "y": 183.33600330352783,
+        "wires": [
+            [
+                "e05de98.f62e018",
+                "68335739.619998"
+            ]
+        ]
+    },
+    {
+        "id": "3f2f06f1.cbf36a",
+        "type": "subflow:39a6f422.8555bc",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "x": 494,
+        "y": 907,
+        "wires": [
+            [
+                "f1cf4bb3.dd8498"
+            ],
+            [
+                "a4ab8ad8.4a9368"
+            ],
+            [
+                "b3c5af9f.6a0ce"
+            ],
+            [
+                "ee56bf79.426e5"
+            ],
+            [
+                "fffcfea8.d5045"
+            ],
+            [
+                "67c874c8.82d9bc"
+            ],
+            [
+                "73983b88.f4dad4"
+            ],
+            [
+                "5ae9c1.85d5f64"
+            ]
         ]
     }
 ]
