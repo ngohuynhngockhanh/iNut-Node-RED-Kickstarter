@@ -258,7 +258,7 @@
         "id": "62cc449d.959c9c",
         "type": "ui_group",
         "z": "",
-        "name": "Thứ 2",
+        "name": "Trạng thái biến tần",
         "tab": "294eb87b.b71b48",
         "order": 2,
         "disp": true,
@@ -288,11 +288,11 @@
         "id": "52cad39c.c8472c",
         "type": "ui_group",
         "z": "",
-        "name": "Thứ nhất",
+        "name": "PID",
         "tab": "294eb87b.b71b48",
         "order": 1,
         "disp": true,
-        "width": "6",
+        "width": "9",
         "collapse": true
     },
     {
@@ -315,6 +315,35 @@
     },
     {
         "id": "aa1345ad.c2b128",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt.mysmarthome.vn",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "f13a87ad.44b258",
+        "type": "ui_group",
+        "z": "",
+        "name": "Cài đặt thông số",
+        "tab": "294eb87b.b71b48",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "4d3f2f4b.ed3f7",
         "type": "mqtt-broker",
         "name": "",
         "broker": "mqtt.mysmarthome.vn",
@@ -358,7 +387,7 @@
         "wires": [
             [
                 "288ffa01.3284b6",
-                "526574f1.1b8c6c"
+                "8443b634.12fb18"
             ]
         ]
     },
@@ -371,12 +400,12 @@
         "order": 2,
         "width": "3",
         "height": "3",
-        "gtype": "gage",
-        "title": "D102",
+        "gtype": "donut",
+        "title": "Ki",
         "label": "",
         "format": "{{value}}",
         "min": 0,
-        "max": "3000",
+        "max": "1",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -397,12 +426,12 @@
         "order": 1,
         "width": "3",
         "height": "3",
-        "gtype": "gage",
-        "title": "D101",
+        "gtype": "donut",
+        "title": "Kp",
         "label": "",
         "format": "{{value}}",
         "min": 0,
-        "max": "3000",
+        "max": "2",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -419,16 +448,16 @@
         "type": "ui_gauge",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "group": "52cad39c.c8472c",
-        "order": 4,
+        "group": "62cc449d.959c9c",
+        "order": 1,
         "width": "3",
         "height": "3",
         "gtype": "gage",
-        "title": "D104",
-        "label": "",
+        "title": "Nhiệt độ",
+        "label": "°C",
         "format": "{{value}}",
-        "min": 0,
-        "max": "3000",
+        "min": "-5",
+        "max": "40",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -436,7 +465,7 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 890.013011932373,
+        "x": 900.013011932373,
         "y": 828.0104207992554,
         "wires": []
     },
@@ -450,11 +479,11 @@
         "width": "3",
         "height": "3",
         "gtype": "gage",
-        "title": "D103",
+        "title": "Kd",
         "label": "",
         "format": "{{value}}",
         "min": 0,
-        "max": "3000",
+        "max": "0.1",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -471,16 +500,16 @@
         "type": "ui_gauge",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "group": "62cc449d.959c9c",
-        "order": 2,
-        "width": "3",
+        "group": "52cad39c.c8472c",
+        "order": 4,
+        "width": "9",
         "height": "3",
-        "gtype": "gage",
-        "title": "D106",
+        "gtype": "donut",
+        "title": "Trạng thái biến tần",
         "label": "",
         "format": "{{value}}",
         "min": 0,
-        "max": "3000",
+        "max": "1",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -488,7 +517,7 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 888.013011932373,
+        "x": 928.013011932373,
         "y": 913.0104207992554,
         "wires": []
     },
@@ -498,15 +527,15 @@
         "z": "6c281c8f.cbebc4",
         "name": "",
         "group": "62cc449d.959c9c",
-        "order": 1,
+        "order": 2,
         "width": "3",
         "height": "3",
         "gtype": "gage",
-        "title": "D105",
-        "label": "",
+        "title": "Vout",
+        "label": "V",
         "format": "{{value}}",
         "min": 0,
-        "max": "3000",
+        "max": "5",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -519,63 +548,11 @@
         "wires": []
     },
     {
-        "id": "5ae9c1.85d5f64",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "62cc449d.959c9c",
-        "order": 4,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "D108",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "3000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 887.013011932373,
-        "y": 995.8437337875366,
-        "wires": []
-    },
-    {
-        "id": "73983b88.f4dad4",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "62cc449d.959c9c",
-        "order": 3,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "D107",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "3000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 886.1042785644531,
-        "y": 955.1353816986084,
-        "wires": []
-    },
-    {
         "id": "cc0ed351.1b9fd",
         "type": "ui_text",
         "z": "6c281c8f.cbebc4",
-        "group": "62cc449d.959c9c",
-        "order": 7,
+        "group": "f13a87ad.44b258",
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "",
@@ -608,8 +585,8 @@
         "z": "6c281c8f.cbebc4",
         "name": "Độ dài chuỗi",
         "label": "",
-        "group": "62cc449d.959c9c",
-        "order": 6,
+        "group": "f13a87ad.44b258",
+        "order": 3,
         "width": "2",
         "height": "1",
         "passthru": true,
@@ -772,8 +749,8 @@
         "id": "a49ad212.1f758",
         "type": "subflow:16fa6e68.10eb82",
         "z": "6c281c8f.cbebc4",
-        "name": "admin",
-        "x": 511,
+        "name": "",
+        "x": 541,
         "y": 838.0000076293945,
         "wires": [
             [
@@ -794,81 +771,8 @@
             [
                 "67c874c8.82d9bc"
             ],
-            [
-                "73983b88.f4dad4"
-            ],
-            [
-                "5ae9c1.85d5f64"
-            ]
-        ]
-    },
-    {
-        "id": "71632284.d426dc",
-        "type": "mqtt in",
-        "z": "6c281c8f.cbebc4",
-        "name": "[MQTT-IN]Phòng trưng bày đồng hồ",
-        "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/ByNwJX83M/856f770448497b5851e42da62c8b9826611112645005",
-        "qos": "2",
-        "broker": "aa1345ad.c2b128",
-        "x": 264.0000305175781,
-        "y": 838.3333930969238,
-        "wires": [
-            [
-                "a49ad212.1f758"
-            ]
-        ]
-    },
-    {
-        "id": "526574f1.1b8c6c",
-        "type": "http request",
-        "z": "6c281c8f.cbebc4",
-        "name": "[REST][POST]Phòng trưng bày đồng hồ",
-        "method": "POST",
-        "ret": "txt",
-        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/ByNwJX83M/856f770448497b5851e42da62c8b9826611112645005/req_device_toggle",
-        "tls": "",
-        "x": 1057.0000038146973,
-        "y": 625.333402633667,
-        "wires": [
+            [],
             []
-        ]
-    },
-    {
-        "id": "d59edc39.ac612",
-        "type": "ui_form",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "label": "Form thay đỏi thanh ghi D",
-        "group": "52cad39c.c8472c",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "options": [
-            {
-                "label": "D",
-                "value": "p",
-                "type": "number",
-                "required": true
-            },
-            {
-                "label": "Giá trị",
-                "value": "s",
-                "type": "number",
-                "required": true
-            }
-        ],
-        "formValue": {
-            "p": "",
-            "s": ""
-        },
-        "payload": "",
-        "topic": "",
-        "x": 146.38888931274414,
-        "y": 488.222225189209,
-        "wires": [
-            [
-                "16f6a3b4.e6d5dc"
-            ]
         ]
     },
     {
@@ -877,8 +781,8 @@
         "z": "6c281c8f.cbebc4",
         "name": "",
         "label": "Gửi lệnh xuống iNut cảm biến",
-        "group": "62cc449d.959c9c",
-        "order": 5,
+        "group": "f13a87ad.44b258",
+        "order": 2,
         "width": "4",
         "height": "1",
         "passthru": true,
@@ -896,34 +800,192 @@
         ]
     },
     {
-        "id": "16f6a3b4.e6d5dc",
-        "type": "function",
+        "id": "73c4c583.b9832c",
+        "type": "inject",
         "z": "6c281c8f.cbebc4",
-        "name": "Định nghĩa lệnh",
-        "func": "msg.payload.c = 2\n\nmsg.payload = JSON.stringify(msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 359.38888931274414,
-        "y": 487.8888931274414,
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 316.0963592529297,
+        "y": 744.9270515441895,
         "wires": [
             [
-                "e09a7350.a2dd5",
-                "5d8b6a73.0fb9d4"
+                "1496c498.38246b"
             ]
         ]
     },
     {
-        "id": "5d8b6a73.0fb9d4",
-        "type": "debug",
+        "id": "1496c498.38246b",
+        "type": "change",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 572.388916015625,
-        "y": 471,
-        "wires": []
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0.1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 481.0963592529297,
+        "y": 745.1822595596313,
+        "wires": [
+            [
+                "f1cf4bb3.dd8498"
+            ]
+        ]
+    },
+    {
+        "id": "f17fa833.11e018",
+        "type": "ui_form",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "label": "Đặt thông số PID",
+        "group": "f13a87ad.44b258",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Kp",
+                "value": "kp",
+                "type": "text",
+                "required": false
+            },
+            {
+                "label": "Ki",
+                "value": "ki",
+                "type": "text",
+                "required": false
+            },
+            {
+                "label": "Kd",
+                "value": "kd",
+                "type": "text",
+                "required": false
+            }
+        ],
+        "formValue": {
+            "kp": "",
+            "ki": "",
+            "kd": ""
+        },
+        "payload": "",
+        "topic": "",
+        "x": 202.01304626464844,
+        "y": 339.01041316986084,
+        "wires": [
+            [
+                "d1e1882a.f68ed8"
+            ]
+        ]
+    },
+    {
+        "id": "d1e1882a.f68ed8",
+        "type": "function",
+        "z": "6c281c8f.cbebc4",
+        "name": "Từ thông số tạo thành lệnh PID",
+        "func": "var data = msg.payload\ndata.kp = parseFloat(data.kp) || 0\ndata.ki = parseFloat(data.ki) || 0\ndata.kd = parseFloat(data.kd) || 0\ndata.kp *= 1000\ndata.ki *= 1000\ndata.kd *= 1000\nmsg.payload = \"PID \" + data.kp + \" \" + data.ki + \" \" + data.kd\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 485.01829528808594,
+        "y": 339.0130605697632,
+        "wires": [
+            [
+                "e09a7350.a2dd5"
+            ]
+        ]
+    },
+    {
+        "id": "91d70285.bd888",
+        "type": "ui_button",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "62cc449d.959c9c",
+        "order": 3,
+        "width": "3",
+        "height": "3",
+        "passthru": false,
+        "label": "Bật biến tần",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "RELAY ON",
+        "payloadType": "str",
+        "topic": "",
+        "x": 85.1015853881836,
+        "y": 385.6015691757202,
+        "wires": [
+            [
+                "e09a7350.a2dd5"
+            ]
+        ]
+    },
+    {
+        "id": "2b175b62.dfd554",
+        "type": "ui_button",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "62cc449d.959c9c",
+        "order": 4,
+        "width": "3",
+        "height": "3",
+        "passthru": false,
+        "label": "Tắt biến tần",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "RELAY OFF",
+        "payloadType": "str",
+        "topic": "",
+        "x": 85.01304626464844,
+        "y": 427.0103521347046,
+        "wires": [
+            [
+                "e09a7350.a2dd5"
+            ]
+        ]
+    },
+    {
+        "id": "f744dcbb.b3811",
+        "type": "mqtt in",
+        "z": "6c281c8f.cbebc4",
+        "name": "[MQTT-IN]Phòng y tế",
+        "topic": "request/kSxs2UbZt3OI2Ujp7gxrjRMVDT42/SyT2EvERG/3e7ea53f5ce3f2e445897a95362157cb631563917747",
+        "qos": "2",
+        "broker": "4d3f2f4b.ed3f7",
+        "x": 299.0130310058594,
+        "y": 839.0103015899658,
+        "wires": [
+            [
+                "a49ad212.1f758"
+            ]
+        ]
+    },
+    {
+        "id": "8443b634.12fb18",
+        "type": "http request",
+        "z": "6c281c8f.cbebc4",
+        "name": "[REST][POST]Phòng y tế",
+        "method": "POST",
+        "ret": "txt",
+        "url": "https://connect.mysmarthome.vn/api/1.0/request/kSxs2UbZt3OI2Ujp7gxrjRMVDT42/SyT2EvERG/3e7ea53f5ce3f2e445897a95362157cb631563917747/req_device_toggle",
+        "tls": "",
+        "x": 1004.0130157470703,
+        "y": 640.0103158950806,
+        "wires": [
+            []
+        ]
     }
 ]
