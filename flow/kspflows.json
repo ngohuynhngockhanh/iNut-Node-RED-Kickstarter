@@ -7,20 +7,6 @@
         "info": ""
     },
     {
-        "id": "e2f51a3e.7842b8",
-        "type": "tab",
-        "label": "Quản lý cơ sở dữ liệu",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "50c57a2c.280e84",
-        "type": "tab",
-        "label": "Thêm sinh viên",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "16fa6e68.10eb82",
         "type": "subflow",
         "name": "Lấy dữ từ iNut",
@@ -174,17 +160,17 @@
         "id": "f4134e17.6b60a",
         "type": "ui_base",
         "theme": {
-            "name": "theme-light",
+            "name": "theme-dark",
             "lightTheme": {
                 "default": "#0094CE",
-                "baseColor": "#0c9ec2",
+                "baseColor": "#ff8000",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
                 "edited": true,
                 "reset": false
             },
             "darkTheme": {
                 "default": "#097479",
-                "baseColor": "#097479",
+                "baseColor": "#ff8000",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
                 "edited": true,
                 "reset": false
@@ -192,22 +178,22 @@
             "customTheme": {
                 "name": "Untitled Theme 1",
                 "default": "#4B7930",
-                "baseColor": "#4B7930",
+                "baseColor": "#ff8000",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
                 "reset": false
             },
             "themeState": {
                 "base-color": {
-                    "default": "#0094CE",
-                    "value": "#0094CE",
+                    "default": "#097479",
+                    "value": "#ff8000",
                     "edited": true
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
+                    "value": "#ff8000",
                     "edited": false
                 },
                 "page-backgroundColor": {
-                    "value": "#fafafa",
+                    "value": "#111111",
                     "edited": false
                 },
                 "page-sidebar-backgroundColor": {
@@ -215,27 +201,27 @@
                     "edited": false
                 },
                 "group-textColor": {
-                    "value": "#1bbfff",
+                    "value": "#ffa64d",
                     "edited": false
                 },
                 "group-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#555555",
                     "edited": false
                 },
                 "group-backgroundColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "widget-textColor": {
-                    "value": "#111111",
+                    "value": "#eeeeee",
                     "edited": false
                 },
                 "widget-backgroundColor": {
-                    "value": "#0094ce",
+                    "value": "#ff8000",
                     "edited": false
                 },
                 "widget-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "base-font": {
@@ -264,7 +250,7 @@
         "id": "294eb87b.b71b48",
         "type": "ui_tab",
         "z": "",
-        "name": "Quản lý danh sách học sinh và phát báo cáo",
+        "name": "Cài dặt iNut PLC",
         "icon": "dashboard",
         "order": 1
     },
@@ -283,11 +269,11 @@
         "id": "52cad39c.c8472c",
         "type": "ui_group",
         "z": "",
-        "name": "Trang chính",
+        "name": "Danh sách thanh ghi",
         "tab": "294eb87b.b71b48",
         "order": 1,
         "disp": false,
-        "width": "13",
+        "width": "7",
         "collapse": false
     },
     {
@@ -330,8 +316,8 @@
         "id": "6cb23209.ac4bdc",
         "type": "serial-port",
         "z": "",
-        "serialport": "COM20",
-        "serialbaud": "115200",
+        "serialport": "COM5",
+        "serialbaud": "19200",
         "databits": "8",
         "parity": "none",
         "stopbits": "1",
@@ -347,22 +333,25 @@
         "db": "CSDL.sqlite"
     },
     {
-        "id": "cfac62dc.a7fc7",
-        "type": "ui_tab",
-        "z": "",
-        "name": "Quản lý sinh viên",
-        "icon": "dashboard",
-        "order": 2
-    },
-    {
         "id": "ec7724b8.908a88",
         "type": "ui_group",
         "z": "",
         "name": "Thêm sinh viên",
-        "tab": "cfac62dc.a7fc7",
+        "tab": "",
         "order": 1,
         "disp": false,
         "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "7a8f72d6.17b1fc",
+        "type": "ui_group",
+        "z": "",
+        "name": "Chỉnh sửa thông số thanh ghi",
+        "tab": "294eb87b.b71b48",
+        "order": 2,
+        "disp": true,
+        "width": "9",
         "collapse": false
     },
     {
@@ -497,13 +486,14 @@
         "id": "c9114c52.0f737",
         "type": "serial in",
         "z": "6c281c8f.cbebc4",
-        "name": "Serial",
+        "name": "",
         "serial": "6cb23209.ac4bdc",
-        "x": 291.50000190734863,
-        "y": 901.4444408416748,
+        "x": 84.5,
+        "y": 847.4444713592529,
         "wires": [
             [
-                "680204f1.e368ac"
+                "680204f1.e368ac",
+                "4096058f.8d5c7c"
             ]
         ]
     },
@@ -511,474 +501,388 @@
         "id": "680204f1.e368ac",
         "type": "debug",
         "z": "6c281c8f.cbebc4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 497.3888931274414,
-        "y": 945.333330154419,
-        "wires": []
-    },
-    {
-        "id": "cf2b74d1.583e28",
-        "type": "ui_template",
-        "z": "6c281c8f.cbebc4",
-        "group": "52cad39c.c8472c",
-        "name": "Bootstrap",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "format": "<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css\" integrity=\"sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB\" crossorigin=\"anonymous\">\n<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\" integrity=\"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49\" crossorigin=\"anonymous\"></script>\n<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js\" integrity=\"sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T\" crossorigin=\"anonymous\"></script>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "templateScope": "global",
-        "x": 254.38888549804688,
-        "y": 972,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "bc251cdb.13b0f",
-        "type": "inject",
-        "z": "e2f51a3e.7842b8",
-        "name": "",
-        "topic": "Tạo database",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 274,
-        "y": 126,
-        "wires": [
-            [
-                "6447ced4.dd9df"
-            ]
-        ]
-    },
-    {
-        "id": "6447ced4.dd9df",
-        "type": "change",
-        "z": "e2f51a3e.7842b8",
-        "name": "Tạo database sv",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "CREATE TABLE sv (id varchar(20) primary key, fullname varchar(255), dihoc int, nghihoc int, rs232 varchar(150));",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 522.2778167724609,
-        "y": 124.99999523162842,
-        "wires": [
-            [
-                "d84cbd9d.3a0f6"
-            ]
-        ]
-    },
-    {
-        "id": "d84cbd9d.3a0f6",
-        "type": "sqlite",
-        "z": "e2f51a3e.7842b8",
-        "mydb": "abcec69f.1875f8",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "CSDL.sqlite",
-        "x": 934.0000076293945,
-        "y": 160.99999904632568,
-        "wires": [
-            [
-                "f2cccafd.3cbdc8"
-            ]
-        ]
-    },
-    {
-        "id": "f2cccafd.3cbdc8",
-        "type": "debug",
-        "z": "e2f51a3e.7842b8",
-        "name": "Debug chung",
+        "name": "[Debug]Dữ liệu thô phản hồi",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "payload",
-        "x": 1121.277847290039,
-        "y": 161.44445133209229,
+        "x": 455.3888931274414,
+        "y": 1095.6668510437012,
         "wires": []
     },
     {
-        "id": "180017eb.4a7188",
-        "type": "change",
-        "z": "e2f51a3e.7842b8",
-        "name": "SELECT * sv",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "SELECT * FROM sv",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 512.77783203125,
-        "y": 171.66655826568604,
-        "wires": [
-            [
-                "d84cbd9d.3a0f6"
-            ]
-        ]
-    },
-    {
-        "id": "ba10242d.6af238",
-        "type": "inject",
-        "z": "e2f51a3e.7842b8",
-        "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 322.1666564941406,
-        "y": 171.44444370269775,
-        "wires": [
-            [
-                "180017eb.4a7188"
-            ]
-        ]
-    },
-    {
-        "id": "7178bd1b.36c244",
-        "type": "change",
-        "z": "e2f51a3e.7842b8",
-        "name": "DELETE * sv",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "DELETE FROM sv",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 697.77783203125,
-        "y": 357.66660022735596,
-        "wires": [
-            [
-                "d84cbd9d.3a0f6"
-            ]
-        ]
-    },
-    {
-        "id": "7881867c.68a178",
-        "type": "inject",
-        "z": "e2f51a3e.7842b8",
-        "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 322,
-        "y": 219.00000095367432,
-        "wires": [
-            [
-                "66cbf73c.11abc8",
-                "4378a797.6e4cc8",
-                "a95aac.05b74558"
-            ]
-        ]
-    },
-    {
-        "id": "66cbf73c.11abc8",
-        "type": "change",
-        "z": "e2f51a3e.7842b8",
-        "name": "1, \"Nguyễn Hoàng Phúc\", 31, 5, \"111\"",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "INSERT INTO sv(id, fullname, dihoc, nghihoc, rs232) VALUES (1, \"Nguyễn Hoàng Phúc\", 31, 5, \"111\");",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 587,
-        "y": 220.00000095367432,
-        "wires": [
-            [
-                "d84cbd9d.3a0f6"
-            ]
-        ]
-    },
-    {
-        "id": "4378a797.6e4cc8",
-        "type": "change",
-        "z": "e2f51a3e.7842b8",
-        "name": "2, \"Ưng Hoàng Phúc\", 30, 6, \"112\"",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "INSERT INTO sv(id, fullname, dihoc, nghihoc, rs232) VALUES (2, \"Ưng Hoàng Phúc\", 30, 6, \"112\");",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 578,
-        "y": 260.99999141693115,
-        "wires": [
-            [
-                "d84cbd9d.3a0f6"
-            ]
-        ]
-    },
-    {
-        "id": "a95aac.05b74558",
-        "type": "change",
-        "z": "e2f51a3e.7842b8",
-        "name": "3, \"Ưng Hoàng Thái Giáo\", 27, 9, \"113\"",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "INSERT INTO sv(id, fullname, dihoc, nghihoc, rs232) VALUES (3, \"Ưng Hoàng Thái Giáo\", 27, 9, \"113\");",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 587.0000038146973,
-        "y": 302.0000009536743,
-        "wires": [
-            [
-                "d84cbd9d.3a0f6"
-            ]
-        ]
-    },
-    {
-        "id": "f5ae418a.5497c",
-        "type": "inject",
-        "z": "e2f51a3e.7842b8",
-        "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 533,
-        "y": 357.33336544036865,
-        "wires": [
-            [
-                "7178bd1b.36c244"
-            ]
-        ]
-    },
-    {
-        "id": "a6976a89.c12f58",
-        "type": "sqlite",
+        "id": "aed41195.81a65",
+        "type": "serial out",
         "z": "6c281c8f.cbebc4",
-        "mydb": "abcec69f.1875f8",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "CSDL.sqlite",
-        "x": 585.8333892822266,
-        "y": 1224.6666345596313,
-        "wires": [
-            [
-                "dccade10.5172f",
-                "79ad6590.c5c86c"
-            ]
-        ]
+        "name": "",
+        "serial": "6cb23209.ac4bdc",
+        "x": 782.3888931274414,
+        "y": 505.9999942779541,
+        "wires": []
     },
     {
-        "id": "c135bfe3.557bf",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "SELECT * sv",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "SELECT * FROM sv",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 416.61116790771484,
-        "y": 1223.3330841064453,
-        "wires": [
-            [
-                "a6976a89.c12f58"
-            ]
-        ]
-    },
-    {
-        "id": "982aa300.d8c8f",
+        "id": "5a8b55a1.464b2c",
         "type": "inject",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "topic": "admin",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "5",
+        "topic": "Tự động 3s / lần",
+        "payload": "INFO",
+        "payloadType": "str",
+        "repeat": "3",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
-        "x": 272,
-        "y": 1223.1110801696777,
+        "x": 276.38890075683594,
+        "y": 513.7777824401855,
         "wires": [
             [
-                "c135bfe3.557bf"
+                "89abd1d1.d1dfb"
             ]
         ]
     },
     {
-        "id": "dccade10.5172f",
+        "id": "89abd1d1.d1dfb",
+        "type": "function",
+        "z": "6c281c8f.cbebc4",
+        "name": "Chuẩn bị lệnh",
+        "func": "msg.args = msg.args || {}\nmsg.args = JSON.stringify(msg.args)\nmsg.payload = msg.payload + \"$\" + msg.args + \"$\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 541.3888931274414,
+        "y": 532.2222466170788,
+        "wires": [
+            [
+                "aed41195.81a65",
+                "f9182bd0.f49c68"
+            ]
+        ]
+    },
+    {
+        "id": "f9182bd0.f49c68",
         "type": "debug",
         "z": "6c281c8f.cbebc4",
-        "name": "",
+        "name": "[Debug]Lệnh gửi đi tên là gì?",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
-        "x": 784,
-        "y": 1171.6666259765625,
+        "complete": "payload",
+        "x": 828.0000076293945,
+        "y": 592.0000247955322,
         "wires": []
     },
     {
-        "id": "478abd51.e2ba14",
-        "type": "ui_template",
+        "id": "20f56ab1.f9eca6",
+        "type": "ui_text",
         "z": "6c281c8f.cbebc4",
         "group": "52cad39c.c8472c",
-        "name": "Material Table Style",
-        "order": 0,
+        "order": 1,
         "width": 0,
         "height": 0,
-        "format": "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css\" crossorigin=\"anonymous\">\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/icon?family=Material+Icons\"  crossorigin=\"anonymous\">\n<script type=\"javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js\"></script>\n<script type=\"javascript\" src=\"https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js\"></script>\n<script type=\"javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js\"></script>\n<style>\n    div.material-table {\n  padding: 0;\n}\n\ndiv.material-table .hiddensearch {\n  padding: 0 14px 0 24px;\n  border-bottom: solid 1px #DDDDDD;\n  display: none;\n}\n\ndiv.material-table .hiddensearch input {\n  margin: 0;\n  border: transparent 0 !important;\n  height: 48px;\n  color: rgba(0, 0, 0, .84);\n}\n\ndiv.material-table .hiddensearch input:active {\n  border: transparent 0 !important;\n}\n\ndiv.material-table table {\n  table-layout: fixed;\n}\n\ndiv.material-table .table-header {\n  height: 64px;\n  padding-left: 24px;\n  padding-right: 14px;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  display: flex;\n  -webkit-display: flex;\n  border-bottom: solid 1px #DDDDDD;\n}\n\ndiv.material-table .table-header .actions {\n  display: -webkit-flex;\n  margin-left: auto;\n}\n\ndiv.material-table .table-header .btn-flat {\n    min-width: 36px;\n    padding: 0 8px;\n}\n\ndiv.material-table .table-header input {\n  margin: 0;\n  height: auto;\n}\n\ndiv.material-table .table-header i {\n  color: rgba(0, 0, 0, 0.54);\n  font-size: 24px;\n}\n\ndiv.material-table .table-footer {\n  height: 56px;\n  padding-left: 24px;\n  padding-right: 14px;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-flex-direction: row;\n  flex-direction: row;\n  -webkit-justify-content: flex-end;\n  justify-content: flex-end;\n  -webkit-align-items: center;\n  align-items: center;\n  font-size: 12px !important;\n  color: rgba(0, 0, 0, 0.54);\n}\n\ndiv.material-table .table-footer .dataTables_length {\n  display: -webkit-flex;\n  display: flex;\n}\n\ndiv.material-table .table-footer label {\n  font-size: 12px;\n  color: rgba(0, 0, 0, 0.54);\n  display: -webkit-flex;\n  display: flex;\n  -webkit-flex-direction: row\n  /* works with row or column */\n  \n  flex-direction: row;\n  -webkit-align-items: center;\n  align-items: center;\n  -webkit-justify-content: center;\n  justify-content: center;\n}\n\ndiv.material-table .table-footer .select-wrapper {\n  display: -webkit-flex;\n  display: flex;\n  -webkit-flex-direction: row\n  /* works with row or column */\n  \n  flex-direction: row;\n  -webkit-align-items: center;\n  align-items: center;\n  -webkit-justify-content: center;\n  justify-content: center;\n}\n\ndiv.material-table .table-footer .dataTables_info,\ndiv.material-table .table-footer .dataTables_length {\n  margin-right: 32px;\n}\n\ndiv.material-table .table-footer .material-pagination {\n  display: flex;\n  -webkit-display: flex;\n  margin: 0;\n}\n\ndiv.material-table .table-footer .material-pagination li:first-child {\n  margin-right: 24px;\n}\n\ndiv.material-table .table-footer .material-pagination li a {\n  color: rgba(0, 0, 0, 0.54);\n}\n\ndiv.material-table .table-footer .select-wrapper input.select-dropdown {\n  margin: 0;\n  border-bottom: none;\n  height: auto;\n  line-height: normal;\n  font-size: 12px;\n  width: 40px;\n  text-align: right;\n}\n\ndiv.material-table .table-footer select {\n  background-color: transparent;\n  width: auto;\n  padding: 0;\n  border: 0;\n  border-radius: 0;\n  height: auto;\n  margin-left: 20px;\n}\n\ndiv.material-table .table-title {\n  font-size: 20px;\n  color: #000;\n}\n\ndiv.material-table table tr td {\n  padding: 0 0 0 56px;\n  height: 48px;\n  font-size: 13px;\n  color: rgba(0, 0, 0, 0.87);\n  border-bottom: solid 1px #DDDDDD;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n\ndiv.material-table table tr td a {\n  color: inherit;\n}\n\ndiv.material-table table tr td a i {\n  font-size: 18px;\n  color: rgba(0, 0, 0, 0.54);\n}\n\ndiv.material-table table tr {\n  font-size: 12px;\n}\n\ndiv.material-table table th {\n  font-size: 12px;\n  font-weight: 500;\n  color: #757575;\n  cursor: pointer;\n  white-space: nowrap;\n  padding: 0;\n  height: 56px;\n  padding-left: 56px;\n  vertical-align: middle;\n  outline: none !important;\n}\n\ndiv.material-table table th.sorting_asc,\ndiv.material-table table th.sorting_desc {\n  color: rgba(0, 0, 0, 0.87);\n}\n\ndiv.material-table table th.sorting:after,\ndiv.material-table table th.sorting_asc:after,\ndiv.material-table table th.sorting_desc:after {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 16px;\n  line-height: 1;\n  letter-spacing: normal;\n  text-transform: none;\n  display: inline-block;\n  word-wrap: normal;\n  -webkit-font-feature-settings: 'liga';\n  -webkit-font-smoothing: antialiased;\n  content: \"arrow_back\";\n  -webkit-transform: rotate(90deg);\n  display: none;\n  vertical-align: middle;\n}\n\ndiv.material-table table th.sorting:hover:after,\ndiv.material-table table th.sorting_asc:after,\ndiv.material-table table th.sorting_desc:after {\n  display: inline-block;\n}\n\ndiv.material-table table th.sorting_desc:after {\n  content: \"arrow_forward\";\n}\n\ndiv.material-table table tbody tr:hover {\n  background-color: #EEE;\n}\n\ndiv.material-table table th:first-child,\ndiv.material-table table td:first-child {\n  padding: 0 0 0 24px;\n}\n\ndiv.material-table table th:last-child,\ndiv.material-table table td:last-child {\n  padding: 0 14px 0 0;\n}\n</style>\n<script type=\"text/javascript\">\n    (function(window, document, undefined) {\n\n  var factory = function($, DataTable) {\n    \"use strict\";\n\n    $('.search-toggle').click(function() {\n      if ($('.hiddensearch').css('display') == 'none')\n        $('.hiddensearch').slideDown();\n      else\n        $('.hiddensearch').slideUp();\n    });\n\n    /* Set the defaults for DataTables initialisation */\n    $.extend(true, DataTable.defaults, {\n      dom: \"<'hiddensearch'f'>\" +\n        \"tr\" +\n        \"<'table-footer'lip'>\",\n      renderer: 'material'\n    });\n\n    /* Default class modification */\n    $.extend(DataTable.ext.classes, {\n      sWrapper: \"dataTables_wrapper\",\n      sFilterInput: \"form-control input-sm\",\n      sLengthSelect: \"form-control input-sm\"\n    });\n\n    /* Bootstrap paging button renderer */\n    DataTable.ext.renderer.pageButton.material = function(settings, host, idx, buttons, page, pages) {\n      var api = new DataTable.Api(settings);\n      var classes = settings.oClasses;\n      var lang = settings.oLanguage.oPaginate;\n      var btnDisplay, btnClass, counter = 0;\n\n      var attach = function(container, buttons) {\n        var i, ien, node, button;\n        var clickHandler = function(e) {\n          e.preventDefault();\n          if (!$(e.currentTarget).hasClass('disabled')) {\n            api.page(e.data.action).draw(false);\n          }\n        };\n\n        for (i = 0, ien = buttons.length; i < ien; i++) {\n          button = buttons[i];\n\n          if ($.isArray(button)) {\n            attach(container, button);\n          } else {\n            btnDisplay = '';\n            btnClass = '';\n\n            switch (button) {\n\n              case 'first':\n                btnDisplay = lang.sFirst;\n                btnClass = button + (page > 0 ?\n                  '' : ' disabled');\n                break;\n\n              case 'previous':\n                btnDisplay = '<i class=\"material-icons\">chevron_left</i>';\n                btnClass = button + (page > 0 ?\n                  '' : ' disabled');\n                break;\n\n              case 'next':\n                btnDisplay = '<i class=\"material-icons\">chevron_right</i>';\n                btnClass = button + (page < pages - 1 ?\n                  '' : ' disabled');\n                break;\n\n              case 'last':\n                btnDisplay = lang.sLast;\n                btnClass = button + (page < pages - 1 ?\n                  '' : ' disabled');\n                break;\n\n            }\n\n            if (btnDisplay) {\n              node = $('<li>', {\n                  'class': classes.sPageButton + ' ' + btnClass,\n                  'id': idx === 0 && typeof button === 'string' ?\n                    settings.sTableId + '_' + button : null\n                })\n                .append($('<a>', {\n                    'href': '#',\n                    'aria-controls': settings.sTableId,\n                    'data-dt-idx': counter,\n                    'tabindex': settings.iTabIndex\n                  })\n                  .html(btnDisplay)\n                )\n                .appendTo(container);\n\n              settings.oApi._fnBindAction(\n                node, {\n                  action: button\n                }, clickHandler\n              );\n\n              counter++;\n            }\n          }\n        }\n      };\n\n      // IE9 throws an 'unknown error' if document.activeElement is used\n      // inside an iframe or frame. \n      var activeEl;\n\n      try {\n        // Because this approach is destroying and recreating the paging\n        // elements, focus is lost on the select button which is bad for\n        // accessibility. So we want to restore focus once the draw has\n        // completed\n        activeEl = $(document.activeElement).data('dt-idx');\n      } catch (e) {}\n\n      attach(\n        $(host).empty().html('<ul class=\"material-pagination\"/>').children('ul'),\n        buttons\n      );\n\n      if (activeEl) {\n        $(host).find('[data-dt-idx=' + activeEl + ']').focus();\n      }\n    };\n\n    /*\n     * TableTools Bootstrap compatibility\n     * Required TableTools 2.1+\n     */\n    if (DataTable.TableTools) {\n      // Set the classes that TableTools uses to something suitable for Bootstrap\n      $.extend(true, DataTable.TableTools.classes, {\n        \"container\": \"DTTT btn-group\",\n        \"buttons\": {\n          \"normal\": \"btn btn-default\",\n          \"disabled\": \"disabled\"\n        },\n        \"collection\": {\n          \"container\": \"DTTT_dropdown dropdown-menu\",\n          \"buttons\": {\n            \"normal\": \"\",\n            \"disabled\": \"disabled\"\n          }\n        },\n        \"print\": {\n          \"info\": \"DTTT_print_info\"\n        },\n        \"select\": {\n          \"row\": \"active\"\n        }\n      });\n\n      // Have the collection use a material compatible drop down\n      $.extend(true, DataTable.TableTools.DEFAULTS.oTags, {\n        \"collection\": {\n          \"container\": \"ul\",\n          \"button\": \"li\",\n          \"liner\": \"a\"\n        }\n      });\n    }\n\n  }; // /factory\n\n  // Define as an AMD module if possible\n  if (typeof define === 'function' && define.amd) {\n    define(['jquery', 'datatables'], factory);\n  } else if (typeof exports === 'object') {\n    // Node/CommonJS\n    factory(require('jquery'), require('datatables'));\n  } else if (jQuery) {\n    // Otherwise simply initialise as normal, stopping multiple evaluation\n    factory(jQuery, jQuery.fn.dataTable);\n  }\n\n})(window, document);\n\n$(document).ready(function() {\n  $('#datatable').dataTable({\n    \"oLanguage\": {\n      \"sStripClasses\": \"\",\n      \"sSearch\": \"\",\n      \"sSearchPlaceholder\": \"Enter Keywords Here\",\n      \"sInfo\": \"_START_ -_END_ of _TOTAL_\",\n      \"sLengthMenu\": '<span>Rows per page:</span><select class=\"browser-default\">' +\n        '<option value=\"10\">10</option>' +\n        '<option value=\"20\">20</option>' +\n        '<option value=\"30\">30</option>' +\n        '<option value=\"40\">40</option>' +\n        '<option value=\"50\">50</option>' +\n        '<option value=\"-1\">All</option>' +\n        '</select></div>'\n    },\n    bAutoWidth: false\n  });\n});\n</script>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "templateScope": "global",
-        "x": 284.38888931274414,
-        "y": 1014.0000076293945,
+        "name": "",
+        "label": "Luồng cảm biến 1",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1242.3889541625977,
+        "y": 604.3333377838135,
+        "wires": []
+    },
+    {
+        "id": "60357a34.177fb4",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "52cad39c.c8472c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Luồng cảm biến 2",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1241.0000381469727,
+        "y": 645.9999942779541,
+        "wires": []
+    },
+    {
+        "id": "f10e7f1f.5ac6b",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "52cad39c.c8472c",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Luồng cảm biến 3",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1241.0000381469727,
+        "y": 687.9999942779541,
+        "wires": []
+    },
+    {
+        "id": "e789010c.999c",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "52cad39c.c8472c",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Luồng cảm biến 4",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1239.6111221313477,
+        "y": 729.6666507720947,
+        "wires": []
+    },
+    {
+        "id": "418a1c9.d4308e4",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "52cad39c.c8472c",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Luồng cảm biến 5",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1238.0000381469727,
+        "y": 772.9999942779541,
+        "wires": []
+    },
+    {
+        "id": "e7838a64.83ac18",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "52cad39c.c8472c",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Luồng cảm biến 6",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1236.6111221313477,
+        "y": 814.6666507720947,
+        "wires": []
+    },
+    {
+        "id": "e3d06003.84606",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "52cad39c.c8472c",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Luồng cảm biến 7",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1236.6111221313477,
+        "y": 856.6666507720947,
+        "wires": []
+    },
+    {
+        "id": "88865f16.04c7",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "52cad39c.c8472c",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Luồng cảm biến 8",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1235.2222061157227,
+        "y": 898.3333072662354,
+        "wires": []
+    },
+    {
+        "id": "58d4a6a9.93d398",
+        "type": "function",
+        "z": "6c281c8f.cbebc4",
+        "name": "Hiển thị thông tin các luồng cảm biến",
+        "func": "var type = {\n    0: \"INTEGER\",\n    1: \"FLOAT\"\n}\nconst REGISTER_COUNT = 8\n\nvar msgs = []\n\n\n\nfor (var i = 0; i < REGISTER_COUNT; i++) {\n    \n    var reg = msg.payload.registers[i]\n    var payload = \"D\" + reg.register + \"(\" + (40001 + parseInt(reg.register, 10)) + \") \" + reg.size + \" word/\"  + type[reg.type]\n    msgs.push({payload: payload})\n}\n\nreturn msgs",
+        "outputs": 8,
+        "noerr": 0,
+        "x": 841.3888931274414,
+        "y": 746.1113128662109,
         "wires": [
-            []
+            [
+                "20f56ab1.f9eca6"
+            ],
+            [
+                "60357a34.177fb4"
+            ],
+            [
+                "f10e7f1f.5ac6b"
+            ],
+            [
+                "e789010c.999c"
+            ],
+            [
+                "418a1c9.d4308e4"
+            ],
+            [
+                "e7838a64.83ac18"
+            ],
+            [
+                "e3d06003.84606"
+            ],
+            [
+                "88865f16.04c7"
+            ]
+        ],
+        "outputLabels": [
+            "Thông tin 1",
+            "Thông tin 2",
+            "Thông tin 3",
+            "Thông tin 4",
+            "Thông tin 5",
+            "Thông tin 6",
+            "Thông tin 7",
+            "Thông tin 8"
         ]
     },
     {
-        "id": "ec4e1e5e.47f47",
-        "type": "ui_template",
+        "id": "4096058f.8d5c7c",
+        "type": "json",
         "z": "6c281c8f.cbebc4",
-        "group": "52cad39c.c8472c",
-        "name": "Giao diện danh sách sinh viên",
-        "order": 0,
-        "width": "13",
-        "height": "10",
-        "format": "<div class=\"row\">\n  <div id=\"admin\" class=\"col s12\">\n    <div class=\"card material-table\">\n      <div class=\"table-header\">\n        <span class=\"table-title\">Quản lý sinh viên</span>\n        <div class=\"actions\">\n          <!--<a href=\"#add_users\" class=\"modal-trigger waves-effect btn-flat nopadding\" ng-click=\"send({topic: 'add_user', users: msg.users})\"><i class=\"material-icons\">person_add</i></a>-->\n          <!--<a href=\"#\" class=\"search-toggle waves-effect btn-flat nopadding\"><i class=\"material-icons\">search</i></a>-->\n        </div>\n      </div>\n      <table id=\"datatable\">\n        <thead>\n          <tr>\n            <th>MSSV</th>\n            <th colspan=\"3\">Họ và tên</th>\n            <th>Số ngày nghỉ</th>\n            <th>Số ngày học</th>\n            <th>RFID string</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr ng-repeat=\"user in msg.users\">\n            <td>{{user.id}}</td>\n            <td colspan=\"3\">{{user.fullname}}</td>\n            <td>{{user.dihoc}}</td>\n            <td>{{user.nghihoc}}</td>\n            <td>{{user.rs232}}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n</div>",
-        "storeOutMessages": false,
-        "fwdInMessages": true,
-        "templateScope": "local",
-        "x": 1175.604133605957,
-        "y": 1224.287010192871,
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 241.38888931274414,
+        "y": 793.1112995147705,
         "wires": [
             [
-                "b9d2590f.bf7ba8"
+                "a0f65547.5784f8"
             ]
         ]
     },
     {
-        "id": "b9d2590f.bf7ba8",
+        "id": "a0f65547.5784f8",
         "type": "switch",
         "z": "6c281c8f.cbebc4",
-        "name": "Kiểm tra topic",
-        "property": "topic",
+        "name": "Phân luồn lệnh",
+        "property": "payload.command",
         "propertyType": "msg",
         "rules": [
             {
                 "t": "eq",
-                "v": "add_user",
+                "v": "INFO",
                 "vt": "str"
             },
             {
                 "t": "eq",
-                "v": "",
+                "v": "DREG",
                 "vt": "str"
             },
             {
                 "t": "eq",
-                "v": "",
+                "v": "VER",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "HELP",
                 "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 3,
-        "x": 1425.0578651428223,
-        "y": 1224.8565483093262,
+        "outputs": 4,
+        "x": 399.38891983032227,
+        "y": 792.4444704055786,
         "wires": [
-            [],
-            [],
-            []
+            [
+                "58d4a6a9.93d398"
+            ],
+            [
+                "633e4f01.11c9"
+            ],
+            [
+                "633e4f01.11c9"
+            ],
+            [
+                "633e4f01.11c9"
+            ]
         ]
     },
     {
-        "id": "79ad6590.c5c86c",
+        "id": "6e0f5066.77068",
+        "type": "ui_form",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "label": "Thiết đặt thanh ghi",
+        "group": "7a8f72d6.17b1fc",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Luồng thanh ghi",
+                "value": "index",
+                "type": "number",
+                "required": true
+            },
+            {
+                "label": "Địa chỉ thanh ghi",
+                "value": "pin",
+                "type": "number",
+                "required": true
+            },
+            {
+                "label": "Kích thước",
+                "value": "size",
+                "type": "number",
+                "required": true
+            },
+            {
+                "label": "Kiểu dữ liệu",
+                "value": "type",
+                "type": "number",
+                "required": true
+            }
+        ],
+        "formValue": {
+            "index": "",
+            "pin": "",
+            "size": "",
+            "type": ""
+        },
+        "payload": "",
+        "topic": "",
+        "x": 123.388916015625,
+        "y": 576.6666173934937,
+        "wires": [
+            [
+                "e61e9007.d7cb8"
+            ]
+        ]
+    },
+    {
+        "id": "e61e9007.d7cb8",
         "type": "change",
         "z": "6c281c8f.cbebc4",
-        "name": "Chuyển database sv sang biến users",
+        "name": "DREG",
         "rules": [
             {
                 "t": "set",
-                "p": "users",
+                "p": "args",
                 "pt": "msg",
                 "to": "payload",
                 "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "DREG",
+                "tot": "str"
             }
         ],
         "action": "",
@@ -986,232 +890,43 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 869.25,
-        "y": 1224.2058458328247,
+        "x": 287.3888931274414,
+        "y": 576.1111154556274,
         "wires": [
             [
-                "ec4e1e5e.47f47"
+                "89abd1d1.d1dfb"
             ]
         ]
     },
     {
-        "id": "d693cb93.8374b8",
-        "type": "ui_audio",
+        "id": "d0736f2f.f3eaf",
+        "type": "ui_text",
         "z": "6c281c8f.cbebc4",
+        "group": "7a8f72d6.17b1fc",
+        "order": 2,
+        "width": 0,
+        "height": 0,
         "name": "",
-        "group": "52cad39c.c8472c",
-        "voice": "en-GB",
-        "always": false,
-        "x": 1178.1736373901367,
-        "y": 1052.9675607681274,
+        "label": "Dữ liệu",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 774.1112327575684,
+        "y": 857.3333187103271,
         "wires": []
     },
     {
-        "id": "9d6ebc90.34547",
-        "type": "inject",
+        "id": "633e4f01.11c9",
+        "type": "json",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 830.955940246582,
-        "y": 1022.9164838790894,
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 612.6111373901367,
+        "y": 857.5555419921875,
         "wires": [
             [
-                "5d5ad895.070038"
-            ]
-        ]
-    },
-    {
-        "id": "5d5ad895.070038",
-        "type": "file in",
-        "z": "6c281c8f.cbebc4",
-        "name": "Đi học",
-        "filename": "dihoc.mp3",
-        "format": "",
-        "chunk": false,
-        "sendError": false,
-        "x": 991.173713684082,
-        "y": 1023.2939043045044,
-        "wires": [
-            [
-                "d693cb93.8374b8"
-            ]
-        ]
-    },
-    {
-        "id": "472710d3.a6d07",
-        "type": "inject",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 832.6411972045898,
-        "y": 1069.138840675354,
-        "wires": [
-            [
-                "356760f2.bf89b"
-            ]
-        ]
-    },
-    {
-        "id": "356760f2.bf89b",
-        "type": "file in",
-        "z": "6c281c8f.cbebc4",
-        "name": "Ở nhà luôn đi",
-        "filename": "kodihoc.mp3",
-        "format": "",
-        "chunk": false,
-        "sendError": false,
-        "x": 1022.8589706420898,
-        "y": 1069.516261100769,
-        "wires": [
-            [
-                "d693cb93.8374b8"
-            ]
-        ]
-    },
-    {
-        "id": "50186375.7a261c",
-        "type": "ui_form",
-        "z": "50c57a2c.280e84",
-        "name": "",
-        "label": "Thêm sinh viên",
-        "group": "ec7724b8.908a88",
-        "order": 0,
-        "width": "0",
-        "height": "0",
-        "options": [
-            {
-                "label": "MSSV",
-                "value": "id",
-                "type": "text",
-                "required": true
-            },
-            {
-                "label": "Họ và tên",
-                "value": "fullname",
-                "type": "text",
-                "required": true
-            },
-            {
-                "label": "Số ngày học",
-                "value": "dihoc",
-                "type": "number",
-                "required": false
-            },
-            {
-                "label": "Số ngày nghỉ",
-                "value": "nghihoc",
-                "type": "number",
-                "required": false
-            },
-            {
-                "label": "RFID String",
-                "value": "rs232",
-                "type": "text",
-                "required": true
-            }
-        ],
-        "formValue": {
-            "id": "",
-            "fullname": "",
-            "dihoc": "",
-            "nghihoc": "",
-            "rs232": ""
-        },
-        "payload": "",
-        "topic": "",
-        "x": 208.01156616210938,
-        "y": 151.02777099609375,
-        "wires": [
-            [
-                "5da028c4.4418e8"
-            ]
-        ]
-    },
-    {
-        "id": "7254ab49.655af4",
-        "type": "sqlite",
-        "z": "50c57a2c.280e84",
-        "mydb": "abcec69f.1875f8",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "CSDL.sqlite",
-        "x": 620.0115356445312,
-        "y": 150.02776908874512,
-        "wires": [
-            [
-                "90857322.f024d",
-                "8c7e3ff6.e658e"
-            ]
-        ]
-    },
-    {
-        "id": "90857322.f024d",
-        "type": "debug",
-        "z": "50c57a2c.280e84",
-        "name": "Debug chung",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 807.2893753051758,
-        "y": 150.47222137451172,
-        "wires": []
-    },
-    {
-        "id": "5da028c4.4418e8",
-        "type": "function",
-        "z": "50c57a2c.280e84",
-        "name": "Thêm sinh viên",
-        "func": "var u = msg.payload\nmsg.topic = `INSERT INTO sv(id, fullname, dihoc, nghihoc, rs232) VALUES (\"${u.id}\", \"${u.fullname}\", ${u.dihoc}, ${u.nghihoc}, \"${u.rs232}\")`\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 429.2546272277832,
-        "y": 150.28471279144287,
-        "wires": [
-            [
-                "7254ab49.655af4"
-            ]
-        ]
-    },
-    {
-        "id": "92bf7917.6e2cc8",
-        "type": "ui_audio",
-        "z": "50c57a2c.280e84",
-        "name": "",
-        "group": "ec7724b8.908a88",
-        "voice": "en-GB",
-        "always": false,
-        "x": 1081.4451751708984,
-        "y": 278.6111183166504,
-        "wires": []
-    },
-    {
-        "id": "8c7e3ff6.e658e",
-        "type": "file in",
-        "z": "50c57a2c.280e84",
-        "name": "Thêm thành công",
-        "filename": "themthanhcong.mp3",
-        "format": "",
-        "chunk": false,
-        "sendError": false,
-        "x": 838.7309112548828,
-        "y": 254.65175247192383,
-        "wires": [
-            [
-                "92bf7917.6e2cc8"
+                "d0736f2f.f3eaf"
             ]
         ]
     }
