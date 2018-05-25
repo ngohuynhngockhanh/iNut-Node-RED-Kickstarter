@@ -418,6 +418,24 @@
         "collapse": false
     },
     {
+        "id": "53a77427.5ca01c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt.mysmarthome.vn",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
         "id": "288ffa01.3284b6",
         "type": "debug",
         "z": "6c281c8f.cbebc4",
@@ -444,7 +462,7 @@
         "wires": [
             [
                 "288ffa01.3284b6",
-                "832bfda5.97f0e"
+                "3ed81bde.f711f4"
             ]
         ]
     },
@@ -1142,39 +1160,6 @@
         ]
     },
     {
-        "id": "23287383.247aac",
-        "type": "mqtt in",
-        "z": "6c281c8f.cbebc4",
-        "name": "[MQTT-IN]Phòng kho",
-        "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/BkF4e0WJQ/3a6fb86590314327a501becf855bd9a8799637734234",
-        "qos": "2",
-        "broker": "99ce0c49.9ff2a",
-        "x": 168.4443817138672,
-        "y": 981.5555477142334,
-        "wires": [
-            [
-                "a49ad212.1f758"
-            ]
-        ]
-    },
-    {
-        "id": "832bfda5.97f0e",
-        "type": "http request",
-        "z": "6c281c8f.cbebc4",
-        "name": "[REST][POST]Phòng kho",
-        "method": "POST",
-        "ret": "txt",
-        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/BkF4e0WJQ/3a6fb86590314327a501becf855bd9a8799637734234/req_device_toggle",
-        "tls": "",
-        "x": 1459.4444618225098,
-        "y": 584.5555610656738,
-        "wires": [
-            [
-                "e012d974.fbcbf8"
-            ]
-        ]
-    },
-    {
         "id": "1b6d987.9253b68",
         "type": "change",
         "z": "6c281c8f.cbebc4",
@@ -1741,10 +1726,10 @@
         "id": "4880942e.7d719c",
         "type": "http request",
         "z": "6c281c8f.cbebc4",
-        "name": "[REST][GET]Phòng kho",
+        "name": "[REST][GET]Phòng abc",
         "method": "GET",
         "ret": "txt",
-        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/BkF4e0WJQ/3a6fb86590314327a501becf855bd9a8799637734234/req_device",
+        "url": "https://connect.mysmarthome.vn/api/1.0/request/M8CAy3HeBFRgpl2crx0XGCRH9Kd2/S1cvXG4km/b68e02a7ce5df6dc0d441300cfaff3f7542951809614/req_device",
         "tls": "",
         "x": 1462.6666259765625,
         "y": 454.5555419921875,
@@ -1767,6 +1752,39 @@
         "wires": [
             [
                 "7a946284.69f28c"
+            ]
+        ]
+    },
+    {
+        "id": "7d053e2e.b6436",
+        "type": "mqtt in",
+        "z": "6c281c8f.cbebc4",
+        "name": "[MQTT-IN]Phòng uống bia",
+        "topic": "request/M8CAy3HeBFRgpl2crx0XGCRH9Kd2/S1cvXG4km/b68e02a7ce5df6dc0d441300cfaff3f7542951809614",
+        "qos": "2",
+        "broker": "53a77427.5ca01c",
+        "x": 160.00000381469727,
+        "y": 1010.999979019165,
+        "wires": [
+            [
+                "a49ad212.1f758"
+            ]
+        ]
+    },
+    {
+        "id": "3ed81bde.f711f4",
+        "type": "http request",
+        "z": "6c281c8f.cbebc4",
+        "name": "[REST][POST]Phòng uống bia",
+        "method": "POST",
+        "ret": "txt",
+        "url": "https://connect.mysmarthome.vn/api/1.0/request/M8CAy3HeBFRgpl2crx0XGCRH9Kd2/S1cvXG4km/b68e02a7ce5df6dc0d441300cfaff3f7542951809614/req_device_toggle",
+        "tls": "",
+        "x": 1449.0000457763672,
+        "y": 589.000018119812,
+        "wires": [
+            [
+                "e012d974.fbcbf8"
             ]
         ]
     }
