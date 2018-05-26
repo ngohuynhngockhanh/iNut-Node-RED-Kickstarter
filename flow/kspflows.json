@@ -160,7 +160,7 @@
         "id": "f4134e17.6b60a",
         "type": "ui_base",
         "theme": {
-            "name": "theme-dark",
+            "name": "theme-custom",
             "lightTheme": {
                 "default": "#0094CE",
                 "baseColor": "#ff8000",
@@ -171,12 +171,12 @@
             "darkTheme": {
                 "default": "#097479",
                 "baseColor": "#ff8000",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "baseFont": "Century Gothic,CenturyGothic,AppleGothic,sans-serif",
                 "edited": true,
                 "reset": false
             },
             "customTheme": {
-                "name": "Untitled Theme 1",
+                "name": "Dark iNt",
                 "default": "#4B7930",
                 "baseColor": "#ff8000",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
@@ -184,7 +184,7 @@
             },
             "themeState": {
                 "base-color": {
-                    "default": "#097479",
+                    "default": "#ff8000",
                     "value": "#ff8000",
                     "edited": true
                 },
@@ -193,35 +193,35 @@
                     "edited": false
                 },
                 "page-backgroundColor": {
-                    "value": "#111111",
-                    "edited": false
+                    "value": "#818181",
+                    "edited": true
                 },
                 "page-sidebar-backgroundColor": {
                     "value": "#ffffff",
                     "edited": false
                 },
                 "group-textColor": {
-                    "value": "#ffa64d",
-                    "edited": false
+                    "value": "#fd7e00",
+                    "edited": true
                 },
                 "group-borderColor": {
-                    "value": "#555555",
-                    "edited": false
+                    "value": "#d2d2d2",
+                    "edited": true
                 },
                 "group-backgroundColor": {
-                    "value": "#333333",
-                    "edited": false
+                    "value": "#efefef",
+                    "edited": true
                 },
                 "widget-textColor": {
-                    "value": "#eeeeee",
+                    "value": "#111111",
                     "edited": false
                 },
                 "widget-backgroundColor": {
-                    "value": "#ff8000",
-                    "edited": false
+                    "value": "#ff8f20",
+                    "edited": true
                 },
                 "widget-borderColor": {
-                    "value": "#333333",
+                    "value": "#ffffff",
                     "edited": false
                 },
                 "base-font": {
@@ -272,8 +272,8 @@
         "name": "Danh sách thanh ghi",
         "tab": "294eb87b.b71b48",
         "order": 1,
-        "disp": false,
-        "width": "7",
+        "disp": true,
+        "width": "6",
         "collapse": false
     },
     {
@@ -351,7 +351,40 @@
         "tab": "294eb87b.b71b48",
         "order": 2,
         "disp": true,
-        "width": "9",
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "7c317533.cdb80c",
+        "type": "ui_group",
+        "z": "",
+        "name": "Nút nhấn nhanh",
+        "tab": "294eb87b.b71b48",
+        "order": 4,
+        "disp": true,
+        "width": "3",
+        "collapse": false
+    },
+    {
+        "id": "d42d02b5.bbdbc",
+        "type": "ui_group",
+        "z": "",
+        "name": "Thông số iNut PLC",
+        "tab": "294eb87b.b71b48",
+        "order": 3,
+        "disp": true,
+        "width": "3",
+        "collapse": false
+    },
+    {
+        "id": "5b2fcdbc.873ea4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Lịch sử phản hồi",
+        "tab": "294eb87b.b71b48",
+        "order": 5,
+        "disp": true,
+        "width": "6",
         "collapse": false
     },
     {
@@ -502,74 +535,13 @@
         "type": "debug",
         "z": "6c281c8f.cbebc4",
         "name": "[Debug]Dữ liệu thô phản hồi",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "payload",
         "x": 455.3888931274414,
         "y": 1095.6668510437012,
-        "wires": []
-    },
-    {
-        "id": "aed41195.81a65",
-        "type": "serial out",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "serial": "6cb23209.ac4bdc",
-        "x": 782.3888931274414,
-        "y": 505.9999942779541,
-        "wires": []
-    },
-    {
-        "id": "5a8b55a1.464b2c",
-        "type": "inject",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "topic": "Tự động 3s / lần",
-        "payload": "INFO",
-        "payloadType": "str",
-        "repeat": "3",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "x": 276.38890075683594,
-        "y": 513.7777824401855,
-        "wires": [
-            [
-                "89abd1d1.d1dfb"
-            ]
-        ]
-    },
-    {
-        "id": "89abd1d1.d1dfb",
-        "type": "function",
-        "z": "6c281c8f.cbebc4",
-        "name": "Chuẩn bị lệnh",
-        "func": "msg.args = msg.args || {}\nmsg.args = JSON.stringify(msg.args)\nmsg.payload = msg.payload + \"$\" + msg.args + \"$\"\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 541.3888931274414,
-        "y": 532.2222466170788,
-        "wires": [
-            [
-                "aed41195.81a65",
-                "f9182bd0.f49c68"
-            ]
-        ]
-    },
-    {
-        "id": "f9182bd0.f49c68",
-        "type": "debug",
-        "z": "6c281c8f.cbebc4",
-        "name": "[Debug]Lệnh gửi đi tên là gì?",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 828.0000076293945,
-        "y": 592.0000247955322,
         "wires": []
     },
     {
@@ -708,8 +680,8 @@
         "func": "var type = {\n    0: \"INTEGER\",\n    1: \"FLOAT\"\n}\nconst REGISTER_COUNT = 8\n\nvar msgs = []\n\n\n\nfor (var i = 0; i < REGISTER_COUNT; i++) {\n    \n    var reg = msg.payload.registers[i]\n    var payload = \"D\" + reg.register + \"(\" + (40001 + parseInt(reg.register, 10)) + \") \" + reg.size + \" word/\"  + type[reg.type]\n    msgs.push({payload: payload})\n}\n\nreturn msgs",
         "outputs": 8,
         "noerr": 0,
-        "x": 841.3888931274414,
-        "y": 746.1113128662109,
+        "x": 844.3888702392578,
+        "y": 745.1113128662109,
         "wires": [
             [
                 "20f56ab1.f9eca6"
@@ -778,6 +750,11 @@
             },
             {
                 "t": "eq",
+                "v": "CONF",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
                 "v": "DREG",
                 "vt": "str"
             },
@@ -790,16 +767,51 @@
                 "t": "eq",
                 "v": "HELP",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ENW",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "DIW",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "DELA",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "SLID",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 4,
+        "outputs": 9,
         "x": 399.38891983032227,
         "y": 792.4444704055786,
         "wires": [
             [
                 "58d4a6a9.93d398"
+            ],
+            [
+                "1d674e85.40be71"
+            ],
+            [
+                "633e4f01.11c9"
+            ],
+            [
+                "633e4f01.11c9"
+            ],
+            [
+                "633e4f01.11c9"
+            ],
+            [
+                "633e4f01.11c9"
             ],
             [
                 "633e4f01.11c9"
@@ -813,15 +825,238 @@
         ]
     },
     {
-        "id": "6e0f5066.77068",
+        "id": "d0736f2f.f3eaf",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "7a8f72d6.17b1fc",
+        "order": 2,
+        "width": "6",
+        "height": "2",
+        "name": "Dữ liệu",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 902.1112632751465,
+        "y": 1105.3333797454834,
+        "wires": []
+    },
+    {
+        "id": "633e4f01.11c9",
+        "type": "json",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 740.6111679077148,
+        "y": 1105.5556030273438,
+        "wires": [
+            [
+                "d0736f2f.f3eaf",
+                "d94929f9.8d87b8"
+            ]
+        ]
+    },
+    {
+        "id": "1d674e85.40be71",
+        "type": "function",
+        "z": "6c281c8f.cbebc4",
+        "name": "[CONFIG]Hiển thị thông tin cài đặt",
+        "func": "\nvar msgs = [{\n    payload: msg.payload.address\n},{\n    payload: msg.payload.delayTime\n},{\n    payload: msg.payload.stopWriting\n}]\n\n\nreturn msgs",
+        "outputs": 3,
+        "noerr": 0,
+        "x": 832.3333129882812,
+        "y": 970.3333206176758,
+        "wires": [
+            [
+                "b0f588c.70b6478",
+                "62efc3d4.f412bc"
+            ],
+            [
+                "93e454c9.ca2288",
+                "265b4096.16e91"
+            ],
+            [
+                "27c92ea5.e1f812"
+            ]
+        ],
+        "outputLabels": [
+            "Address",
+            "DelayTime",
+            "StopWriting"
+        ]
+    },
+    {
+        "id": "27c92ea5.e1f812",
+        "type": "ui_gauge",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "d42d02b5.bbdbc",
+        "order": 4,
+        "width": "3",
+        "height": "3",
+        "gtype": "donut",
+        "title": "Tắt chế độ viết thanh ghi",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ff8000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1240.722557067871,
+        "y": 1137.4445610046387,
+        "wires": []
+    },
+    {
+        "id": "93e454c9.ca2288",
+        "type": "ui_gauge",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "d42d02b5.bbdbc",
+        "order": 2,
+        "width": "3",
+        "height": "3",
+        "gtype": "donut",
+        "title": "Thời gian giữa 2 lần gửi yêu cầu Modbus RTU",
+        "label": "ms",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1311.8333435058594,
+        "y": 1041.7776765823364,
+        "wires": []
+    },
+    {
+        "id": "b0f588c.70b6478",
+        "type": "ui_gauge",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "d42d02b5.bbdbc",
+        "order": 1,
+        "width": "3",
+        "height": "2",
+        "gtype": "donut",
+        "title": "Modbus Slave Address",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1244.8333740234375,
+        "y": 950.7778015136719,
+        "wires": []
+    },
+    {
+        "id": "62efc3d4.f412bc",
+        "type": "ui_text_input",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "label": "Modbus Slave Address",
+        "group": "7c317533.cdb80c",
+        "order": 0,
+        "width": "3",
+        "height": "2",
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 1244.3888969421387,
+        "y": 992.4443626403809,
+        "wires": [
+            [
+                "c386d7b.50f7428"
+            ]
+        ]
+    },
+    {
+        "id": "1073bfc7.15105",
+        "type": "serial out",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "serial": "6cb23209.ac4bdc",
+        "x": 2205.777816772461,
+        "y": 1393.6666040420532,
+        "wires": []
+    },
+    {
+        "id": "7b86d796.a61c38",
+        "type": "inject",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "topic": "Tự động 1s / lần",
+        "payload": "INFO",
+        "payloadType": "str",
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 1699.7778244018555,
+        "y": 1401.4443922042847,
+        "wires": [
+            [
+                "db6e4f27.070cc"
+            ]
+        ]
+    },
+    {
+        "id": "db6e4f27.070cc",
+        "type": "function",
+        "z": "6c281c8f.cbebc4",
+        "name": "Chuẩn bị lệnh",
+        "func": "msg.args = msg.args || {}\nmsg.args = JSON.stringify(msg.args)\nmsg.payload = msg.payload + \"$\" + msg.args + \"$\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1964.777816772461,
+        "y": 1419.888856381178,
+        "wires": [
+            [
+                "1073bfc7.15105",
+                "c7131116.45669"
+            ]
+        ]
+    },
+    {
+        "id": "c7131116.45669",
+        "type": "debug",
+        "z": "6c281c8f.cbebc4",
+        "name": "[Debug]Lệnh gửi đi tên là gì?",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 2251.388931274414,
+        "y": 1479.6666345596313,
+        "wires": []
+    },
+    {
+        "id": "36d5ba89.9ef536",
         "type": "ui_form",
         "z": "6c281c8f.cbebc4",
         "name": "",
         "label": "Thiết đặt thanh ghi",
         "group": "7a8f72d6.17b1fc",
         "order": 1,
-        "width": 0,
-        "height": 0,
+        "width": "6",
+        "height": "3",
         "options": [
             {
                 "label": "Luồng thanh ghi",
@@ -856,16 +1091,16 @@
         },
         "payload": "",
         "topic": "",
-        "x": 123.388916015625,
-        "y": 576.6666173934937,
+        "x": 1546.7778396606445,
+        "y": 1464.3332271575928,
         "wires": [
             [
-                "e61e9007.d7cb8"
+                "a9030a6f.889838"
             ]
         ]
     },
     {
-        "id": "e61e9007.d7cb8",
+        "id": "a9030a6f.889838",
         "type": "change",
         "z": "6c281c8f.cbebc4",
         "name": "DREG",
@@ -890,78 +1125,46 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 287.3888931274414,
-        "y": 576.1111154556274,
+        "x": 1710.777816772461,
+        "y": 1463.7777252197266,
         "wires": [
             [
-                "89abd1d1.d1dfb"
+                "db6e4f27.070cc"
             ]
         ]
     },
     {
-        "id": "d0736f2f.f3eaf",
-        "type": "ui_text",
-        "z": "6c281c8f.cbebc4",
-        "group": "7a8f72d6.17b1fc",
-        "order": 2,
-        "width": "9",
-        "height": "2",
-        "name": "",
-        "label": "Dữ liệu",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 774.1112327575684,
-        "y": 857.3333187103271,
-        "wires": []
-    },
-    {
-        "id": "633e4f01.11c9",
-        "type": "json",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 612.6111373901367,
-        "y": 857.5555419921875,
-        "wires": [
-            [
-                "d0736f2f.f3eaf"
-            ]
-        ]
-    },
-    {
-        "id": "819168c4.6ef188",
+        "id": "d9cf18de.2d91b8",
         "type": "ui_button",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "group": "7a8f72d6.17b1fc",
-        "order": 0,
+        "group": "7c317533.cdb80c",
+        "order": 4,
         "width": 0,
         "height": 0,
         "passthru": false,
         "label": "HELP",
         "color": "",
         "bgcolor": "",
-        "icon": "admin",
+        "icon": "help",
         "payload": "HELP",
         "payloadType": "str",
         "topic": "",
-        "x": 257.3888854980469,
-        "y": 411.77777099609375,
+        "x": 1627.7778129577637,
+        "y": 1174.4444036483765,
         "wires": [
             [
-                "89abd1d1.d1dfb"
+                "db6e4f27.070cc"
             ]
         ]
     },
     {
-        "id": "7d6d81b9.e2233",
+        "id": "3b2ca9d5.c8a026",
         "type": "ui_button",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "group": "7a8f72d6.17b1fc",
-        "order": 0,
+        "group": "7c317533.cdb80c",
+        "order": 1,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -972,11 +1175,206 @@
         "payload": "VER",
         "payloadType": "str",
         "topic": "",
-        "x": 269,
-        "y": 455.6666593551636,
+        "x": 1639.3889274597168,
+        "y": 1218.3332920074463,
         "wires": [
             [
-                "89abd1d1.d1dfb"
+                "db6e4f27.070cc"
+            ]
+        ]
+    },
+    {
+        "id": "666bbe.8238d444",
+        "type": "ui_button",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "7c317533.cdb80c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Tắt chế độ ghi thanh ghi",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "DIW",
+        "payloadType": "str",
+        "topic": "",
+        "x": 1687.3889236450195,
+        "y": 1130.3333015441895,
+        "wires": [
+            [
+                "db6e4f27.070cc"
+            ]
+        ]
+    },
+    {
+        "id": "8941c07a.e9b72",
+        "type": "ui_button",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "7c317533.cdb80c",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Bật chế độ ghi thanh ghi",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "ENW",
+        "payloadType": "str",
+        "topic": "",
+        "x": 1688.3889236450195,
+        "y": 1083.6666097640991,
+        "wires": [
+            [
+                "db6e4f27.070cc"
+            ]
+        ]
+    },
+    {
+        "id": "b5403f9f.f62d6",
+        "type": "inject",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "topic": "Tự động 1s / lần",
+        "payload": "CONF",
+        "payloadType": "str",
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 1699.3889236450195,
+        "y": 1360.9999532699585,
+        "wires": [
+            [
+                "db6e4f27.070cc"
+            ]
+        ]
+    },
+    {
+        "id": "c386d7b.50f7428",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "SLID",
+        "rules": [
+            {
+                "t": "set",
+                "p": "args.address",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "SLID",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1749.8888854980469,
+        "y": 976.0000351667404,
+        "wires": [
+            [
+                "db6e4f27.070cc"
+            ]
+        ]
+    },
+    {
+        "id": "265b4096.16e91",
+        "type": "ui_text_input",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "label": "Thời gian delay giữa 2 lần gửi",
+        "group": "7c317533.cdb80c",
+        "order": 0,
+        "width": "3",
+        "height": "2",
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 1261.888916015625,
+        "y": 1084,
+        "wires": [
+            [
+                "3daa6f19.ec851"
+            ]
+        ]
+    },
+    {
+        "id": "3daa6f19.ec851",
+        "type": "change",
+        "z": "6c281c8f.cbebc4",
+        "name": "DELA",
+        "rules": [
+            {
+                "t": "set",
+                "p": "args.delayTime",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "DELA",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1750.77779006958,
+        "y": 1018.0000275373459,
+        "wires": [
+            [
+                "db6e4f27.070cc"
+            ]
+        ]
+    },
+    {
+        "id": "c5705cb6.889e6",
+        "type": "ui_template",
+        "z": "6c281c8f.cbebc4",
+        "group": "5b2fcdbc.873ea4",
+        "name": "Lịch sử phân phối",
+        "order": 0,
+        "width": "6",
+        "height": "8",
+        "format": "<div class=\"scroll-bar\">\n    \n    <div ng-repeat=\"command in msg.commands track by $index\">{{command}}</div>\n</div>\n<style type=\"text/css\">\n    .scroll-bar { white-space: nowrap; overflow-y: scroll; overflow-x: scroll; }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1217.1668090820312,
+        "y": 1194.4444942474365,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d94929f9.8d87b8",
+        "type": "function",
+        "z": "6c281c8f.cbebc4",
+        "name": "Thêm lệnh vào lịch sử",
+        "func": "const MAX_COMMAND = 100\nvar commands = global.get(\"COMMANDS\") || []\n\ncommands.unshift(msg.payload)\nif (commands.length > MAX_COMMAND) {\n    commands.pop()\n}\n\nmsg.commands = commands\nglobal.set(\"COMMANDS\", commands)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 948.2779197692871,
+        "y": 1164.2225971221924,
+        "wires": [
+            [
+                "c5705cb6.889e6"
             ]
         ]
     }
