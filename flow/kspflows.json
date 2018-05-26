@@ -316,7 +316,7 @@
         "id": "6cb23209.ac4bdc",
         "type": "serial-port",
         "z": "",
-        "serialport": "COM5",
+        "serialport": "COM13",
         "serialbaud": "19200",
         "databits": "8",
         "parity": "none",
@@ -904,8 +904,8 @@
         "z": "6c281c8f.cbebc4",
         "group": "7a8f72d6.17b1fc",
         "order": 2,
-        "width": 0,
-        "height": 0,
+        "width": "9",
+        "height": "2",
         "name": "",
         "label": "Dữ liệu",
         "format": "{{msg.payload}}",
@@ -927,6 +927,56 @@
         "wires": [
             [
                 "d0736f2f.f3eaf"
+            ]
+        ]
+    },
+    {
+        "id": "819168c4.6ef188",
+        "type": "ui_button",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "7a8f72d6.17b1fc",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "HELP",
+        "color": "",
+        "bgcolor": "",
+        "icon": "admin",
+        "payload": "HELP",
+        "payloadType": "str",
+        "topic": "",
+        "x": 257.3888854980469,
+        "y": 411.77777099609375,
+        "wires": [
+            [
+                "89abd1d1.d1dfb"
+            ]
+        ]
+    },
+    {
+        "id": "7d6d81b9.e2233",
+        "type": "ui_button",
+        "z": "6c281c8f.cbebc4",
+        "name": "",
+        "group": "7a8f72d6.17b1fc",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "VERSION",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "VER",
+        "payloadType": "str",
+        "topic": "",
+        "x": 269,
+        "y": 455.6666593551636,
+        "wires": [
+            [
+                "89abd1d1.d1dfb"
             ]
         ]
     }
