@@ -7,6 +7,13 @@
         "info": ""
     },
     {
+        "id": "1b7cab7.de39555",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "16fa6e68.10eb82",
         "type": "subflow",
         "name": "Lấy dữ từ iNut",
@@ -436,35 +443,22 @@
         "birthPayload": ""
     },
     {
-        "id": "288ffa01.3284b6",
-        "type": "debug",
-        "z": "6c281c8f.cbebc4",
-        "name": "in ra màn hình để debug thông tin",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 1418.7475700378418,
-        "y": 538.5759191513062,
-        "wires": []
-    },
-    {
-        "id": "b75a1f12.b6263",
-        "type": "function",
-        "z": "6c281c8f.cbebc4",
-        "name": "Chuẩn bị lệnh trước khi gửi đến iNut cảm biến",
-        "func": "var json = {\"id\": 0, \"command\": msg.payload};\nmsg.payload = json;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 980.5000801086426,
-        "y": 537.3334941864014,
-        "wires": [
-            [
-                "288ffa01.3284b6",
-                "3ed81bde.f711f4"
-            ]
-        ]
+        "id": "fbe19fd.166156",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt.mysmarthome.vn",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
     },
     {
         "id": "a4ab8ad8.4a9368",
@@ -480,7 +474,7 @@
         "label": "",
         "format": "{{value}}",
         "min": 0,
-        "max": "100",
+        "max": "200",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -632,7 +626,7 @@
         "width": "3",
         "height": "3",
         "gtype": "gage",
-        "title": "100",
+        "title": "108",
         "label": "",
         "format": "{{value}}",
         "min": 0,
@@ -673,76 +667,6 @@
         "x": 880.1043891906738,
         "y": 1594.1351299285889,
         "wires": []
-    },
-    {
-        "id": "cc0ed351.1b9fd",
-        "type": "ui_text",
-        "z": "6c281c8f.cbebc4",
-        "group": "bd2e0753.422cb8",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Đã gửi lệnh",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1181.2860832214355,
-        "y": 577.5099601745605,
-        "wires": []
-    },
-    {
-        "id": "69ed9ac5.de4844",
-        "type": "function",
-        "z": "6c281c8f.cbebc4",
-        "name": "Lấy độ dài chuỗi",
-        "func": "\nmsg.payload =  msg.payload.length;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 880.0130500793457,
-        "y": 619.0104007720947,
-        "wires": [
-            [
-                "214412d6.6f4d3e"
-            ]
-        ]
-    },
-    {
-        "id": "214412d6.6f4d3e",
-        "type": "ui_numeric",
-        "z": "6c281c8f.cbebc4",
-        "name": "Độ dài chuỗi",
-        "label": "",
-        "group": "bd2e0753.422cb8",
-        "order": 3,
-        "width": "2",
-        "height": "1",
-        "passthru": true,
-        "topic": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "32",
-        "step": 1,
-        "x": 1053.1067695617676,
-        "y": 616.463547706604,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "590b8244.009d2c",
-        "type": "function",
-        "z": "6c281c8f.cbebc4",
-        "name": "Lấy đoạn chuỗi mà Arduino nhận được",
-        "func": "\nmsg.payload =  msg.payload.substr(0, 32);\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 948.1330909729004,
-        "y": 577.6457805633545,
-        "wires": [
-            [
-                "cc0ed351.1b9fd"
-            ]
-        ]
     },
     {
         "id": "b10e0e64.9d8a1",
@@ -907,99 +831,6 @@
         ]
     },
     {
-        "id": "d59edc39.ac612",
-        "type": "ui_form",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "label": "Form thay đỏi thanh ghi D",
-        "group": "bd2e0753.422cb8",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "options": [
-            {
-                "label": "D",
-                "value": "p",
-                "type": "number",
-                "required": true
-            },
-            {
-                "label": "Giá trị",
-                "value": "s",
-                "type": "number",
-                "required": true
-            }
-        ],
-        "formValue": {
-            "p": "",
-            "s": ""
-        },
-        "payload": "",
-        "topic": "",
-        "x": 146.38888931274414,
-        "y": 488.222225189209,
-        "wires": [
-            [
-                "16f6a3b4.e6d5dc"
-            ]
-        ]
-    },
-    {
-        "id": "e09a7350.a2dd5",
-        "type": "ui_text_input",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "label": "Gửi lệnh xuống iNut cảm biến",
-        "group": "bd2e0753.422cb8",
-        "order": 2,
-        "width": "4",
-        "height": "1",
-        "passthru": true,
-        "mode": "text",
-        "delay": "0",
-        "topic": "",
-        "x": 640.0000495910645,
-        "y": 537.4349021911621,
-        "wires": [
-            [
-                "b75a1f12.b6263",
-                "69ed9ac5.de4844",
-                "590b8244.009d2c"
-            ]
-        ]
-    },
-    {
-        "id": "16f6a3b4.e6d5dc",
-        "type": "function",
-        "z": "6c281c8f.cbebc4",
-        "name": "Định nghĩa lệnh",
-        "func": "msg.payload.c = 2\n\nmsg.payload = JSON.stringify(msg.payload)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 359.38888931274414,
-        "y": 487.8888931274414,
-        "wires": [
-            [
-                "e09a7350.a2dd5",
-                "5d8b6a73.0fb9d4"
-            ]
-        ]
-    },
-    {
-        "id": "5d8b6a73.0fb9d4",
-        "type": "debug",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 572.388916015625,
-        "y": 471,
-        "wires": []
-    },
-    {
         "id": "7a946284.69f28c",
         "type": "ui_template",
         "z": "6c281c8f.cbebc4",
@@ -1124,7 +955,7 @@
                 "t": "set",
                 "p": "name",
                 "pt": "msg",
-                "to": "G1",
+                "to": "G5",
                 "tot": "str"
             }
         ],
@@ -1672,74 +1503,6 @@
         ]
     },
     {
-        "id": "e012d974.fbcbf8",
-        "type": "subflow:82e9215c.98061",
-        "z": "6c281c8f.cbebc4",
-        "x": 1777.7777481079102,
-        "y": 584.888879776001,
-        "wires": [
-            [
-                "ac19648f.37a6b8"
-            ],
-            [
-                "ac19648f.37a6b8"
-            ]
-        ]
-    },
-    {
-        "id": "ac19648f.37a6b8",
-        "type": "ui_text",
-        "z": "6c281c8f.cbebc4",
-        "group": "e3f2b7f4.3560e8",
-        "order": 0,
-        "width": "3",
-        "height": "1",
-        "name": "",
-        "label": "Trạng thái",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 2063.0555419921875,
-        "y": 585.6666717529297,
-        "wires": []
-    },
-    {
-        "id": "52b02124.89b26",
-        "type": "inject",
-        "z": "6c281c8f.cbebc4",
-        "name": "Kiểm tra thiết bị Online / 1 phút kiểm tra 1 lần",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "60",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "x": 1142.6666259765625,
-        "y": 454.5555419921875,
-        "wires": [
-            [
-                "4880942e.7d719c"
-            ]
-        ]
-    },
-    {
-        "id": "4880942e.7d719c",
-        "type": "http request",
-        "z": "6c281c8f.cbebc4",
-        "name": "[REST][GET]Phòng abc",
-        "method": "GET",
-        "ret": "txt",
-        "url": "https://connect.mysmarthome.vn/api/1.0/request/M8CAy3HeBFRgpl2crx0XGCRH9Kd2/S1cvXG4km/b68e02a7ce5df6dc0d441300cfaff3f7542951809614/req_device",
-        "tls": "",
-        "x": 1462.6666259765625,
-        "y": 454.5555419921875,
-        "wires": [
-            [
-                "e012d974.fbcbf8"
-            ]
-        ]
-    },
-    {
         "id": "25d526c2.086a8a",
         "type": "function",
         "z": "6c281c8f.cbebc4",
@@ -1756,15 +1519,15 @@
         ]
     },
     {
-        "id": "7d053e2e.b6436",
+        "id": "5802aeee.cc4cb",
         "type": "mqtt in",
         "z": "6c281c8f.cbebc4",
-        "name": "[MQTT-IN]Phòng uống bia",
-        "topic": "request/M8CAy3HeBFRgpl2crx0XGCRH9Kd2/S1cvXG4km/b68e02a7ce5df6dc0d441300cfaff3f7542951809614",
+        "name": "[MQTT-IN]Phòng trưng bày đồng hồ",
+        "topic": "request/4aiEwGAgPEUVkfDMEw3Ht5gIQKz1/ryJ5TDUkQ/08e3bb97b4d025d370849397536a4afd338104559857",
         "qos": "2",
-        "broker": "53a77427.5ca01c",
-        "x": 160.00000381469727,
-        "y": 1010.999979019165,
+        "broker": "fbe19fd.166156",
+        "x": 179,
+        "y": 999.3333187103271,
         "wires": [
             [
                 "a49ad212.1f758"
@@ -1772,20 +1535,282 @@
         ]
     },
     {
-        "id": "3ed81bde.f711f4",
-        "type": "http request",
-        "z": "6c281c8f.cbebc4",
-        "name": "[REST][POST]Phòng uống bia",
-        "method": "POST",
-        "ret": "txt",
-        "url": "https://connect.mysmarthome.vn/api/1.0/request/M8CAy3HeBFRgpl2crx0XGCRH9Kd2/S1cvXG4km/b68e02a7ce5df6dc0d441300cfaff3f7542951809614/req_device_toggle",
-        "tls": "",
-        "x": 1449.0000457763672,
-        "y": 589.000018119812,
+        "id": "2cb8db2a.6599e4",
+        "type": "function",
+        "z": "1b7cab7.de39555",
+        "name": "Chuẩn bị lệnh trước khi gửi đến iNut cảm biến",
+        "func": "var json = {\"id\": 0, \"command\": msg.payload};\nmsg.payload = json;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 958.0001068115234,
+        "y": 315.5555419921875,
         "wires": [
             [
-                "e012d974.fbcbf8"
+                "cd4d158d.8ba618",
+                "483d364b.0f9528"
             ]
         ]
+    },
+    {
+        "id": "63ec6612.268b08",
+        "type": "function",
+        "z": "1b7cab7.de39555",
+        "name": "Lấy độ dài chuỗi",
+        "func": "\nmsg.payload =  msg.payload.length;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 857.5130767822266,
+        "y": 397.23244857788086,
+        "wires": [
+            [
+                "d99d94b2.259128"
+            ]
+        ]
+    },
+    {
+        "id": "d99d94b2.259128",
+        "type": "ui_numeric",
+        "z": "1b7cab7.de39555",
+        "name": "Độ dài chuỗi",
+        "label": "",
+        "group": "bd2e0753.422cb8",
+        "order": 3,
+        "width": "2",
+        "height": "1",
+        "passthru": true,
+        "topic": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "32",
+        "step": 1,
+        "x": 1030.6067962646484,
+        "y": 394.68559551239014,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "69d1b5e9.cc5abc",
+        "type": "function",
+        "z": "1b7cab7.de39555",
+        "name": "Lấy đoạn chuỗi mà Arduino nhận được",
+        "func": "\nmsg.payload =  msg.payload.substr(0, 32);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 925.6331176757812,
+        "y": 355.8678283691406,
+        "wires": [
+            [
+                "3fa1b3e0.70065c"
+            ]
+        ]
+    },
+    {
+        "id": "b9e3fd58.2f2b4",
+        "type": "ui_form",
+        "z": "1b7cab7.de39555",
+        "name": "",
+        "label": "Form thay đỏi thanh ghi D",
+        "group": "bd2e0753.422cb8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "D",
+                "value": "p",
+                "type": "number",
+                "required": true
+            },
+            {
+                "label": "Giá trị",
+                "value": "s",
+                "type": "number",
+                "required": true
+            }
+        ],
+        "formValue": {
+            "p": "",
+            "s": ""
+        },
+        "payload": "",
+        "topic": "",
+        "x": 123.888916015625,
+        "y": 266.4442729949951,
+        "wires": [
+            [
+                "e2fb7840.6bbe28"
+            ]
+        ]
+    },
+    {
+        "id": "c0974f29.bf972",
+        "type": "ui_text_input",
+        "z": "1b7cab7.de39555",
+        "name": "",
+        "label": "Gửi lệnh xuống iNut cảm biến",
+        "group": "bd2e0753.422cb8",
+        "order": 2,
+        "width": "4",
+        "height": "1",
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 617.5000762939453,
+        "y": 315.65694999694824,
+        "wires": [
+            [
+                "2cb8db2a.6599e4",
+                "63ec6612.268b08",
+                "69d1b5e9.cc5abc"
+            ]
+        ]
+    },
+    {
+        "id": "e2fb7840.6bbe28",
+        "type": "function",
+        "z": "1b7cab7.de39555",
+        "name": "Định nghĩa lệnh",
+        "func": "msg.payload.c = 2\n\nmsg.payload = JSON.stringify(msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 336.888916015625,
+        "y": 266.11094093322754,
+        "wires": [
+            [
+                "c0974f29.bf972",
+                "d91cb2.b02d935"
+            ]
+        ]
+    },
+    {
+        "id": "d91cb2.b02d935",
+        "type": "debug",
+        "z": "1b7cab7.de39555",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 549.8889427185059,
+        "y": 249.22204780578613,
+        "wires": []
+    },
+    {
+        "id": "569b0190.73e9a",
+        "type": "inject",
+        "z": "1b7cab7.de39555",
+        "name": "Kiểm tra thiết bị Online / 1 phút kiểm tra 1 lần",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 1120.1666526794434,
+        "y": 232.77758979797363,
+        "wires": [
+            [
+                "59dfc1d0.20c6f"
+            ]
+        ]
+    },
+    {
+        "id": "3fa1b3e0.70065c",
+        "type": "ui_text",
+        "z": "1b7cab7.de39555",
+        "group": "bd2e0753.422cb8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Đã gửi lệnh",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1158.7861099243164,
+        "y": 355.7320079803467,
+        "wires": []
+    },
+    {
+        "id": "483d364b.0f9528",
+        "type": "http request",
+        "z": "1b7cab7.de39555",
+        "name": "[REST][POST]Phòng trưng bày đồng hồ",
+        "method": "POST",
+        "ret": "txt",
+        "url": "https://connect.mysmarthome.vn/api/1.0/request/4aiEwGAgPEUVkfDMEw3Ht5gIQKz1/ryJ5TDUkQ/08e3bb97b4d025d370849397536a4afd338104559857/req_device_toggle",
+        "tls": "",
+        "x": 1397.500057220459,
+        "y": 422.5553855895996,
+        "wires": [
+            [
+                "5531bbdc.696a94"
+            ]
+        ]
+    },
+    {
+        "id": "cd4d158d.8ba618",
+        "type": "debug",
+        "z": "1b7cab7.de39555",
+        "name": "in ra màn hình để debug thông tin",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1396.2475967407227,
+        "y": 316.7979669570923,
+        "wires": []
+    },
+    {
+        "id": "59dfc1d0.20c6f",
+        "type": "http request",
+        "z": "1b7cab7.de39555",
+        "name": "[REST][GET]Phòng abc",
+        "method": "GET",
+        "ret": "txt",
+        "url": "https://connect.mysmarthome.vn/api/1.0/request/4aiEwGAgPEUVkfDMEw3Ht5gIQKz1/ryJ5TDUkQ/08e3bb97b4d025d370849397536a4afd338104559857/req_device",
+        "tls": "",
+        "x": 1440.1666526794434,
+        "y": 232.77758979797363,
+        "wires": [
+            [
+                "5531bbdc.696a94"
+            ]
+        ]
+    },
+    {
+        "id": "5531bbdc.696a94",
+        "type": "subflow:82e9215c.98061",
+        "z": "1b7cab7.de39555",
+        "x": 1755.277774810791,
+        "y": 363.1109275817871,
+        "wires": [
+            [
+                "a8334596.bedbb8"
+            ],
+            [
+                "a8334596.bedbb8"
+            ]
+        ]
+    },
+    {
+        "id": "a8334596.bedbb8",
+        "type": "ui_text",
+        "z": "1b7cab7.de39555",
+        "group": "e3f2b7f4.3560e8",
+        "order": 0,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Trạng thái",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 2040.5555686950684,
+        "y": 363.8887195587158,
+        "wires": []
     }
 ]
