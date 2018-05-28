@@ -7,6 +7,13 @@
         "info": ""
     },
     {
+        "id": "388a5b13.29c8f4",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "16fa6e68.10eb82",
         "type": "subflow",
         "name": "Lấy dữ từ iNut",
@@ -148,6 +155,90 @@
         ]
     },
     {
+        "id": "659b0f2f.cf2f8",
+        "type": "subflow",
+        "name": "Chuẩn bị lệnh đến iNut cảm biến",
+        "info": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": [
+                    {
+                        "id": "dae9d9f7.344a98"
+                    },
+                    {
+                        "id": "1171136b.8c349d"
+                    },
+                    {
+                        "id": "5e5205f2.c00b0c"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 723.7500076293945,
+                "y": 236.24999809265137,
+                "wires": [
+                    {
+                        "id": "dae9d9f7.344a98",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 724.9999885559082,
+                "y": 283.75000190734863,
+                "wires": [
+                    {
+                        "id": "1171136b.8c349d",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 724.9999847412109,
+                "y": 330.00002670288086,
+                "wires": [
+                    {
+                        "id": "5e5205f2.c00b0c",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "3d854388.3dd92c",
+        "type": "subflow",
+        "name": "Chuẩn bị lệnh cập nhập giá trị",
+        "info": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": [
+                    {
+                        "id": "e08c24db.4e6ce8"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 762.5000076293945,
+                "y": 127.49999809265137,
+                "wires": [
+                    {
+                        "id": "1ca4a1db.57538e",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "id": "f6e14664.ebf688",
         "type": "mqtt-broker",
         "z": "",
@@ -264,8 +355,8 @@
             "allowSwipe": "true",
             "dateFormat": "DD/MM/YYYY",
             "sizes": {
-                "sx": 74,
-                "sy": 75,
+                "sx": 78,
+                "sy": 78,
                 "gx": 6,
                 "gy": 6,
                 "cx": 6,
@@ -367,6 +458,46 @@
         "tab": "294eb87b.b71b48",
         "order": 2,
         "disp": false,
+        "width": "3",
+        "collapse": false
+    },
+    {
+        "id": "e82d4b96.cfe248",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt.mysmarthome.vn",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "1db9289c.2fadd7",
+        "type": "ui_group",
+        "z": "",
+        "name": "Group 3",
+        "tab": "294eb87b.b71b48",
+        "order": 3,
+        "disp": true,
+        "width": "3",
+        "collapse": false
+    },
+    {
+        "id": "f744068b.e03678",
+        "type": "ui_group",
+        "z": "",
+        "name": "Group 4",
+        "tab": "294eb87b.b71b48",
+        "order": 4,
+        "disp": true,
         "width": "3",
         "collapse": false
     },
@@ -533,22 +664,6 @@
         ]
     },
     {
-        "id": "2a7e0396.13405c",
-        "type": "mqtt in",
-        "z": "6c281c8f.cbebc4",
-        "name": "[MQTT-IN]Phòng tín hiệu",
-        "topic": "request/zcuKrreuYuYMlnlNyUIoKtA7LBf2/HJuzlEJRz/0247f23c917db52f5961b784328dffc2307969974835",
-        "qos": "2",
-        "broker": "1f06d15b.70df1f",
-        "x": 272.71431732177734,
-        "y": 838.8571491241455,
-        "wires": [
-            [
-                "a49ad212.1f758"
-            ]
-        ]
-    },
-    {
         "id": "6575ca16.ce8344",
         "type": "debug",
         "z": "6c281c8f.cbebc4",
@@ -567,14 +682,14 @@
         "type": "inject",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "topic": "admin",
+        "topic": "",
         "payload": "",
         "payloadType": "date",
         "repeat": "",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
-        "x": 183.0989761352539,
+        "x": 153.0989761352539,
         "y": 466.9244899749756,
         "wires": [
             [
@@ -592,7 +707,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "[{\"node_id\":\"r1O92dtSz\",\"id\":0,\"state\":\"7.00\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":1,\"state\":\"7.00\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":2,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":3,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":4,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":5,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":6,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":7,\"state\":\"6.0\",\"type\":\"SENSOR\"}]",
+                "to": "[{\"node_id\":\"r1O92dtSz\",\"id\":0,\"state\":\"7.00\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":1,\"state\":\"7.00\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":2,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":3,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":4,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":5,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":6,\"state\":\"0\",\"type\":\"SENSOR\"},{\"node_id\":\"r1O92dtSz\",\"id\":7,\"state\":\"6\",\"type\":\"SENSOR\"}]",
                 "tot": "json"
             }
         ],
@@ -875,8 +990,8 @@
         "name": "Giao diện bãi đỗ xe",
         "order": 1,
         "width": "12",
-        "height": "9",
-        "format": "<div class=\"container\">\n  <div class=\"row\" ng-repeat = \"row in msg.matrix track by $index\">\n    <div class=\"col\" ng-class=\"data.class\" ng-repeat=\"data in row track by $index\">\n        <img ng-if=\"data.class == 'co-xe' && data.type == 'car_position'\" src=\"http://sv1.upsieutoc.com/2018/05/10/white-car-icon_182361.png\" style=\"width: 100px;\" />\n    </div>\n  </div>\n</div>",
+        "height": "10",
+        "format": "<div class=\"container\">\n  <div class=\"row\" ng-repeat = \"row in msg.matrix track by $index\">\n    <div class=\"col\" ng-class=\"data.class\" ng-repeat=\"data in row track by $index\">\n        <img  src=\"http://sv1.upsieutoc.com/2018/05/28/2331b9aba9e4f7f15ac6c5e4918bd2e14e56.png\" ng-if=\"data.class == 'co-xe' && data.type == 'car_position'\" style=\"width: 100px;\" />\n    </div>\n  </div>\n</div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "templateScope": "local",
@@ -895,7 +1010,7 @@
         "order": 2,
         "width": 0,
         "height": 0,
-        "format": "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">\n<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\" integrity=\"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49\" crossorigin=\"anonymous\"></script>\n<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js\" integrity=\"sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T\" crossorigin=\"anonymous\"></script>\n<style>\n    .row {\n        background: #F0F0F0;\n        height: 100px;\n        color: black;\n    }\n    .co-xe {\n        \n        \n        background: url(\"http://sv1.upsieutoc.com/2018/05/10/duong2.png\");\n    }   \n    .ko-co-xe {\n        background: grey;\n    }\n    .duong-ko-co-xe {\n        background: url(\"http://sv1.upsieutoc.com/2018/05/10/duong.png\");\n    }\n    .duong-co-xe {\n        background: url(\"http://sv1.upsieutoc.com/2018/05/10/duong3.png\");\n    }\n</style>",
+        "format": "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">\n<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\" integrity=\"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49\" crossorigin=\"anonymous\"></script>\n<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js\" integrity=\"sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T\" crossorigin=\"anonymous\"></script>\n<style>\n    .row {\n        background: #F0F0F0;\n        height: 100px;\n        color: black;\n    }\n    .co-xe {\n        \n        \n        background: url(\"http://sv1.upsieutoc.com/2018/05/28/nen-duong-abc.png\");\n    }   \n    .ko-co-xe {\n        background: grey;\n    }\n    .duong-ko-co-xe {\n        background: url(\"http://sv1.upsieutoc.com/2018/05/10/duong.png\");\n    }\n    .duong-co-xe {\n        background: url(\"http://sv1.upsieutoc.com/2018/05/10/duong3.png\");\n    }\n</style>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "templateScope": "global",
@@ -909,8 +1024,8 @@
         "id": "6a08452b.c3e50c",
         "type": "function",
         "z": "6c281c8f.cbebc4",
-        "name": "Định hướng ra ma trận 7x7",
-        "func": "msg.matrix = global.get(\"matrix\") || [[],[],[],[],[],[],[]]\nif (msg.info.type == \"car_position\") {\n    var index = msg.info.index\n    var column = 0\n    msg.info.ids.map(function(state, idx) {\n        if (idx == 4) {\n            index += 2\n            column = 0\n        }\n        msg.matrix[index][column] = msg.matrix[index][column] || {}\n        msg.matrix[index][column].type = msg.info.type        \n        if (state == 1) {\n            msg.matrix[index][column].class = \"co-xe\" \n        } else {\n            msg.matrix[index][column].class = \"ko-co-xe\"\n        }\n        \n        column += 2\n    })\n} else if (msg.info.type == \"row\") {\n    var index = msg.info.index\n    var column = 0\n    msg.info.ids.map(function(state, idx) {\n        if (idx == 4) {\n            index += 2\n            column = 0\n        }\n        msg.matrix[index][column] = msg.matrix[index][column] || {}\n        msg.matrix[index][column].type = msg.info.type        \n        if (state == 1) {\n            msg.matrix[index][column].class = \"duong-co-xe\" \n        } else {\n            msg.matrix[index][column].class = \"duong-ko-co-xe\"\n        }\n        \n        column += 2\n    })\n} else if (msg.info.type == \"column\") {\n    var index = msg.info.index\n    msg.info.ids.map(function(state, idx) {\n        msg.matrix[idx][index] = msg.matrix[idx][index] || {}\n        msg.matrix[idx][index].type = msg.info.type        \n        if (state == 1) {\n            msg.matrix[idx][index].class = \"duong-co-xe\" \n        } else {\n            msg.matrix[idx][index].class = \"duong-ko-co-xe\"\n        }\n    })\n}\nglobal.set(\"matrix\", msg.matrix)\nreturn msg;",
+        "name": "Định hướng ra ma trận 8x7",
+        "func": "msg.matrix = global.get(\"matrix\") || [[],[],[],[],[],[],[], []]\nif (msg.info.type == \"car_position\") {\n    var index = msg.info.index\n    var column = 0\n    msg.info.ids.map(function(state, idx) {\n        if (idx == 4) {\n            index += 2\n            column = 0\n        }\n        msg.matrix[index][column] = msg.matrix[index][column] || {}\n        msg.matrix[index][column].type = msg.info.type        \n        if (state == 1) {\n            msg.matrix[index][column].class = \"co-xe\" \n        } else {\n            msg.matrix[index][column].class = \"ko-co-xe\"\n        }\n        \n        column += 2\n    })\n} else if (msg.info.type == \"row\") {\n    var index = msg.info.index\n    var column = 0\n    msg.info.ids.map(function(state, idx) {\n        if (idx == 4) {\n            index += 2\n            column = 0\n        }\n        msg.matrix[index][column] = msg.matrix[index][column] || {}\n        msg.matrix[index][column].type = msg.info.type        \n        if (state == 1) {\n            msg.matrix[index][column].class = \"duong-co-xe\" \n        } else {\n            msg.matrix[index][column].class = \"duong-ko-co-xe\"\n        }\n        \n        column += 2\n    })\n} else if (msg.info.type == \"column\") {\n    var index = msg.info.index\n    msg.info.ids.map(function(state, idx) {\n        msg.matrix[idx][index] = msg.matrix[idx][index] || {}\n        msg.matrix[idx][index].type = msg.info.type        \n        if (state == 1) {\n            msg.matrix[idx][index].class = \"duong-co-xe\" \n        } else {\n            msg.matrix[idx][index].class = \"duong-ko-co-xe\"\n        }\n    })\n}\nglobal.set(\"matrix\", msg.matrix)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1447.9444389343262,
@@ -977,14 +1092,14 @@
         "type": "inject",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "topic": "admin",
+        "topic": "",
         "payload": "",
         "payloadType": "date",
         "repeat": "",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
-        "x": 162,
+        "x": 132,
         "y": 509,
         "wires": [
             [
@@ -1038,5 +1153,571 @@
                 "8a20351c.579cb8"
             ]
         ]
+    },
+    {
+        "id": "4ae49f7d.4dd2e",
+        "type": "mqtt in",
+        "z": "6c281c8f.cbebc4",
+        "name": "[MQTT-IN]Phòng máy",
+        "topic": "request/5goE0liD7uhCqKpfIIg1pid9ZE02/SygzGltCM/41c58f24dd86aa858cf357cabafd0a25320347499814",
+        "qos": "2",
+        "broker": "e82d4b96.cfe248",
+        "x": 306,
+        "y": 839,
+        "wires": [
+            [
+                "a49ad212.1f758"
+            ]
+        ]
+    },
+    {
+        "id": "6ffff32e.97137c",
+        "type": "debug",
+        "z": "659b0f2f.cf2f8",
+        "name": "in ra màn hình để debug thông tin",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 746.2345199584961,
+        "y": 136.29917907714844,
+        "wires": []
+    },
+    {
+        "id": "dae9d9f7.344a98",
+        "type": "function",
+        "z": "659b0f2f.cf2f8",
+        "name": "Chuẩn bị lệnh trước khi gửi đến iNut cảm biến",
+        "func": "var json = {\"id\": 0, \"command\": msg.payload};\nmsg.payload = json;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 307.9870300292969,
+        "y": 135.05675411224365,
+        "wires": [
+            [
+                "6ffff32e.97137c"
+            ]
+        ]
+    },
+    {
+        "id": "5e5205f2.c00b0c",
+        "type": "function",
+        "z": "659b0f2f.cf2f8",
+        "name": "Lấy độ dài chuỗi",
+        "func": "\nmsg.payload =  msg.payload.length;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 207.5,
+        "y": 216.733660697937,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1171136b.8c349d",
+        "type": "function",
+        "z": "659b0f2f.cf2f8",
+        "name": "Lấy đoạn chuỗi mà Arduino nhận được",
+        "func": "\nmsg.payload =  msg.payload.substr(0, 32);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 275.6200408935547,
+        "y": 175.36904048919678,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1ca4a1db.57538e",
+        "type": "subflow:659b0f2f.cf2f8",
+        "z": "3d854388.3dd92c",
+        "name": "",
+        "x": 528.7471542358398,
+        "y": 127.54917907714844,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e08c24db.4e6ce8",
+        "type": "function",
+        "z": "3d854388.3dd92c",
+        "name": "Chuyển sang chuẩn lệnh",
+        "func": "var state = parseInt(msg.payload, 10)\nmsg.payload = {\n    \"p\": msg.topic,\n    \"s\": state,\n    \"c\": 2 //gửi lệnh sửa giá trị thanh ghi\n}\nmsg.payload = JSON.stringify(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 216.25001525878906,
+        "y": 97.35532474517822,
+        "wires": [
+            [
+                "1ca4a1db.57538e"
+            ]
+        ]
+    },
+    {
+        "id": "4a26706b.38b6a",
+        "type": "http request",
+        "z": "388a5b13.29c8f4",
+        "name": "[REST][POST]Phòng máy",
+        "method": "POST",
+        "ret": "txt",
+        "url": "https://connect.mysmarthome.vn/api/1.0/request/5goE0liD7uhCqKpfIIg1pid9ZE02/SygzGltCM/41c58f24dd86aa858cf357cabafd0a25320347499814/req_device_toggle",
+        "tls": "",
+        "x": 918,
+        "y": 166,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "61a21e9d.ea04c",
+        "type": "subflow:3d854388.3dd92c",
+        "z": "388a5b13.29c8f4",
+        "name": "",
+        "x": 640,
+        "y": 171,
+        "wires": [
+            [
+                "4a26706b.38b6a"
+            ]
+        ]
+    },
+    {
+        "id": "f5174dc4.10ea2",
+        "type": "change",
+        "z": "388a5b13.29c8f4",
+        "name": "4 xe",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "4",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "108",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 131,
+        "wires": [
+            [
+                "61a21e9d.ea04c"
+            ]
+        ]
+    },
+    {
+        "id": "ee24eac5.b648e8",
+        "type": "change",
+        "z": "388a5b13.29c8f4",
+        "name": "Test D104 - 124",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "124",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "104",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 231,
+        "wires": [
+            [
+                "61a21e9d.ea04c"
+            ]
+        ]
+    },
+    {
+        "id": "ff6cb607.716818",
+        "type": "inject",
+        "z": "388a5b13.29c8f4",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 244,
+        "y": 128,
+        "wires": [
+            [
+                "f5174dc4.10ea2"
+            ]
+        ]
+    },
+    {
+        "id": "1459a26.4be9f5e",
+        "type": "inject",
+        "z": "388a5b13.29c8f4",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 247,
+        "y": 228,
+        "wires": [
+            [
+                "ee24eac5.b648e8"
+            ]
+        ]
+    },
+    {
+        "id": "15fd2fd7.f04a8",
+        "type": "change",
+        "z": "388a5b13.29c8f4",
+        "name": "Test D101 - 222",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "222",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "101",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 425,
+        "y": 284,
+        "wires": [
+            [
+                "61a21e9d.ea04c"
+            ]
+        ]
+    },
+    {
+        "id": "1d6c7596.3efc1a",
+        "type": "inject",
+        "z": "388a5b13.29c8f4",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 241,
+        "y": 286,
+        "wires": [
+            [
+                "15fd2fd7.f04a8",
+                "15a70247.a2a53e"
+            ]
+        ]
+    },
+    {
+        "id": "1338d5e7.19cc5a",
+        "type": "ui_button",
+        "z": "388a5b13.29c8f4",
+        "name": "",
+        "group": "40c8bc47.1cb534",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Thử nghiệm 1",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 198,
+        "y": 348,
+        "wires": [
+            [
+                "15a70247.a2a53e"
+            ]
+        ]
+    },
+    {
+        "id": "15a70247.a2a53e",
+        "type": "change",
+        "z": "388a5b13.29c8f4",
+        "name": "Test D102 - 169",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "169",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "102",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 415,
+        "y": 348,
+        "wires": [
+            [
+                "61a21e9d.ea04c"
+            ]
+        ]
+    },
+    {
+        "id": "6876e112.61af8",
+        "type": "ui_button",
+        "z": "388a5b13.29c8f4",
+        "name": "",
+        "group": "40c8bc47.1cb534",
+        "order": 3,
+        "width": "3",
+        "height": "2",
+        "passthru": false,
+        "label": "Thử nghiệm 2",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 205,
+        "y": 184,
+        "wires": [
+            [
+                "f5174dc4.10ea2"
+            ]
+        ]
+    },
+    {
+        "id": "5f49841c.71a17c",
+        "type": "subflow:16fa6e68.10eb82",
+        "z": "388a5b13.29c8f4",
+        "name": "admin",
+        "x": 406,
+        "y": 497,
+        "wires": [
+            [
+                "859fa311.bdd29"
+            ],
+            [
+                "507956f8.ae0f98"
+            ],
+            [
+                "199336dc.2ebab9"
+            ],
+            [
+                "61c9683d.736028"
+            ],
+            [
+                "db93cc9e.9d41"
+            ],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ba47eec0.5170b",
+        "type": "mqtt in",
+        "z": "388a5b13.29c8f4",
+        "name": "[MQTT-IN]Phòng máy",
+        "topic": "request/5goE0liD7uhCqKpfIIg1pid9ZE02/SygzGltCM/41c58f24dd86aa858cf357cabafd0a25320347499814",
+        "qos": "2",
+        "broker": "e82d4b96.cfe248",
+        "x": 157,
+        "y": 497.99999237060547,
+        "wires": [
+            [
+                "5f49841c.71a17c"
+            ]
+        ]
+    },
+    {
+        "id": "859fa311.bdd29",
+        "type": "ui_gauge",
+        "z": "388a5b13.29c8f4",
+        "name": "",
+        "group": "1db9289c.2fadd7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "d101",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 655,
+        "y": 406,
+        "wires": []
+    },
+    {
+        "id": "507956f8.ae0f98",
+        "type": "ui_gauge",
+        "z": "388a5b13.29c8f4",
+        "name": "",
+        "group": "1db9289c.2fadd7",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "d102",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 665,
+        "y": 459,
+        "wires": []
+    },
+    {
+        "id": "db93cc9e.9d41",
+        "type": "ui_gauge",
+        "z": "388a5b13.29c8f4",
+        "name": "",
+        "group": "f744068b.e03678",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "d105",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 665,
+        "y": 594,
+        "wires": []
+    },
+    {
+        "id": "199336dc.2ebab9",
+        "type": "ui_gauge",
+        "z": "388a5b13.29c8f4",
+        "name": "",
+        "group": "1db9289c.2fadd7",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "d103",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 657,
+        "y": 508,
+        "wires": []
+    },
+    {
+        "id": "61c9683d.736028",
+        "type": "ui_gauge",
+        "z": "388a5b13.29c8f4",
+        "name": "",
+        "group": "f744068b.e03678",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "d104",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 662,
+        "y": 550,
+        "wires": []
+    },
+    {
+        "id": "33689673.3f311a",
+        "type": "debug",
+        "z": "388a5b13.29c8f4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 951,
+        "y": 307,
+        "wires": []
     }
 ]
