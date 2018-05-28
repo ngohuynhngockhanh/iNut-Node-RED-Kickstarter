@@ -119,44 +119,6 @@
         ]
     },
     {
-        "id": "f6e14664.ebf688",
-        "type": "mqtt-broker",
-        "z": "",
-        "name": "",
-        "broker": "ourshark.mysmarthome.vn",
-        "port": "8097",
-        "clientid": "",
-        "usetls": false,
-        "compatmode": true,
-        "keepalive": "60",
-        "cleansession": true,
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": ""
-    },
-    {
-        "id": "e3ed5d37.01305",
-        "type": "mqtt-broker",
-        "z": "",
-        "name": "",
-        "broker": "mqtt.mysmarthome.vn",
-        "port": "1883",
-        "clientid": "",
-        "usetls": false,
-        "compatmode": true,
-        "keepalive": "60",
-        "cleansession": true,
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": ""
-    },
-    {
         "id": "f4134e17.6b60a",
         "type": "ui_base",
         "theme": {
@@ -255,17 +217,6 @@
         "order": 1
     },
     {
-        "id": "2205c075.fa443",
-        "type": "ui_group",
-        "z": "",
-        "name": "Test",
-        "tab": "",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
         "id": "52cad39c.c8472c",
         "type": "ui_group",
         "z": "",
@@ -275,42 +226,6 @@
         "disp": true,
         "width": "6",
         "collapse": false
-    },
-    {
-        "id": "81dc1f08.a421b",
-        "type": "mqtt-broker",
-        "name": "",
-        "broker": "mqtt.mysmarthome.vn",
-        "port": "1883",
-        "clientid": "",
-        "usetls": false,
-        "compatmode": true,
-        "keepalive": "60",
-        "cleansession": true,
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": ""
-    },
-    {
-        "id": "aa1345ad.c2b128",
-        "type": "mqtt-broker",
-        "name": "",
-        "broker": "mqtt.mysmarthome.vn",
-        "port": "1883",
-        "clientid": "",
-        "usetls": false,
-        "compatmode": true,
-        "keepalive": "60",
-        "cleansession": true,
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": ""
     },
     {
         "id": "6cb23209.ac4bdc",
@@ -325,23 +240,6 @@
         "bin": "false",
         "out": "char",
         "addchar": false
-    },
-    {
-        "id": "abcec69f.1875f8",
-        "type": "sqlitedb",
-        "z": "",
-        "db": "CSDL.sqlite"
-    },
-    {
-        "id": "ec7724b8.908a88",
-        "type": "ui_group",
-        "z": "",
-        "name": "Thêm sinh viên",
-        "tab": "",
-        "order": 1,
-        "disp": false,
-        "width": "6",
-        "collapse": false
     },
     {
         "id": "7a8f72d6.17b1fc",
