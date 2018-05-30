@@ -1619,16 +1619,14 @@
         "topic": "0",
         "payload": "TOGGLE",
         "payloadType": "str",
-        "repeat": "",
+        "repeat": "0.05",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 152.38888549804688,
+        "x": 162.38888549804688,
         "y": 396.7777805328369,
         "wires": [
-            [
-                "8488b44a.09b448"
-            ]
+            []
         ]
     }
 ]
