@@ -119,42 +119,300 @@
         ]
     },
     {
-        "id": "f6e14664.ebf688",
-        "type": "mqtt-broker",
-        "z": "",
-        "name": "",
-        "broker": "ourshark.mysmarthome.vn",
-        "port": "8097",
-        "clientid": "",
-        "usetls": false,
-        "compatmode": true,
-        "keepalive": "60",
-        "cleansession": true,
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": ""
+        "id": "792dad88.5b0384",
+        "type": "subflow",
+        "name": "Thanh ghi => 8 bit",
+        "info": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": [
+                    {
+                        "id": "fedd3b2.a95aec8"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 607.0000019073486,
+                "y": 94,
+                "wires": [
+                    {
+                        "id": "fedd3b2.a95aec8",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 604.0000038146973,
+                "y": 142,
+                "wires": [
+                    {
+                        "id": "fedd3b2.a95aec8",
+                        "port": 1
+                    }
+                ]
+            },
+            {
+                "x": 609.0000038146973,
+                "y": 190,
+                "wires": [
+                    {
+                        "id": "fedd3b2.a95aec8",
+                        "port": 2
+                    }
+                ]
+            },
+            {
+                "x": 618.0000038146973,
+                "y": 238,
+                "wires": [
+                    {
+                        "id": "fedd3b2.a95aec8",
+                        "port": 3
+                    }
+                ]
+            },
+            {
+                "x": 635.0000038146973,
+                "y": 290,
+                "wires": [
+                    {
+                        "id": "fedd3b2.a95aec8",
+                        "port": 4
+                    }
+                ]
+            },
+            {
+                "x": 654.0000038146973,
+                "y": 364,
+                "wires": [
+                    {
+                        "id": "fedd3b2.a95aec8",
+                        "port": 5
+                    }
+                ]
+            },
+            {
+                "x": 587.0000057220459,
+                "y": 390.00000381469727,
+                "wires": [
+                    {
+                        "id": "fedd3b2.a95aec8",
+                        "port": 6
+                    }
+                ]
+            },
+            {
+                "x": 612.0000057220459,
+                "y": 435.00000381469727,
+                "wires": [
+                    {
+                        "id": "fedd3b2.a95aec8",
+                        "port": 7
+                    }
+                ]
+            }
+        ]
     },
     {
-        "id": "e3ed5d37.01305",
-        "type": "mqtt-broker",
-        "z": "",
-        "name": "",
-        "broker": "mqtt.mysmarthome.vn",
-        "port": "1883",
-        "clientid": "",
-        "usetls": false,
-        "compatmode": true,
-        "keepalive": "60",
-        "cleansession": true,
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": ""
+        "id": "21113f47.814fa",
+        "type": "subflow",
+        "name": "Thanh ghi => 16 bit",
+        "info": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": [
+                    {
+                        "id": "d748b130.c4b2d"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 564.0000009536743,
+                "y": 50,
+                "wires": [
+                    {
+                        "id": "d748b130.c4b2d",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 619.0000009536743,
+                "y": 50,
+                "wires": [
+                    {
+                        "id": "d748b130.c4b2d",
+                        "port": 1
+                    }
+                ]
+            },
+            {
+                "x": 674.0000009536743,
+                "y": 50,
+                "wires": [
+                    {
+                        "id": "d748b130.c4b2d",
+                        "port": 2
+                    }
+                ]
+            },
+            {
+                "x": 729.0000009536743,
+                "y": 50,
+                "wires": [
+                    {
+                        "id": "d748b130.c4b2d",
+                        "port": 3
+                    }
+                ]
+            },
+            {
+                "x": 784.0000009536743,
+                "y": 50,
+                "wires": [
+                    {
+                        "id": "d748b130.c4b2d",
+                        "port": 4
+                    }
+                ]
+            },
+            {
+                "x": 839.0000009536743,
+                "y": 50,
+                "wires": [
+                    {
+                        "id": "d748b130.c4b2d",
+                        "port": 5
+                    }
+                ]
+            },
+            {
+                "x": 894.0000009536743,
+                "y": 50,
+                "wires": [
+                    {
+                        "id": "d748b130.c4b2d",
+                        "port": 6
+                    }
+                ]
+            },
+            {
+                "x": 949.0000009536743,
+                "y": 50,
+                "wires": [
+                    {
+                        "id": "d748b130.c4b2d",
+                        "port": 7
+                    }
+                ]
+            },
+            {
+                "x": 839.0000076293945,
+                "y": 231,
+                "wires": [
+                    {
+                        "id": "d748b130.c4b2d",
+                        "port": 8
+                    }
+                ]
+            },
+            {
+                "x": 891.0000076293945,
+                "y": 231,
+                "wires": [
+                    {
+                        "id": "d748b130.c4b2d",
+                        "port": 9
+                    }
+                ]
+            },
+            {
+                "x": 946.0000076293945,
+                "y": 231,
+                "wires": [
+                    {
+                        "id": "d748b130.c4b2d",
+                        "port": 10
+                    }
+                ]
+            },
+            {
+                "x": 1001.0000076293945,
+                "y": 231,
+                "wires": [
+                    {
+                        "id": "d748b130.c4b2d",
+                        "port": 11
+                    }
+                ]
+            },
+            {
+                "x": 1056.0000076293945,
+                "y": 231,
+                "wires": [
+                    {
+                        "id": "d748b130.c4b2d",
+                        "port": 12
+                    }
+                ]
+            },
+            {
+                "x": 1111.0000076293945,
+                "y": 231,
+                "wires": [
+                    {
+                        "id": "d748b130.c4b2d",
+                        "port": 13
+                    }
+                ]
+            },
+            {
+                "x": 1166.0000076293945,
+                "y": 231,
+                "wires": [
+                    {
+                        "id": "d748b130.c4b2d",
+                        "port": 14
+                    }
+                ]
+            },
+            {
+                "x": 1221.0000076293945,
+                "y": 231,
+                "wires": [
+                    {
+                        "id": "d748b130.c4b2d",
+                        "port": 15
+                    }
+                ]
+            }
+        ],
+        "outputLabels": [
+            ".0",
+            ".1",
+            ".2",
+            ".3",
+            ".4",
+            ".5",
+            ".6",
+            ".7",
+            ".8",
+            ".9",
+            ".10",
+            ".11",
+            ".12",
+            ".13",
+            ".14",
+            ".15"
+        ]
     },
     {
         "id": "f4134e17.6b60a",
@@ -250,7 +508,7 @@
         "id": "294eb87b.b71b48",
         "type": "ui_tab",
         "z": "",
-        "name": "Kiểm thử iNut cảm biến",
+        "name": "Kiểm thử iNut PLC",
         "icon": "dashboard",
         "order": 1
     },
@@ -258,31 +516,12 @@
         "id": "62cc449d.959c9c",
         "type": "ui_group",
         "z": "",
-        "name": "Thứ 2",
+        "name": "Thứ hai",
         "tab": "294eb87b.b71b48",
-        "order": 2,
+        "order": 3,
         "disp": true,
         "width": "6",
         "collapse": true
-    },
-    {
-        "id": "a4d5c147.5c318",
-        "type": "ui_tab",
-        "z": "",
-        "name": "Cảm biến tòa 2",
-        "icon": "dashboard",
-        "order": 2
-    },
-    {
-        "id": "2205c075.fa443",
-        "type": "ui_group",
-        "z": "",
-        "name": "Test",
-        "tab": "a4d5c147.5c318",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false
     },
     {
         "id": "52cad39c.c8472c",
@@ -290,13 +529,13 @@
         "z": "",
         "name": "Thứ nhất",
         "tab": "294eb87b.b71b48",
-        "order": 1,
+        "order": 2,
         "disp": true,
         "width": "6",
         "collapse": true
     },
     {
-        "id": "81dc1f08.a421b",
+        "id": "962781b1.a13dc",
         "type": "mqtt-broker",
         "name": "",
         "broker": "mqtt.mysmarthome.vn",
@@ -314,22 +553,37 @@
         "birthPayload": ""
     },
     {
-        "id": "aa1345ad.c2b128",
-        "type": "mqtt-broker",
-        "name": "",
-        "broker": "mqtt.mysmarthome.vn",
-        "port": "1883",
-        "clientid": "",
-        "usetls": false,
-        "compatmode": true,
-        "keepalive": "60",
-        "cleansession": true,
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": ""
+        "id": "909a2eff.75033",
+        "type": "ui_group",
+        "z": "",
+        "name": "Giá trị thanh ghi D101",
+        "tab": "294eb87b.b71b48",
+        "order": 1,
+        "disp": true,
+        "width": "3",
+        "collapse": false
+    },
+    {
+        "id": "19f9604d.77eda",
+        "type": "ui_group",
+        "z": "",
+        "name": "D108 (byte sau)",
+        "tab": "294eb87b.b71b48",
+        "order": 5,
+        "disp": true,
+        "width": "3",
+        "collapse": false
+    },
+    {
+        "id": "730af1f8.dd8fa",
+        "type": "ui_group",
+        "z": "",
+        "name": "D108 (byte trước)",
+        "tab": "294eb87b.b71b48",
+        "order": 4,
+        "disp": true,
+        "width": "3",
+        "collapse": false
     },
     {
         "id": "288ffa01.3284b6",
@@ -341,8 +595,8 @@
         "console": false,
         "tostatus": false,
         "complete": "payload",
-        "x": 1004.7475471496582,
-        "y": 578.575924873352,
+        "x": 1048.747543334961,
+        "y": 271.57592582702637,
         "wires": []
     },
     {
@@ -353,12 +607,12 @@
         "func": "var json = {\"id\": 0, \"command\": msg.payload};\nmsg.payload = json;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 566.500057220459,
-        "y": 577.3334999084473,
+        "x": 610.5000534057617,
+        "y": 270.3335008621216,
         "wires": [
             [
                 "288ffa01.3284b6",
-                "526574f1.1b8c6c"
+                "45a6385f.c0d248"
             ]
         ]
     },
@@ -384,8 +638,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 891.013011932373,
-        "y": 745.1771078109741,
+        "x": 938.0130271911621,
+        "y": 632.1771602630615,
         "wires": []
     },
     {
@@ -410,8 +664,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 890.1042785644531,
-        "y": 704.4687557220459,
+        "x": 934.1042747497559,
+        "y": 397.4687566757202,
         "wires": []
     },
     {
@@ -436,8 +690,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 890.013011932373,
-        "y": 828.0104207992554,
+        "x": 937.0130271911621,
+        "y": 715.0104732513428,
         "wires": []
     },
     {
@@ -462,8 +716,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 889.1042785644531,
-        "y": 787.3020687103271,
+        "x": 936.1042938232422,
+        "y": 674.3021211624146,
         "wires": []
     },
     {
@@ -488,8 +742,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 888.013011932373,
-        "y": 913.0104207992554,
+        "x": 935.0130271911621,
+        "y": 800.0104732513428,
         "wires": []
     },
     {
@@ -514,8 +768,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 887.1042785644531,
-        "y": 872.3020687103271,
+        "x": 934.1042938232422,
+        "y": 759.3021211624146,
         "wires": []
     },
     {
@@ -540,8 +794,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 887.013011932373,
-        "y": 995.8437337875366,
+        "x": 934.0130271911621,
+        "y": 882.843786239624,
         "wires": []
     },
     {
@@ -566,8 +820,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 886.1042785644531,
-        "y": 955.1353816986084,
+        "x": 933.1042938232422,
+        "y": 842.1354341506958,
         "wires": []
     },
     {
@@ -582,8 +836,8 @@
         "label": "Đã gửi lệnh",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 767.286060333252,
-        "y": 617.5099658966064,
+        "x": 811.2860565185547,
+        "y": 310.50996685028076,
         "wires": []
     },
     {
@@ -594,8 +848,8 @@
         "func": "\nmsg.payload =  msg.payload.length;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 466.0130271911621,
-        "y": 659.0104064941406,
+        "x": 510.01302337646484,
+        "y": 352.01040744781494,
         "wires": [
             [
                 "214412d6.6f4d3e"
@@ -618,8 +872,8 @@
         "min": 0,
         "max": "32",
         "step": 1,
-        "x": 639.106746673584,
-        "y": 656.4635534286499,
+        "x": 683.1067428588867,
+        "y": 349.4635543823242,
         "wires": [
             []
         ]
@@ -632,8 +886,8 @@
         "func": "\nmsg.payload =  msg.payload.substr(0, 32);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 534.1330680847168,
-        "y": 617.6457862854004,
+        "x": 578.1330642700195,
+        "y": 310.6457872390747,
         "wires": [
             [
                 "cc0ed351.1b9fd"
@@ -772,12 +1026,13 @@
         "id": "a49ad212.1f758",
         "type": "subflow:16fa6e68.10eb82",
         "z": "6c281c8f.cbebc4",
-        "name": "admin",
-        "x": 511,
-        "y": 838.0000076293945,
+        "name": "Lấy dữ liệu từ iNut PLC",
+        "x": 614.9999961853027,
+        "y": 531.0000085830688,
         "wires": [
             [
-                "f1cf4bb3.dd8498"
+                "f1cf4bb3.dd8498",
+                "e44b9894.26eb98"
             ],
             [
                 "a4ab8ad8.4a9368"
@@ -798,39 +1053,9 @@
                 "73983b88.f4dad4"
             ],
             [
-                "5ae9c1.85d5f64"
+                "5ae9c1.85d5f64",
+                "b4d90abf.aa8b18"
             ]
-        ]
-    },
-    {
-        "id": "71632284.d426dc",
-        "type": "mqtt in",
-        "z": "6c281c8f.cbebc4",
-        "name": "[MQTT-IN]Phòng trưng bày đồng hồ",
-        "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/ByNwJX83M/856f770448497b5851e42da62c8b9826611112645005",
-        "qos": "2",
-        "broker": "aa1345ad.c2b128",
-        "x": 264.0000305175781,
-        "y": 838.3333930969238,
-        "wires": [
-            [
-                "a49ad212.1f758"
-            ]
-        ]
-    },
-    {
-        "id": "526574f1.1b8c6c",
-        "type": "http request",
-        "z": "6c281c8f.cbebc4",
-        "name": "[REST][POST]Phòng trưng bày đồng hồ",
-        "method": "POST",
-        "ret": "txt",
-        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/ByNwJX83M/856f770448497b5851e42da62c8b9826611112645005/req_device_toggle",
-        "tls": "",
-        "x": 1057.0000038146973,
-        "y": 625.333402633667,
-        "wires": [
-            []
         ]
     },
     {
@@ -863,8 +1088,8 @@
         },
         "payload": "",
         "topic": "",
-        "x": 146.38888931274414,
-        "y": 488.222225189209,
+        "x": 190.38888549804688,
+        "y": 181.2222261428833,
         "wires": [
             [
                 "16f6a3b4.e6d5dc"
@@ -885,8 +1110,8 @@
         "mode": "text",
         "delay": "0",
         "topic": "",
-        "x": 226.00002670288086,
-        "y": 577.434907913208,
+        "x": 270.0000228881836,
+        "y": 270.4349088668823,
         "wires": [
             [
                 "b75a1f12.b6263",
@@ -903,8 +1128,8 @@
         "func": "msg.payload.c = 2\n\nmsg.payload = JSON.stringify(msg.payload)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 359.38888931274414,
-        "y": 487.8888931274414,
+        "x": 403.3888854980469,
+        "y": 180.88889408111572,
         "wires": [
             [
                 "e09a7350.a2dd5",
@@ -922,8 +1147,597 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 572.388916015625,
-        "y": 471,
+        "x": 616.3889122009277,
+        "y": 164.00000095367432,
+        "wires": []
+    },
+    {
+        "id": "c45e387.05c0bc8",
+        "type": "mqtt in",
+        "z": "6c281c8f.cbebc4",
+        "name": "[MQTT-IN]Phòng uống bia",
+        "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/S1g4fMd1X/f61ebe88a6fb29275c00c1139a04ea67365159276568",
+        "qos": "2",
+        "broker": "962781b1.a13dc",
+        "x": 367,
+        "y": 532.6666927337646,
+        "wires": [
+            [
+                "a49ad212.1f758"
+            ]
+        ]
+    },
+    {
+        "id": "45a6385f.c0d248",
+        "type": "http request",
+        "z": "6c281c8f.cbebc4",
+        "name": "[REST][POST]Phòng uống bia",
+        "method": "POST",
+        "ret": "txt",
+        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/S1g4fMd1X/f61ebe88a6fb29275c00c1139a04ea67365159276568/req_device_toggle",
+        "tls": "",
+        "x": 1095.0000076293945,
+        "y": 336.66666984558105,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fedd3b2.a95aec8",
+        "type": "function",
+        "z": "792dad88.5b0384",
+        "name": "Chuyển thành 8 bits",
+        "func": "const REGISTER_COUNT = 8\nvar msgs = []\nvar value = parseInt(msg.payload, 10)\nfor (var i = 0; i < REGISTER_COUNT; i++) {\n    msgs.push({\n        payload: (value >> i) & 1\n    });\n}\nreturn msgs;",
+        "outputs": 8,
+        "noerr": 0,
+        "x": 312.3888854980469,
+        "y": 299.55555725097656,
+        "wires": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ],
+        "inputLabels": [
+            "Dữ liệu từ iNut nhé"
+        ],
+        "outputLabels": [
+            ".0",
+            ".1",
+            ".2",
+            ".3",
+            ".4",
+            ".5",
+            ".6",
+            ".7"
+        ]
+    },
+    {
+        "id": "e44b9894.26eb98",
+        "type": "subflow:792dad88.5b0384",
+        "z": "6c281c8f.cbebc4",
+        "x": 967.3888969421387,
+        "y": 480.8888854980469,
+        "wires": [
+            [
+                "d399617d.e9842"
+            ],
+            [
+                "4ac2685d.0ab698"
+            ],
+            [
+                "f2773088.1c11e"
+            ],
+            [
+                "8ebf47c1.6c2b18"
+            ],
+            [
+                "86510fae.825dd"
+            ],
+            [
+                "43d5b365.f0c3fc"
+            ],
+            [
+                "bb8b7604.798f68"
+            ],
+            [
+                "fed53ef3.893f5"
+            ]
+        ]
+    },
+    {
+        "id": "d399617d.e9842",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "909a2eff.75033",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D101.0",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1342.2778396606445,
+        "y": 344.777774810791,
+        "wires": []
+    },
+    {
+        "id": "4ac2685d.0ab698",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "909a2eff.75033",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D101.1",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1339.8889236450195,
+        "y": 384.6666603088379,
+        "wires": []
+    },
+    {
+        "id": "f2773088.1c11e",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "909a2eff.75033",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D101.2",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1338.8889236450195,
+        "y": 422.6666603088379,
+        "wires": []
+    },
+    {
+        "id": "8ebf47c1.6c2b18",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "909a2eff.75033",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D101.3",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1336.5000076293945,
+        "y": 462.55554580688477,
+        "wires": []
+    },
+    {
+        "id": "86510fae.825dd",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "909a2eff.75033",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D101.4",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1341.8889236450195,
+        "y": 501.666690826416,
+        "wires": []
+    },
+    {
+        "id": "43d5b365.f0c3fc",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "909a2eff.75033",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D101.5",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1339.5000076293945,
+        "y": 541.5555763244629,
+        "wires": []
+    },
+    {
+        "id": "bb8b7604.798f68",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "909a2eff.75033",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D101.6",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1338.5000076293945,
+        "y": 579.5555763244629,
+        "wires": []
+    },
+    {
+        "id": "fed53ef3.893f5",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "909a2eff.75033",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D101.7",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1336.1110916137695,
+        "y": 619.4444618225098,
+        "wires": []
+    },
+    {
+        "id": "d748b130.c4b2d",
+        "type": "function",
+        "z": "21113f47.814fa",
+        "name": "Chuyển thành 16 bits",
+        "func": "const REGISTER_COUNT = 16\nvar msgs = []\nvar value = parseInt(msg.payload, 10)\nfor (var i = 0; i < REGISTER_COUNT; i++) {\n    msgs.push({\n        payload: (value >> i) & 1\n    });\n}\nreturn msgs;",
+        "outputs": 16,
+        "noerr": 0,
+        "x": 349,
+        "y": 230,
+        "wires": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ],
+        "inputLabels": [
+            "Dữ liệu từ iNut nhé"
+        ],
+        "outputLabels": [
+            ".0",
+            ".1",
+            ".2",
+            ".3",
+            ".4",
+            ".5",
+            ".6",
+            ".7",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "id": "b4d90abf.aa8b18",
+        "type": "subflow:21113f47.814fa",
+        "z": "6c281c8f.cbebc4",
+        "x": 971.3888931274414,
+        "y": 1026.7777862548828,
+        "wires": [
+            [
+                "5e5dbe0c.1fa7f"
+            ],
+            [
+                "5c309d2a.c21894"
+            ],
+            [
+                "22434536.3aecaa"
+            ],
+            [
+                "ca9395ea.8ee738"
+            ],
+            [
+                "7190ba4b.003234"
+            ],
+            [
+                "a544de52.b9e2"
+            ],
+            [
+                "2f30360f.63efba"
+            ],
+            [
+                "d1e1cebb.8314d"
+            ],
+            [
+                "5ca57c9c.e435f4"
+            ],
+            [
+                "32b114ff.75314c"
+            ],
+            [
+                "239d926e.421bae"
+            ],
+            [
+                "b10f9e86.37c1f"
+            ],
+            [
+                "533da6ba.56e9f8"
+            ],
+            [
+                "8b5cc7cd.6c0bf8"
+            ],
+            [
+                "ec94ca91.c27068"
+            ],
+            [
+                "9b3dd18e.80937"
+            ]
+        ]
+    },
+    {
+        "id": "5e5dbe0c.1fa7f",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "19f9604d.77eda",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D108.0",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1315.4444580078125,
+        "y": 718.6666870117188,
+        "wires": []
+    },
+    {
+        "id": "5c309d2a.c21894",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "19f9604d.77eda",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D108.1",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1313.0555419921875,
+        "y": 758.5555725097656,
+        "wires": []
+    },
+    {
+        "id": "22434536.3aecaa",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "19f9604d.77eda",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D108.2",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1312.0555419921875,
+        "y": 796.5555725097656,
+        "wires": []
+    },
+    {
+        "id": "ca9395ea.8ee738",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "19f9604d.77eda",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D108.3",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1309.6666259765625,
+        "y": 836.4444580078125,
+        "wires": []
+    },
+    {
+        "id": "7190ba4b.003234",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "19f9604d.77eda",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D108.4",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1315.0555419921875,
+        "y": 875.5556030273438,
+        "wires": []
+    },
+    {
+        "id": "a544de52.b9e2",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "19f9604d.77eda",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D108.5",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1312.6666259765625,
+        "y": 915.4444885253906,
+        "wires": []
+    },
+    {
+        "id": "2f30360f.63efba",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "19f9604d.77eda",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D108.6",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1311.6666259765625,
+        "y": 953.4444885253906,
+        "wires": []
+    },
+    {
+        "id": "d1e1cebb.8314d",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "19f9604d.77eda",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D108.7",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1309.2777099609375,
+        "y": 993.3333740234375,
+        "wires": []
+    },
+    {
+        "id": "5ca57c9c.e435f4",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "730af1f8.dd8fa",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D108.8",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1317.4444580078125,
+        "y": 1067.6666259765625,
+        "wires": []
+    },
+    {
+        "id": "32b114ff.75314c",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "730af1f8.dd8fa",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D108.9",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1315.0555419921875,
+        "y": 1107.5555114746094,
+        "wires": []
+    },
+    {
+        "id": "239d926e.421bae",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "730af1f8.dd8fa",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D108.10",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1314.0555419921875,
+        "y": 1145.5555114746094,
+        "wires": []
+    },
+    {
+        "id": "b10f9e86.37c1f",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "730af1f8.dd8fa",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D108.11",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1311.6666259765625,
+        "y": 1185.4443969726562,
+        "wires": []
+    },
+    {
+        "id": "533da6ba.56e9f8",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "730af1f8.dd8fa",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D108.12",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1317.0555419921875,
+        "y": 1224.5555419921875,
+        "wires": []
+    },
+    {
+        "id": "8b5cc7cd.6c0bf8",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "730af1f8.dd8fa",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D108.13",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1314.6666259765625,
+        "y": 1264.4444274902344,
+        "wires": []
+    },
+    {
+        "id": "ec94ca91.c27068",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "730af1f8.dd8fa",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D108.14",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1313.6666259765625,
+        "y": 1302.4444274902344,
+        "wires": []
+    },
+    {
+        "id": "9b3dd18e.80937",
+        "type": "ui_text",
+        "z": "6c281c8f.cbebc4",
+        "group": "730af1f8.dd8fa",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "D108.15",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1311.2777099609375,
+        "y": 1342.3333129882812,
         "wires": []
     }
 ]
