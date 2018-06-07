@@ -508,7 +508,7 @@
         "id": "294eb87b.b71b48",
         "type": "ui_tab",
         "z": "",
-        "name": "Kiểm thử iNut PLC",
+        "name": "Kiểm thử iNut 8 input 4 output",
         "icon": "dashboard",
         "order": 1
     },
@@ -531,7 +531,7 @@
         "tab": "294eb87b.b71b48",
         "order": 2,
         "disp": true,
-        "width": "6",
+        "width": "9",
         "collapse": true
     },
     {
@@ -556,33 +556,11 @@
         "id": "909a2eff.75033",
         "type": "ui_group",
         "z": "",
-        "name": "Giá trị thanh ghi D101",
+        "name": "Từng input (không nối hoăc nói 5V = 1/ nối vào GND = 0)",
         "tab": "294eb87b.b71b48",
         "order": 1,
         "disp": true,
-        "width": "3",
-        "collapse": false
-    },
-    {
-        "id": "19f9604d.77eda",
-        "type": "ui_group",
-        "z": "",
-        "name": "D108 (byte sau)",
-        "tab": "294eb87b.b71b48",
-        "order": 5,
-        "disp": true,
-        "width": "3",
-        "collapse": false
-    },
-    {
-        "id": "730af1f8.dd8fa",
-        "type": "ui_group",
-        "z": "",
-        "name": "D108 (byte trước)",
-        "tab": "294eb87b.b71b48",
-        "order": 4,
-        "disp": true,
-        "width": "3",
+        "width": "4",
         "collapse": false
     },
     {
@@ -626,11 +604,11 @@
         "width": "3",
         "height": "3",
         "gtype": "gage",
-        "title": "D102",
+        "title": "Relay 0",
         "label": "",
         "format": "{{value}}",
         "min": 0,
-        "max": "3000",
+        "max": "1",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -638,7 +616,7 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 938.0130271911621,
+        "x": 948.0130271911621,
         "y": 632.1771602630615,
         "wires": []
     },
@@ -650,13 +628,13 @@
         "group": "52cad39c.c8472c",
         "order": 1,
         "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "D101",
+        "height": "6",
+        "gtype": "donut",
+        "title": "8 input ",
         "label": "",
         "format": "{{value}}",
         "min": 0,
-        "max": "3000",
+        "max": "255",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -678,11 +656,11 @@
         "width": "3",
         "height": "3",
         "gtype": "gage",
-        "title": "D104",
+        "title": "Relay 2",
         "label": "",
         "format": "{{value}}",
         "min": 0,
-        "max": "3000",
+        "max": "1",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -690,7 +668,7 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 937.0130271911621,
+        "x": 947.0130271911621,
         "y": 715.0104732513428,
         "wires": []
     },
@@ -704,11 +682,11 @@
         "width": "3",
         "height": "3",
         "gtype": "gage",
-        "title": "D103",
+        "title": "Relay 1",
         "label": "",
         "format": "{{value}}",
         "min": 0,
-        "max": "3000",
+        "max": "1",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -716,34 +694,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 936.1042938232422,
+        "x": 946.1042938232422,
         "y": 674.3021211624146,
-        "wires": []
-    },
-    {
-        "id": "67c874c8.82d9bc",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "62cc449d.959c9c",
-        "order": 2,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "D106",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "3000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 935.0130271911621,
-        "y": 800.0104732513428,
         "wires": []
     },
     {
@@ -751,16 +703,16 @@
         "type": "ui_gauge",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "group": "62cc449d.959c9c",
-        "order": 1,
+        "group": "52cad39c.c8472c",
+        "order": 5,
         "width": "3",
         "height": "3",
         "gtype": "gage",
-        "title": "D105",
+        "title": "Relay 3",
         "label": "",
         "format": "{{value}}",
         "min": 0,
-        "max": "3000",
+        "max": "1",
         "colors": [
             "#1f964f",
             "#e6e600",
@@ -768,60 +720,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 934.1042938232422,
+        "x": 944.1042938232422,
         "y": 759.3021211624146,
-        "wires": []
-    },
-    {
-        "id": "5ae9c1.85d5f64",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "62cc449d.959c9c",
-        "order": 4,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "D108",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "3000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 934.0130271911621,
-        "y": 882.843786239624,
-        "wires": []
-    },
-    {
-        "id": "73983b88.f4dad4",
-        "type": "ui_gauge",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "group": "62cc449d.959c9c",
-        "order": 3,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "D107",
-        "label": "",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "3000",
-        "colors": [
-            "#1f964f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 933.1042938232422,
-        "y": 842.1354341506958,
         "wires": []
     },
     {
@@ -829,7 +729,7 @@
         "type": "ui_text",
         "z": "6c281c8f.cbebc4",
         "group": "62cc449d.959c9c",
-        "order": 7,
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "",
@@ -863,7 +763,7 @@
         "name": "Độ dài chuỗi",
         "label": "",
         "group": "62cc449d.959c9c",
-        "order": 6,
+        "order": 3,
         "width": "2",
         "height": "1",
         "passthru": true,
@@ -1046,16 +946,9 @@
             [
                 "fffcfea8.d5045"
             ],
-            [
-                "67c874c8.82d9bc"
-            ],
-            [
-                "73983b88.f4dad4"
-            ],
-            [
-                "5ae9c1.85d5f64",
-                "b4d90abf.aa8b18"
-            ]
+            [],
+            [],
+            []
         ]
     },
     {
@@ -1063,14 +956,14 @@
         "type": "ui_form",
         "z": "6c281c8f.cbebc4",
         "name": "",
-        "label": "Form thay đỏi thanh ghi D",
-        "group": "52cad39c.c8472c",
-        "order": 5,
+        "label": "Form điều khiển relay (",
+        "group": "62cc449d.959c9c",
+        "order": 1,
         "width": 0,
         "height": 0,
         "options": [
             {
-                "label": "D",
+                "label": "STT relay",
                 "value": "p",
                 "type": "number",
                 "required": true
@@ -1088,7 +981,7 @@
         },
         "payload": "",
         "topic": "",
-        "x": 190.38888549804688,
+        "x": 180.38888549804688,
         "y": 181.2222261428833,
         "wires": [
             [
@@ -1103,7 +996,7 @@
         "name": "",
         "label": "Gửi lệnh xuống iNut cảm biến",
         "group": "62cc449d.959c9c",
-        "order": 5,
+        "order": 2,
         "width": "4",
         "height": "1",
         "passthru": true,
@@ -1125,7 +1018,7 @@
         "type": "function",
         "z": "6c281c8f.cbebc4",
         "name": "Định nghĩa lệnh",
-        "func": "msg.payload.c = 2\n\nmsg.payload = JSON.stringify(msg.payload)\nreturn msg;",
+        "func": "\nmsg.payload = \"SET \" + msg.payload.p + \" \" + msg.payload.s\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 403.3888854980469,
@@ -1156,7 +1049,7 @@
         "type": "mqtt in",
         "z": "6c281c8f.cbebc4",
         "name": "[MQTT-IN]Phòng uống bia",
-        "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/S1g4fMd1X/f61ebe88a6fb29275c00c1139a04ea67365159276568",
+        "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/HyEytYHxQ/db2a0111b946a2b2c8ee5121ef3a54aa165221480335",
         "qos": "2",
         "broker": "962781b1.a13dc",
         "x": 367,
@@ -1174,7 +1067,7 @@
         "name": "[REST][POST]Phòng uống bia",
         "method": "POST",
         "ret": "txt",
-        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/S1g4fMd1X/f61ebe88a6fb29275c00c1139a04ea67365159276568/req_device_toggle",
+        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/HyEytYHxQ/db2a0111b946a2b2c8ee5121ef3a54aa165221480335/req_device_toggle",
         "tls": "",
         "x": 1095.0000076293945,
         "y": 336.66666984558105,
@@ -1428,316 +1321,103 @@
         ]
     },
     {
-        "id": "b4d90abf.aa8b18",
-        "type": "subflow:21113f47.814fa",
+        "id": "57477342.07ac7c",
+        "type": "ui_button",
         "z": "6c281c8f.cbebc4",
-        "x": 971.3888931274414,
-        "y": 1026.7777862548828,
+        "name": "",
+        "group": "52cad39c.c8472c",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Bật relay 0",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{\"p\":0,\"s\":1}",
+        "payloadType": "json",
+        "topic": "",
+        "x": 222.27777481079102,
+        "y": 131.22222328186035,
         "wires": [
             [
-                "5e5dbe0c.1fa7f"
-            ],
-            [
-                "5c309d2a.c21894"
-            ],
-            [
-                "22434536.3aecaa"
-            ],
-            [
-                "ca9395ea.8ee738"
-            ],
-            [
-                "7190ba4b.003234"
-            ],
-            [
-                "a544de52.b9e2"
-            ],
-            [
-                "2f30360f.63efba"
-            ],
-            [
-                "d1e1cebb.8314d"
-            ],
-            [
-                "5ca57c9c.e435f4"
-            ],
-            [
-                "32b114ff.75314c"
-            ],
-            [
-                "239d926e.421bae"
-            ],
-            [
-                "b10f9e86.37c1f"
-            ],
-            [
-                "533da6ba.56e9f8"
-            ],
-            [
-                "8b5cc7cd.6c0bf8"
-            ],
-            [
-                "ec94ca91.c27068"
-            ],
-            [
-                "9b3dd18e.80937"
+                "16f6a3b4.e6d5dc"
             ]
         ]
     },
     {
-        "id": "5e5dbe0c.1fa7f",
-        "type": "ui_text",
+        "id": "26778f68.54c64",
+        "type": "ui_button",
         "z": "6c281c8f.cbebc4",
-        "group": "19f9604d.77eda",
-        "order": 1,
-        "width": 0,
-        "height": 0,
         "name": "",
-        "label": "D108.0",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1315.4444580078125,
-        "y": 718.6666870117188,
-        "wires": []
-    },
-    {
-        "id": "5c309d2a.c21894",
-        "type": "ui_text",
-        "z": "6c281c8f.cbebc4",
-        "group": "19f9604d.77eda",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "D108.1",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1313.0555419921875,
-        "y": 758.5555725097656,
-        "wires": []
-    },
-    {
-        "id": "22434536.3aecaa",
-        "type": "ui_text",
-        "z": "6c281c8f.cbebc4",
-        "group": "19f9604d.77eda",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "D108.2",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1312.0555419921875,
-        "y": 796.5555725097656,
-        "wires": []
-    },
-    {
-        "id": "ca9395ea.8ee738",
-        "type": "ui_text",
-        "z": "6c281c8f.cbebc4",
-        "group": "19f9604d.77eda",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "D108.3",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1309.6666259765625,
-        "y": 836.4444580078125,
-        "wires": []
-    },
-    {
-        "id": "7190ba4b.003234",
-        "type": "ui_text",
-        "z": "6c281c8f.cbebc4",
-        "group": "19f9604d.77eda",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "D108.4",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1315.0555419921875,
-        "y": 875.5556030273438,
-        "wires": []
-    },
-    {
-        "id": "a544de52.b9e2",
-        "type": "ui_text",
-        "z": "6c281c8f.cbebc4",
-        "group": "19f9604d.77eda",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "D108.5",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1312.6666259765625,
-        "y": 915.4444885253906,
-        "wires": []
-    },
-    {
-        "id": "2f30360f.63efba",
-        "type": "ui_text",
-        "z": "6c281c8f.cbebc4",
-        "group": "19f9604d.77eda",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "D108.6",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1311.6666259765625,
-        "y": 953.4444885253906,
-        "wires": []
-    },
-    {
-        "id": "d1e1cebb.8314d",
-        "type": "ui_text",
-        "z": "6c281c8f.cbebc4",
-        "group": "19f9604d.77eda",
+        "group": "52cad39c.c8472c",
         "order": 8,
         "width": 0,
         "height": 0,
-        "name": "",
-        "label": "D108.7",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1309.2777099609375,
-        "y": 993.3333740234375,
-        "wires": []
+        "passthru": false,
+        "label": "Tắt relay 0",
+        "color": "",
+        "bgcolor": "red",
+        "icon": "",
+        "payload": "{\"p\":0,\"s\":0}",
+        "payloadType": "json",
+        "topic": "",
+        "x": 222.88888549804688,
+        "y": 90,
+        "wires": [
+            [
+                "16f6a3b4.e6d5dc"
+            ]
+        ]
     },
     {
-        "id": "5ca57c9c.e435f4",
-        "type": "ui_text",
+        "id": "81e6a393.e155c",
+        "type": "ui_button",
         "z": "6c281c8f.cbebc4",
-        "group": "730af1f8.dd8fa",
-        "order": 1,
-        "width": 0,
-        "height": 0,
         "name": "",
-        "label": "D108.8",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1317.4444580078125,
-        "y": 1067.6666259765625,
-        "wires": []
-    },
-    {
-        "id": "32b114ff.75314c",
-        "type": "ui_text",
-        "z": "6c281c8f.cbebc4",
-        "group": "730af1f8.dd8fa",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "D108.9",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1315.0555419921875,
-        "y": 1107.5555114746094,
-        "wires": []
-    },
-    {
-        "id": "239d926e.421bae",
-        "type": "ui_text",
-        "z": "6c281c8f.cbebc4",
-        "group": "730af1f8.dd8fa",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "D108.10",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1314.0555419921875,
-        "y": 1145.5555114746094,
-        "wires": []
-    },
-    {
-        "id": "b10f9e86.37c1f",
-        "type": "ui_text",
-        "z": "6c281c8f.cbebc4",
-        "group": "730af1f8.dd8fa",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "D108.11",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1311.6666259765625,
-        "y": 1185.4443969726562,
-        "wires": []
-    },
-    {
-        "id": "533da6ba.56e9f8",
-        "type": "ui_text",
-        "z": "6c281c8f.cbebc4",
-        "group": "730af1f8.dd8fa",
+        "group": "62cc449d.959c9c",
         "order": 5,
         "width": 0,
         "height": 0,
-        "name": "",
-        "label": "D108.12",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1317.0555419921875,
-        "y": 1224.5555419921875,
-        "wires": []
+        "passthru": false,
+        "label": "Bật relay 1",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{\"p\":1,\"s\":1}",
+        "payloadType": "json",
+        "topic": "",
+        "x": 404.8888854980469,
+        "y": 75.22222328186035,
+        "wires": [
+            [
+                "16f6a3b4.e6d5dc"
+            ]
+        ]
     },
     {
-        "id": "8b5cc7cd.6c0bf8",
-        "type": "ui_text",
+        "id": "ee732b59.4bde78",
+        "type": "ui_button",
         "z": "6c281c8f.cbebc4",
-        "group": "730af1f8.dd8fa",
+        "name": "",
+        "group": "62cc449d.959c9c",
         "order": 6,
         "width": 0,
         "height": 0,
-        "name": "",
-        "label": "D108.13",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1314.6666259765625,
-        "y": 1264.4444274902344,
-        "wires": []
-    },
-    {
-        "id": "ec94ca91.c27068",
-        "type": "ui_text",
-        "z": "6c281c8f.cbebc4",
-        "group": "730af1f8.dd8fa",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "D108.14",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1313.6666259765625,
-        "y": 1302.4444274902344,
-        "wires": []
-    },
-    {
-        "id": "9b3dd18e.80937",
-        "type": "ui_text",
-        "z": "6c281c8f.cbebc4",
-        "group": "730af1f8.dd8fa",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "D108.15",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1311.2777099609375,
-        "y": 1342.3333129882812,
-        "wires": []
+        "passthru": false,
+        "label": "Tắt relay 1",
+        "color": "",
+        "bgcolor": "red",
+        "icon": "",
+        "payload": "{\"p\":1,\"s\":0}",
+        "payloadType": "json",
+        "topic": "",
+        "x": 405.49999618530273,
+        "y": 34,
+        "wires": [
+            [
+                "16f6a3b4.e6d5dc"
+            ]
+        ]
     }
 ]
