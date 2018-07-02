@@ -45,53 +45,11 @@
         "birthPayload": ""
     },
     {
-        "id": "26844b4e.6e5354",
-        "type": "http request",
-        "z": "6c281c8f.cbebc4",
-        "name": "[REST][POST]Máy bơm",
-        "method": "POST",
-        "ret": "txt",
-        "url": "https://connect.mysmarthome.vn/api/1.0/request/gcTGhTyNhWUPzx9mlkYBCK3sMcE3/SJh9qNuBf/4da3fbc2056084fef6051f9498a48acc506755384897/req_device_toggle",
-        "tls": "",
-        "x": 1135.714303970337,
-        "y": 352.8571586608887,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2e427445.4a764c",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "[JSON][TẮT][Thiết bị số 0]",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\"id\":0,\"command\":\"OFF\"}",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 930,
-        "y": 260,
-        "wires": [
-            [
-                "26844b4e.6e5354"
-            ]
-        ]
-    },
-    {
         "id": "1847ebdd.d24294",
         "type": "mqtt in",
         "z": "6c281c8f.cbebc4",
-        "name": "Máy bơm có trạng thái",
-        "topic": "request/gcTGhTyNhWUPzx9mlkYBCK3sMcE3/SJh9qNuBf/4da3fbc2056084fef6051f9498a48acc506755384897",
+        "name": "iNut cảm biến DS18b20",
+        "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/HJW5mRefQ/b694cb9c50733ef3da4178f0b8873f19375073866451",
         "qos": "2",
         "broker": "e3ed5d37.01305",
         "x": 197.1428680419922,
@@ -101,20 +59,6 @@
                 "93b6c6f4.7d6c18"
             ]
         ]
-    },
-    {
-        "id": "1f4d0788.d2dd68",
-        "type": "debug",
-        "z": "6c281c8f.cbebc4",
-        "name": "in ra màn hình để debug thông tin",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 595.7143535614014,
-        "y": 180.00003623962402,
-        "wires": []
     },
     {
         "id": "93b6c6f4.7d6c18",
@@ -128,39 +72,43 @@
         "y": 180.00000953674316,
         "wires": [
             [
-                "1f4d0788.d2dd68",
-                "7764c3fd.82062c"
+                "5e264ab4.f269a4"
             ]
         ]
     },
     {
-        "id": "7764c3fd.82062c",
-        "type": "switch",
+        "id": "5e264ab4.f269a4",
+        "type": "function",
         "z": "6c281c8f.cbebc4",
-        "name": "Nếu đang BẬT",
-        "property": "payload[0].state",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "ON",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
+        "name": "Xuất excel",
+        "func": "var today = new Date();\nvar dd = today.getDate();\nvar mm = today.getMonth()+1; //January is 0!\n\nvar yyyy = today.getFullYear();\nif(dd<10){\n    dd='0'+dd;\n} \nif(mm<10){\n    mm='0'+mm;\n} \nvar today = yyyy + '_' + mm + '_' + dd\n\nmsg.payload = msg.payload[0].state + \";\" + msg.payload[1].state + \";\" + (new Date())\n\nmsg.filename = 'excel/' + today + '.csv'\nreturn msg;",
         "outputs": 1,
-        "x": 532.8572177886963,
-        "y": 218.5714783668518,
+        "noerr": 0,
+        "x": 594,
+        "y": 223,
         "wires": [
             [
-                "872d32b6.c861a",
-                "4728499c.0d1ca8"
+                "85ac1f88.469bb",
+                "2ae54b58.950ea4",
+                "46fdd056.76c4b"
             ]
         ]
     },
     {
-        "id": "872d32b6.c861a",
+        "id": "85ac1f88.469bb",
+        "type": "file",
+        "z": "6c281c8f.cbebc4",
+        "name": "ghi vào file",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "x": 804,
+        "y": 204,
+        "wires": []
+    },
+    {
+        "id": "2ae54b58.950ea4",
         "type": "debug",
         "z": "6c281c8f.cbebc4",
         "name": "",
@@ -168,184 +116,23 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload[0].state",
-        "x": 760,
-        "y": 220,
+        "complete": "false",
+        "x": 754,
+        "y": 95,
         "wires": []
     },
     {
-        "id": "4728499c.0d1ca8",
-        "type": "delay",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "x": 717.1428375244141,
-        "y": 260.00002002716064,
-        "wires": [
-            [
-                "2e427445.4a764c"
-            ]
-        ]
-    },
-    {
-        "id": "2ba0b6c8.a2de7a",
-        "type": "mqtt in",
-        "z": "6c281c8f.cbebc4",
-        "name": "Dữ liệu cảm biến mưa thay đổi",
-        "topic": "request/gcTGhTyNhWUPzx9mlkYBCK3sMcE3/SyXi9Yj_G/a3a507a521702ffcf792a3188d2c15eb645736185899",
-        "qos": "2",
-        "broker": "e3ed5d37.01305",
-        "x": 228.5714874267578,
-        "y": 347.1428680419922,
-        "wires": [
-            [
-                "c4874620.50a618"
-            ]
-        ]
-    },
-    {
-        "id": "c4874620.50a618",
-        "type": "json",
-        "z": "6c281c8f.cbebc4",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 427.14294052124023,
-        "y": 345.71430683135986,
-        "wires": [
-            [
-                "d6c9df5d.f5f63",
-                "e207b53f.dcc708",
-                "efcfbf0b.3d08c"
-            ]
-        ]
-    },
-    {
-        "id": "d6c9df5d.f5f63",
-        "type": "switch",
-        "z": "6c281c8f.cbebc4",
-        "name": "có mưa",
-        "property": "payload[1].state",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "lte",
-                "v": "600",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 560.0000610351562,
-        "y": 374.2857265472412,
-        "wires": [
-            [
-                "54da93fa.eed8dc"
-            ]
-        ]
-    },
-    {
-        "id": "e207b53f.dcc708",
-        "type": "switch",
-        "z": "6c281c8f.cbebc4",
-        "name": "ko mưa",
-        "property": "payload[1].state",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "gte",
-                "v": "900",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 560.0000762939453,
-        "y": 424.2857208251953,
-        "wires": [
-            [
-                "46bf085.257c8f8"
-            ]
-        ]
-    },
-    {
-        "id": "efcfbf0b.3d08c",
+        "id": "46fdd056.76c4b",
         "type": "debug",
         "z": "6c281c8f.cbebc4",
-        "name": "in ra màn hình để debug thông tin",
+        "name": "",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload[1].state",
-        "x": 642.8571929931641,
-        "y": 330.00001525878906,
+        "complete": "filename",
+        "x": 771,
+        "y": 140,
         "wires": []
-    },
-    {
-        "id": "46bf085.257c8f8",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "[JSON][TẮT][Thiết bị số 0]",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\"id\":0,\"command\":\"OFF\"}",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 746.1905899047852,
-        "y": 422.8571825027466,
-        "wires": [
-            [
-                "26844b4e.6e5354"
-            ]
-        ]
-    },
-    {
-        "id": "54da93fa.eed8dc",
-        "type": "change",
-        "z": "6c281c8f.cbebc4",
-        "name": "[JSON][BẬT][Thiết bị số 0]",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\"id\":0,\"command\":\"ON\"}",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 757.6190948486328,
-        "y": 374.2857208251953,
-        "wires": [
-            [
-                "26844b4e.6e5354"
-            ]
-        ]
     }
 ]
