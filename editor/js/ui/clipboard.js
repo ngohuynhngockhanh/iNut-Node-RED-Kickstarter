@@ -14,13 +14,33 @@
  * limitations under the License.
  **/
 
+var app_info = {
+    app_id: 5,
+    token: "jkdfjqlkjf2iojf23jf3jf203j09j320fj23kj23klfj3kojfi04jgio2rjgi2jr4gog24rj2lkfj2l3kfl2k3f3e0fij23r0fj212312312d12ed12323f43vrkbj"
+}
 
+var socket = io('https://app.mysmarthome.vn/application');
+
+socket.on('connect', function() {
+    //console.log("connected")
+    socket.emit('register', app_info)
+    
+})
+
+socket.on('disconnect', function() {
+    //console.log("disconnected")
+    setTimeout(function() {
+        //console.log("reconnect")
+        socket.connect()
+    }, 2000)
+})
 RED.clipboard = (function() {
 
     var dialog;
     var dialogContainer;
     var exportNodesDialog;
     var importNodesDialog;
+    var importiNutDialog;
     var disabled = false;
 
     function setupDialogs() {
@@ -109,6 +129,12 @@ RED.clipboard = (function() {
                 '<a id="import-tab-new" class="editor-button toggle" href="#" data-i18n="clipboard.import.newFlow"></a>'+
             '</span>'+
             '</div>';
+        importiNutDialog = '<div class="form-row">'+
+            
+            '</div>'+
+            '<div style="text-align:center">'+
+            '<div id="qrcode"></div>'
+            '</div>';
     }
 
     function validateImport() {
@@ -155,7 +181,138 @@ RED.clipboard = (function() {
 
         dialog.dialog("option","title",RED._("clipboard.importNodes")).dialog("open");
     }
+    function makeid(length) {
+        length = length || 10
+        var text = "";
+        var possible = "1234567890-=qwertyuiop[]~!@#$%^&*()_+{}|:\"QWERTYUIOPASDFGHJKLZXCVBNM?><Masdfghjkl;'zxcvbnm,./";
 
+        for (var i = 0; i < length; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        return text;
+    }
+    function importFromiNut() {
+        if (disabled) {
+            return;
+        }
+        dialogContainer.empty();
+        dialogContainer.append($(importiNutDialog));
+        dialogContainer.i18n();
+        
+        var myTopic = makeid(128)
+        socket.emit('subscribe', myTopic)
+        socket.on('subscribed', function(topic) {
+            //console.log("Subscribed to", topic)
+        })
+        socket.on('data', function(app_info, nodes) {
+            if (app_info.topic == myTopic) {             
+                //console.log("app_info", "nodes")
+                //console.log(app_info, nodes)   
+                if (nodes.length > 0) {
+                    var nodeRedNodes = [{
+                        "id": "iNutMQTTBroker",
+                        "type": "mqtt-broker",
+                        "name": "",
+                        "broker": "mqtt.mysmarthome.vn",
+                        "port": "1883",
+                        "clientid": "",
+                        "usetls": false,
+                        "compatmode": true,
+                        "keepalive": "60",
+                        "cleansession": true,
+                        "willTopic": "",
+                        "willQos": "0",
+                        "willPayload": "",
+                        "birthTopic": "",
+                        "birthQos": "0",
+                        "birthPayload": ""
+                    }]
+                    var y = 0
+                    for (var i = 0; i < nodes.length; i++) {
+                        var node = nodes[i] 
+                        var mqtt_token = "request/" + node.uuid + "/" + node.node_id + "/" + node.token
+                        var api = {
+                            mqtt_token: mqtt_token,
+                            rest_token: "https://connect.mysmarthome.vn/api/1.0/" + mqtt_token + "/req_device_toggle",
+                            rest_token_get: "https://connect.mysmarthome.vn/api/1.0/" + mqtt_token + "/req_device"
+                        }
+                        
+                        var mqttName = "[MQTT-IN]" + node.name
+                        var mqttNode = {
+                            "id": makeid(16),
+                            "type": "mqtt in",
+                            "name": mqttName,
+                            "topic": api.mqtt_token,
+                            "qos": "2",
+                            "broker": "iNutMQTTBroker",
+                            "x": 0,
+                            "y": y,
+                            "wires": [
+                                []
+                            ]
+                        }
+
+                        var restGetName = "[REST][GET]" + node.name
+
+                        var restGetNode = {
+                            "id": makeid(16),
+                            "type": "http request",
+                            "name": restGetName,
+                            "method": "GET",
+                            "ret": "txt",
+                            "url": api.rest_token_get,
+                            "tls": "",
+                            "x": 400,
+                            "y": y,
+                            "wires": [
+                                []
+                            ]
+                        }
+                        
+
+                        var restPostName = "[REST][POST]" + node.name
+
+                        var restPostNode = {
+                            "id": makeid(16),
+                            "type": "http request",
+                            "name": restPostName,
+                            "method": "POST",
+                            "ret": "txt",
+                            "url": api.rest_token,
+                            "tls": "",
+                            "x": 800,
+                            "y": y,
+                            "wires": [
+                                []
+                            ]
+                        }
+
+                        y += 60
+                        nodeRedNodes.push(mqttNode)
+                        nodeRedNodes.push(restGetNode)
+                        nodeRedNodes.push(restPostNode)
+                    }
+                    //console.log(nodeRedNodes)
+                    dialog.dialog("close")
+                    RED.view.importNodes(JSON.stringify(nodeRedNodes))
+                }
+            }            
+        })
+
+        $('#qrcode').qrcode(JSON.stringify({
+            app_id: 5,
+            topic: myTopic
+        }));
+
+        $("#clipboard-dialog-ok").hide();
+        $("#clipboard-dialog-cancel").show();
+        $("#clipboard-dialog-close").hide();
+        $("#clipboard-dialog-copy").hide();
+        
+
+        dialog.dialog("option","title",RED._("inut.import")).dialog("open");
+    }
+    
     function exportNodes() {
         if (disabled) {
             return;
@@ -323,6 +480,7 @@ RED.clipboard = (function() {
 
             RED.actions.add("core:show-export-dialog",exportNodes);
             RED.actions.add("core:show-import-dialog",importNodes);
+            RED.actions.add("core:import-inut",importFromiNut);
 
 
             RED.events.on("editor:open",function() { disabled = true; });

@@ -67,7 +67,8 @@
             "editPalette":"Manage palette",
             "other": "Other",
             "showTips": "Show tips",
-            "help": "Node-RED website"
+            "help": "Node-RED website",
+			"importFromiNut": "Import from iNut"
         }
     },
     "user": {
@@ -483,5 +484,8 @@
         "modeString": "Handle as UTF-8 String",
         "modeArray": "Handle as JSON array",
         "modeDesc":"<h3>Buffer editor</h3><p>The Buffer type is stored as a JSON array of byte values. The editor will attempt to parse the entered value as a JSON array. If it is not valid JSON, it will be treated as a UTF-8 String and converted to an array of the individual character code points.</p><p>For example, a value of <code>Hello World</code> will be converted to the JSON array:<pre>[72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]</pre></p>"
-    }
+    },
+	"inut": {
+		"import": "Import from iNut App via Node-red Gateway"
+	}
 }

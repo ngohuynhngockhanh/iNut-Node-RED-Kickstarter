@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  **/
+
 (function() {
 
     function loadNodeList() {
@@ -334,6 +335,7 @@
 
     function loadEditor() {
         var menuOptions = [];
+		
         if (RED.settings.theme("projects.enabled",false)) {
             menuOptions.push({id:"menu-item-projects-menu",label:"Projects",options:[
                 {id:"menu-item-projects-new",label:"New",disabled:false,onselect:"core:new-project"},
@@ -367,6 +369,12 @@
             {id:"menu-item-export-clipboard",label:RED._("menu.label.clipboard"),disabled:true,onselect:"core:show-export-dialog"},
             {id:"menu-item-export-library",label:RED._("menu.label.library"),disabled:true,onselect:"core:library-export"}
         ]});
+		
+		menuOptions.push({id:"menu-item-import-inut",label:RED._("menu.label.importFromiNut"),onselect:"core:import-inut"});
+        menuOptions.push(null);
+		
+		
+		
         menuOptions.push(null);
         menuOptions.push({id:"menu-item-search",label:RED._("menu.label.search"),onselect:"core:search"});
         menuOptions.push(null);

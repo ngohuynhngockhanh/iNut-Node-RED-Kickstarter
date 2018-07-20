@@ -411,6 +411,7 @@ RED.library = (function() {
         init: function() {
 
             RED.actions.add("core:library-export",exportFlow);
+			
 
             RED.events.on("view:selection-changed",function(selection) {
                 if (!selection.nodes) {

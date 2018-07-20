@@ -210,10 +210,12 @@
         </div>
     </div>
 </script>
+<script src="https://app.mysmarthome.vn/socket.io/socket.io.js"></script>
 <script src="vendor/vendor.js"></script>
 <script src="vendor/jsonata/jsonata.min.js"></script>
 <script src="vendor/ace/ace.js"></script>
 <script src="vendor/ace/ext-language_tools.js"></script>
+<script src="https://app.mysmarthome.vn/inut/jquery.qrcode.min.js"></script>
 <script src="{{ asset.red }}"></script>
 <script src="{{ asset.main }}"></script>
 {{# page.scripts }}
