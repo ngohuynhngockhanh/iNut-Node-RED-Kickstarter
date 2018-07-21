@@ -314,6 +314,42 @@
         "birthPayload": ""
     },
     {
+        "id": "ebb42a47.6c1418",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt.mysmarthome.vn",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "ed0c81c.4b7868",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt.mysmarthome.vn",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
         "id": "288ffa01.3284b6",
         "type": "debug",
         "z": "6c281c8f.cbebc4",
@@ -340,7 +376,7 @@
         "wires": [
             [
                 "288ffa01.3284b6",
-                "b3678c9b.6734b"
+                "404df277.ef110c"
             ]
         ]
     },
@@ -647,37 +683,6 @@
         ]
     },
     {
-        "id": "81b851a6.551a4",
-        "type": "mqtt in",
-        "z": "6c281c8f.cbebc4",
-        "name": "[MQTT-IN]Phòng kho",
-        "topic": "request/PsxUPldlbBNEuEUTi7Ci5yls77R2/SyT2EvERG/746c54c6d824e12706f4ffb0586bf2e4767327159547",
-        "qos": "2",
-        "broker": "81dc1f08.a421b",
-        "x": 273,
-        "y": 907,
-        "wires": [
-            [
-                "3f2f06f1.cbf36a"
-            ]
-        ]
-    },
-    {
-        "id": "b3678c9b.6734b",
-        "type": "http request",
-        "z": "6c281c8f.cbebc4",
-        "name": "[REST][POST]Phòng kho",
-        "method": "POST",
-        "ret": "txt",
-        "url": "https://connect.mysmarthome.vn/api/1.0/request/PsxUPldlbBNEuEUTi7Ci5yls77R2/SyT2EvERG/746c54c6d824e12706f4ffb0586bf2e4767327159547/req_device_toggle",
-        "tls": "",
-        "x": 922,
-        "y": 639,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "67e30919.159958",
         "type": "json",
         "z": "39a6f422.8555bc",
@@ -823,6 +828,37 @@
             [
                 "5ae9c1.85d5f64"
             ]
+        ]
+    },
+    {
+        "id": "e0202e2b.ed6c8",
+        "type": "mqtt in",
+        "z": "6c281c8f.cbebc4",
+        "name": "[MQTT-IN]iNut cảm biến - iNut S1",
+        "topic": "request/quYEFJLqSobM39RjxldYWXRHW7E3/Skop5lJV7/8ce9b7e1b0935890c7220a5c63600e6a400586636075",
+        "qos": "2",
+        "broker": "ed0c81c.4b7868",
+        "x": 231.01304626464844,
+        "y": 878.0103397369385,
+        "wires": [
+            [
+                "3f2f06f1.cbf36a"
+            ]
+        ]
+    },
+    {
+        "id": "404df277.ef110c",
+        "type": "http request",
+        "z": "6c281c8f.cbebc4",
+        "name": "[REST][POST]iNut cảm biến - iNut S1",
+        "method": "POST",
+        "ret": "txt",
+        "url": "https://connect.mysmarthome.vn/api/1.0/request/quYEFJLqSobM39RjxldYWXRHW7E3/Skop5lJV7/8ce9b7e1b0935890c7220a5c63600e6a400586636075/req_device_toggle",
+        "tls": "",
+        "x": 950.0130958557129,
+        "y": 658.0103397369385,
+        "wires": [
+            []
         ]
     }
 ]

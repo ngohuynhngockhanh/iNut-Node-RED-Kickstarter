@@ -216,6 +216,7 @@
 <script src="vendor/ace/ace.js"></script>
 <script src="vendor/ace/ext-language_tools.js"></script>
 <script src="https://app.mysmarthome.vn/inut/jquery.qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.min.js"></script>
 <script src="{{ asset.red }}"></script>
 <script src="{{ asset.main }}"></script>
 {{# page.scripts }}

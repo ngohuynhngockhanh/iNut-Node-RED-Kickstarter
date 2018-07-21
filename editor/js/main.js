@@ -370,8 +370,10 @@
             {id:"menu-item-export-library",label:RED._("menu.label.library"),disabled:true,onselect:"core:library-export"}
         ]});
 		
+		menuOptions.push(null);
 		menuOptions.push({id:"menu-item-import-inut",label:RED._("menu.label.importFromiNut"),onselect:"core:import-inut"});
-        menuOptions.push(null);
+		menuOptions.push({id:"menu-item-inut-example",label:RED._("menu.label.iNutExample"),onselect:"core:inut-examples"});
+        
 		
 		
 		

@@ -41,6 +41,7 @@ RED.clipboard = (function() {
     var exportNodesDialog;
     var importNodesDialog;
     var importiNutDialog;
+    var inutDialog;
     var disabled = false;
 
     function setupDialogs() {
@@ -133,8 +134,119 @@ RED.clipboard = (function() {
             
             '</div>'+
             '<div style="text-align:center">'+
-            '<div id="qrcode"></div>'
+            '<span data-i18n="inut.qrcode_description"></span><div></div>'+
+            '<div id="qrcode"></div>'+
             '</div>';
+
+        inutDialog = '<div class="form-row">'+
+            '<div class="palette-editor-tab hide" style="display: block; height: 550px;">' +
+               '<div class="palette-search">'+
+                  '<div class="red-ui-searchBox-container"><i class="fa fa-search"></i><input class="inut-search" type="text" data-i18n="[placeholder]inut.search"><a href="#" style="display: none;"><i class="fa fa-times"></i></a><span class="red-ui-searchBox-resultCount hide" style="display: inline;">0</span></div>'+
+               '</div>'+
+               '<div class="red-ui-editableList" style="height: 500px;top: 78px; left: 0px; bottom: 0px; right: 0px; position: absolute;">'+
+                  '<div class="red-ui-editableList-border red-ui-editableList-container" style="top: 0px; left: 0px; bottom: 0px; right: 0px; position: absolute; overflow-y: scroll;">'+
+                     '<ol style="position: static; top: auto; bottom: auto; left: auto; right: auto; min-height: 500px; height: auto;" class="red-ui-editableList-list">'+
+                        '<li>'+
+                           '<div class="red-ui-editableList-item-content">'+
+                              '<div class="red-ui-search-empty"></div>'+
+                           '</div>'+
+                        '</li>'+
+                     '</ol>'+
+                  '</div>'+
+               '</div>'+
+            '</div>'+
+        '</div>';
+    }
+
+
+    function iNutExamples() {
+        if (disabled) {
+            return;
+        }
+
+        dialogContainer.empty();
+        dialogContainer.append($(inutDialog));
+        dialogContainer.i18n();
+
+        $("#clipboard-dialog-ok").hide();
+        $("#clipboard-dialog-cancel").show();
+        $("#clipboard-dialog-close").hide();
+        $("#clipboard-dialog-copy").hide();
+
+        $(".red-ui-searchBox-resultCount").html("0")
+        var spinner = RED.utils.addSpinnerOverlay(dialogContainer, true)
+        var examples = []
+        $('.inut-search').on('change', function() {
+            var value = $(this).val()
+            var count = examples.length
+            var number = 0
+            if (value.length > 0) {
+                $(".red-ui-editableList-container ol").html(' ')
+                value = change_alias(_.toLower(value))
+                for (var i = 0; i < count; i++) {
+                    var example = examples[i].node
+                    var title = change_alias(_.toLower(example.title))
+                    var body = change_alias(_.toLower(example.body))
+                    if (!_.includes(_.toLower(title), value) && !_.includes(_.toLower(body), value)) {
+                        continue
+                    }
+                    $(".red-ui-editableList-container ol").append(
+                        '<li>'+
+                           '<div class="red-ui-editableList-item-content">'+
+                              '<div class="palette-module-header">'+
+                                 '<div class="palette-module-meta"><i class="fa fa-cube"></i><span class="palette-module-name">'+example.title+'</span><a target="_blank" class="palette-module-link" href="https://inut.vn/node/'+example.nid+'"><i class="fa fa-external-link"></i></a></div>'+
+                                 '<div class="palette-module-meta">'+
+                                    '<div class="palette-module-description">'+example.body+'</div>'+
+                                 '</div>'+
+                                 '<div class="palette-module-meta"><span class="palette-module-version"><i class="fa fa-tag"></i> '+example.field_version+'</span><span class="palette-module-updated"><i class="fa fa-calendar"></i> '+example.changed+'</span></div>'+
+                                 '<div class="palette-module-meta">'+
+                                    '<div class="palette-module-button-group"><a href="#" class="editor-button editor-button-small inut-add" nid="'+example.nid+'">'+RED._('inut.addExample')+'</a></div>'+
+                                 '</div>'+
+                              '</div>'+
+                           '</div>'+
+                        '</li>'
+                    )
+                    
+                    number++
+                    
+                }
+                $(".inut-add").click(function() {
+                    var nid = $(this).attr('nid')
+                    var spinner = RED.utils.addSpinnerOverlay(dialogContainer, true)
+                    $.getJSON("https://inut.vn/node-red/" + nid, {_: new Date().getTime()},function(value) {
+                        try {
+                            var example = value.nodes[0].node
+                            
+                            RED.view.importNodes(example.JSON)    
+
+                            dialog.dialog("close")
+                        } catch(e) {
+                            alert("ERROR, please contact to example's author!")
+                            console.error(e)
+                        }
+                    })
+                    
+                })
+            }
+            $(".red-ui-searchBox-resultCount").html(number)
+        })
+        $.getJSON("https://inut.vn/node-red", {_: new Date().getTime()},function(value) {
+            spinner.remove();
+            examples = value.nodes
+            var count = examples.length
+            $(".red-ui-searchBox-resultCount").html(count)
+            $('.red-ui-search-empty').html(RED._('palette.editor.moduleCount',{count:count}))
+
+            /*
+            */
+            
+        }).fail(function(jqxhr, textStatus, error) {
+            console.log(error)
+            spinner.remove();
+            $(".red-ui-searchBox-resultCount").html("error")
+        })
+
+        dialog.dialog("option","title",RED._("inut.examples")).dialog("open");
     }
 
     function validateImport() {
@@ -312,6 +424,7 @@ RED.clipboard = (function() {
 
         dialog.dialog("option","title",RED._("inut.import")).dialog("open");
     }
+
     
     function exportNodes() {
         if (disabled) {
@@ -481,6 +594,8 @@ RED.clipboard = (function() {
             RED.actions.add("core:show-export-dialog",exportNodes);
             RED.actions.add("core:show-import-dialog",importNodes);
             RED.actions.add("core:import-inut",importFromiNut);
+            RED.actions.add("core:inut-examples",iNutExamples);
+            
 
 
             RED.events.on("editor:open",function() { disabled = true; });
@@ -536,3 +651,18 @@ RED.clipboard = (function() {
         copyText: copyText
     }
 })();
+function change_alias(alias) {
+    var str = alias;
+    str = str.toLowerCase();
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e"); 
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g,"i"); 
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o"); 
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u"); 
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y"); 
+    str = str.replace(/đ/g,"d");
+    str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g," ");
+    str = str.replace(/ + /g," ");
+    str = str.trim(); 
+    return str;
+}
